@@ -22,9 +22,9 @@ import java.util.List;
 public interface SafeLoggable {
 
     /** The format of the message. Arguments placeholders should be represented by "{}". */
-    String getMessageFormat();
+    String getMessage();
 
     /** The arguments for the message. */
-    List<Arg<?>> getMessageArgs();
+    List<Arg<?>> getArgs();
 
 }

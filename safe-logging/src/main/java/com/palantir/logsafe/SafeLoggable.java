@@ -21,10 +21,10 @@ import java.util.List;
 /** An interface denoting a message that can be safely logged. */
 public interface SafeLoggable {
 
-    /** The format of the message. Arguments placeholders should be represented by "{}". */
-    String getMessageFormat();
+    /** The message, which is safe to log. */
+    String getMessage();
 
-    /** The arguments for the message. */
-    List<Arg<?>> getMessageArgs();
+    /** The arguments associated with the message. */
+    List<Arg<?>> getArgs();
 
 }

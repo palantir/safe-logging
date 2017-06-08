@@ -22,7 +22,11 @@ apply plugin: 'com.palantir.baseline-config' // provides baselineUpdateConfig ta
 apply plugin: 'com.palantir.baseline-idea'
 
 repositories {
-    jcenter() // needed for baselineUpdateConfig task
+    maven { url 'https://palantir.bintray.com/releases/' }
+}
+
+dependencies {
+    baseline "com.palantir.baseline:gradle-baseline-java-config:0.14.0@zip"
 }
 
 allprojects {

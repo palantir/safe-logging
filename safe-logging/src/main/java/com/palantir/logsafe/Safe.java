@@ -27,7 +27,7 @@ import java.lang.annotation.Target;
  *
  * Example:
  * <pre><code>
- *  import com.palantir.redaction.Safe;
+ *  import com.palantir.logsafe.Safe;
  *  import javax.ws.rs.Get;
  *  import javax.ws.rs.Path;
  *  import javax.ws.rs.PathParam;

@@ -18,6 +18,7 @@ package com.palantir.logsafe;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 /** A wrapper around an argument used to build a formatted message. */
 public abstract class Arg<T> implements Serializable {
@@ -44,6 +45,10 @@ public abstract class Arg<T> implements Serializable {
 
     @Override
     public final String toString() {
+        if (value instanceof Supplier) {
+            Object lazyValue = ((Supplier) value).get();
+            return String.valueOf(lazyValue);
+        }
         return String.valueOf(value);
     }
 

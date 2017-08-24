@@ -18,16 +18,20 @@ package com.palantir.logsafe;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.function.Supplier;
 
 /** A wrapper around an argument used to build a formatted message. */
 public abstract class Arg<T> implements Serializable {
 
     private final String name;
-    private final T value;
+    private final Supplier<T> lazyValue;
 
-    protected Arg(String name, T value) {
+    private boolean cached;
+    private T value;
+
+    protected Arg(String name, Supplier<T> lazyValue) {
         this.name = Objects.requireNonNull(name, "name may not be null");
-        this.value = value;
+        this.lazyValue = lazyValue;
     }
 
     /** A name describing this argument. */
@@ -36,15 +40,19 @@ public abstract class Arg<T> implements Serializable {
     }
 
     /** The value of this argument (which may be {@code null}). */
-    public final T getValue() {
-        return value;
+    public final synchronized T getValue() {
+        if (cached) {
+            return value;
+        }
+        cached = true;
+        return value = lazyValue.get();
     }
 
     public abstract boolean isSafeForLogging();
 
     @Override
     public final String toString() {
-        return String.valueOf(value);
+        return String.valueOf(getValue());
     }
 
     @Override
@@ -56,12 +64,12 @@ public abstract class Arg<T> implements Serializable {
             return false;
         }
         Arg<?> arg = (Arg<?>) other;
-        return Objects.equals(name, arg.name)
-                && Objects.equals(value, arg.value);
+        return Objects.equals(getName(), arg.getName())
+                && Objects.equals(getValue(), arg.getValue());
     }
 
     @Override
     public final int hashCode() {
-        return Objects.hash(name, value);
+        return Objects.hash(getName(), getValue());
     }
 }

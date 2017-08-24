@@ -16,15 +16,21 @@
 
 package com.palantir.logsafe;
 
+import java.util.function.Supplier;
+
 /** A wrapper around an argument that is not safe for logging. */
 public final class UnsafeArg<T> extends Arg<T> {
 
-    private UnsafeArg(String name, T value) {
-        super(name, value);
+    private UnsafeArg(String name, Supplier<T> lazyValue) {
+        super(name, lazyValue);
     }
 
     public static <T> UnsafeArg<T> of(String name, T value) {
-        return new UnsafeArg<>(name, value);
+        return new UnsafeArg<>(name, () -> value);
+    }
+
+    public static <T> UnsafeArg<T> of(String name, Supplier<T> lazyValue) {
+        return new UnsafeArg<>(name, lazyValue);
     }
 
     @Override

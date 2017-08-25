@@ -25,6 +25,6 @@ public interface SafeLoggable {
     String getLogMessage();
 
     /** The arguments associated with the message. */
-    List<ConcreteArg<?>> getArgs();
+    List<Arg<?>> getArgs();
 
 }

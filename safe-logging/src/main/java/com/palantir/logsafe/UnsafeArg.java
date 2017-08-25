@@ -28,5 +28,5 @@ public interface UnsafeArg {
     static <T> Arg<T> of(String name, Supplier<T> lazyValue) {
         return new LazyArg<>(name, lazyValue);
     }
-    
+
 }

@@ -35,7 +35,8 @@ public class LazyArg<T> extends Arg<T> {
             return value;
         }
         cached = true;
-        return value = lazyValue.get();
+        value = lazyValue.get();
+        return value;
     }
 
 }

@@ -16,15 +16,26 @@
 
 package com.palantir.logsafe;
 
-import java.util.List;
+import java.util.function.Supplier;
 
-/** An interface denoting a message that can be safely logged. */
-public interface SafeLoggable {
+public class LazyArg<T> extends Arg<T> {
 
-    /** The message, which is safe to log. */
-    String getLogMessage();
+    private final Supplier<T> lazyValue;
 
-    /** The arguments associated with the message. */
-    List<ConcreteArg<?>> getArgs();
+    private boolean cached;
+    private T value;
+
+    LazyArg(String name, Supplier<T> lazyValue) {
+        super(name);
+        this.lazyValue = lazyValue;
+    }
+
+    public final synchronized T getValue() {
+        if (cached) {
+            return value;
+        }
+        cached = true;
+        return value = lazyValue.get();
+    }
 
 }

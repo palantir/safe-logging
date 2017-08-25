@@ -16,15 +16,17 @@
 
 package com.palantir.logsafe;
 
-import java.util.List;
+public class ConcreteArg<T> extends Arg<T> {
 
-/** An interface denoting a message that can be safely logged. */
-public interface SafeLoggable {
+    private final T value;
 
-    /** The message, which is safe to log. */
-    String getLogMessage();
+    ConcreteArg(String name, T value) {
+        super(name);
+        this.value = value;
+    }
 
-    /** The arguments associated with the message. */
-    List<ConcreteArg<?>> getArgs();
+    public final T getValue() {
+        return value;
+    }
 
 }

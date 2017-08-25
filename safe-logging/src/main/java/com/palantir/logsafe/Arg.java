@@ -18,20 +18,14 @@ package com.palantir.logsafe;
 
 import java.io.Serializable;
 import java.util.Objects;
-import java.util.function.Supplier;
 
 /** A wrapper around an argument used to build a formatted message. */
 public abstract class Arg<T> implements Serializable {
 
     private final String name;
-    private final Supplier<T> lazyValue;
 
-    private boolean cached;
-    private T value;
-
-    protected Arg(String name, Supplier<T> lazyValue) {
+    protected Arg(String name) {
         this.name = Objects.requireNonNull(name, "name may not be null");
-        this.lazyValue = lazyValue;
     }
 
     /** A name describing this argument. */
@@ -40,15 +34,12 @@ public abstract class Arg<T> implements Serializable {
     }
 
     /** The value of this argument (which may be {@code null}). */
-    public final synchronized T getValue() {
-        if (cached) {
-            return value;
-        }
-        cached = true;
-        return value = lazyValue.get();
-    }
+    public abstract T getValue();
 
-    public abstract boolean isSafeForLogging();
+    /** returns true if this argument can be safely removed from a deployment. */
+    public boolean isSafeForLogging() {
+        return false;
+    }
 
     @Override
     public final String toString() {
@@ -72,4 +63,5 @@ public abstract class Arg<T> implements Serializable {
     public final int hashCode() {
         return Objects.hash(getName(), getValue());
     }
+
 }

@@ -14,11 +14,11 @@ Usage
 Add dependency to gradle:
 
     compile "com.palantir.safe-logging:safe-logging"
-    
+
 Annotate log messages with named `SafeArg` and `UnsafeArg` as appropriate.  For example:
 
     // previously
     log.info("Twisted the {} knob {} times", knobName, count);
 
     // now
-    log.info("Twisted the {} knob {} times", UnsafeArg.of("knobName", knobName), SafeArg("count", count));
+    log.info("Twisted the {} knob {} times", UnsafeArg.of("knobName", knobName), SafeArg.of("count", count));

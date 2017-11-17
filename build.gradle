@@ -6,7 +6,6 @@ buildscript {
 
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'com.netflix.nebula:nebula-dependency-recommender:5.0.0'
         classpath 'com.netflix.nebula:nebula-publishing-plugin:5.1.4'
         classpath 'com.palantir.baseline:gradle-baseline-java:0.17.1'
     }
@@ -34,12 +33,6 @@ allprojects {
     version gitVersion()
 
     apply plugin: 'com.palantir.configuration-resolver'
-    apply plugin: 'nebula.dependency-recommender'
-
-    dependencyRecommendations {
-        strategy OverrideTransitives
-        propertiesFile file: project.rootProject.file('versions.props')
-    }
 
     configurations.all {
         resolutionStrategy {

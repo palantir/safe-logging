@@ -1,6 +1,5 @@
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'nebula.maven-base-publish'
-apply plugin: 'nebula.maven-resolved-dependencies'
 apply plugin: 'nebula.javadoc-jar'
 apply plugin: 'nebula.source-jar'
 

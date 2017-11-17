@@ -6,8 +6,8 @@ buildscript {
 
     dependencies {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
-        classpath 'com.netflix.nebula:nebula-dependency-recommender:3.1.0'
-        classpath 'com.netflix.nebula:nebula-publishing-plugin:4.4.4'
+        classpath 'com.netflix.nebula:nebula-dependency-recommender:5.0.0'
+        classpath 'com.netflix.nebula:nebula-publishing-plugin:5.1.4'
         classpath 'com.palantir.baseline:gradle-baseline-java:0.17.1'
     }
 }
@@ -37,6 +37,7 @@ allprojects {
     apply plugin: 'nebula.dependency-recommender'
 
     dependencyRecommendations {
+        strategy OverrideTransitives
         propertiesFile file: project.rootProject.file('versions.props')
     }
 

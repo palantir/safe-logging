@@ -1,0 +1,6 @@
+apply from: "${rootDir}/gradle/publish.gradle"
+
+dependencies {
+    implementation project(':safe-logging')
+    implementation 'com.google.errorprone:error_prone_annotations'
+}

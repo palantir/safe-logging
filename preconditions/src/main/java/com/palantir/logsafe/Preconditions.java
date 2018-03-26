@@ -43,52 +43,6 @@ public final class Preconditions {
      *
      * @param expression a boolean expression
      * @param message the loggable exception message
-     * @throws SafeIllegalArgumentException if {@code expression} is false
-     */
-    public static void checkArgument(boolean expression, String message) {
-        if (!expression) {
-            throw new SafeIllegalArgumentException(message);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
-     */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg) {
-        if (!expression) {
-            throw new SafeIllegalArgumentException(message, arg);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
-     */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg1, Arg<?> arg2) {
-        if (!expression) {
-            throw new SafeIllegalArgumentException(message, arg1, arg2);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
-     */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        if (!expression) {
-            throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param message the loggable exception message
      * @param args the arguments to include in the {@link SafeIllegalArgumentException}
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
@@ -108,53 +62,6 @@ public final class Preconditions {
     public static void checkState(boolean expression) {
         if (!expression) {
             throw new SafeIllegalStateException();
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
-     *
-     * @param expression a boolean expression
-     * @param message the loggable exception message
-     * @throws SafeIllegalStateException if {@code expression} is false
-     */
-    public static void checkState(boolean expression, String message) {
-        if (!expression) {
-            throw new SafeIllegalStateException(message);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkState(boolean, String, Arg...)} for details.
-     */
-    public static void checkState(boolean expression, String message, Arg<?> arg) {
-        if (!expression) {
-            throw new SafeIllegalStateException(message, arg);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkState(boolean, String, Arg...)} for details.
-     */
-    public static void checkState(boolean expression, String message, Arg<?> arg1, Arg<?> arg2) {
-        if (!expression) {
-            throw new SafeIllegalStateException(message, arg1, arg2);
-        }
-    }
-
-    /**
-     * Ensures the truth of an expression involving one or more parameters to the calling method.
-     *
-     * <p>See {@link #checkState(boolean, String, Arg...)} for details.
-     */
-    public static void checkState(boolean expression, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        if (!expression) {
-            throw new SafeIllegalStateException(message, arg1, arg2, arg3);
         }
     }
 
@@ -184,61 +91,6 @@ public final class Preconditions {
     public static <T> T checkNotNull(T reference) {
         if (reference == null) {
             throw new SafeNullPointerException();
-        }
-        return reference;
-    }
-
-    /**
-     * Ensures that an Object reference passed as a parameter to the calling method is not null.
-     *
-     * @param reference an String reference
-     * @param message the loggable exception message
-     * @return the non-null reference that was validated
-     * @throws SafeNullPointerException if {@code reference} is null
-     */
-    @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message) {
-        if (reference == null) {
-            throw new SafeNullPointerException(message);
-        }
-        return reference;
-    }
-
-    /**
-     * Ensures that an Object reference passed as a parameter to the calling method is not null.
-     *
-     * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
-     */
-    @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg) {
-        if (reference == null) {
-            throw new SafeNullPointerException(message, arg);
-        }
-        return reference;
-    }
-
-    /**
-     * Ensures that an Object reference passed as a parameter to the calling method is not null.
-     *
-     * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
-     */
-    @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg1, Arg<?> arg2) {
-        if (reference == null) {
-            throw new SafeNullPointerException(message, arg1, arg2);
-        }
-        return reference;
-    }
-
-    /**
-     * Ensures that an Object reference passed as a parameter to the calling method is not null.
-     *
-     * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
-     */
-    @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        if (reference == null) {
-            throw new SafeNullPointerException(message, arg1, arg2, arg3);
         }
         return reference;
     }

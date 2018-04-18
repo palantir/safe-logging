@@ -26,6 +26,7 @@ public final class SafeIllegalArgumentException extends IllegalArgumentException
     private final List<Arg<?>> arguments;
 
     public SafeIllegalArgumentException() {
+        super("");
         this.arguments = Collections.emptyList();
     }
 
@@ -40,7 +41,7 @@ public final class SafeIllegalArgumentException extends IllegalArgumentException
     }
 
     public SafeIllegalArgumentException(Throwable cause) {
-        super(cause);
+        super("", cause);
         this.arguments = Collections.emptyList();
     }
 

@@ -26,6 +26,7 @@ public final class SafeNullPointerException extends NullPointerException impleme
     private final List<Arg<?>> arguments;
 
     public SafeNullPointerException() {
+        super("");
         this.arguments = Collections.emptyList();
     }
 

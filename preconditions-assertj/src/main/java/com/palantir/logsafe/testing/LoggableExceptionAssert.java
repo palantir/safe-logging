@@ -32,14 +32,36 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
         argsAssert = actual == null ? null : new ArgsAssert(actual.getArgs());
     }
 
-    public final LoggableExceptionAssert<T> hasOnlyArgs(Arg<?>... args) {
+    /**
+     * Verifies that the actual group contains exactly the given values and nothing else, <b>in any order</b>.<br>
+     *
+     * @param args the given arguments.
+     * @return {@code this} assertion object
+     * @throws NullPointerException if the given argument is {@code null}.
+     * @throws AssertionError if the exception is {@code null}.
+     * @throws AssertionError if the exception argument list is {@code null}.
+     * @throws AssertionError if the exception arguments do not contain the given values, i.e. the exception contains
+     *           some or none of the given arguments, or the exception contains more arguments than the given ones.
+     */
+    public final LoggableExceptionAssert<T> hasExactlyArgs(Arg<?>... args) {
         isNotNull();
 
-        argsAssert.containsOnly(args);
+        argsAssert.containsExactlyInAnyOrder(args);
         return this;
     }
 
-    public final LoggableExceptionAssert<T> hasAllArgs(Arg<?>... args) {
+    /**
+     * Verifies that the actual group contains the given values, in any order.
+     *
+     * @param args the given arguments.
+     * @return {@code this} assertion object
+     * @throws NullPointerException if the given argument is {@code null}.
+     * @throws IllegalArgumentException if the given argument is an empty array.
+     * @throws AssertionError if the exception is {@code null}.
+     * @throws AssertionError if the exception argument list is {@code null}.
+     * @throws AssertionError if the exception does not contain the given arguments.
+     */
+    public final LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
         isNotNull();
 
         argsAssert.contains(args);

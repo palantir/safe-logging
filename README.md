@@ -37,12 +37,16 @@ Add dependency to gradle:
     // optional test utilities
     testCompile "com.palantir.safe-logging:preconditions-assertj"
 
-Annotate Preconditions error messages with named `SafeArg` and `UnsageArg` as appropriate.  For example:
+Annotate Preconditions error messages with named `SafeArg` and `UnsafeArg` as appropriate.  For example:
 
     // previously
-    Preconditions.checkArgument(twists > MIN_TWISTS, "%s twists less than minimum %s", twists, MINTWISTS);
+    import com.google.common.base.Preconditions;
+    ...
+    Preconditions.checkArgument(uname.size() > MAX_LEN, "%s username longer than max %s", uname, MAX_LEN);
 
     // now
-    Preconditions.checkArgument(twists > MIN_TWISTS, "{} twists less than minimum {}", 
-            UnsafeArg.of("twists", twists), SafeArg.of("minimum", MIN_TWISTS));
+    import com.palantir.logsafe.Preconditions;
+    ...
+    Preconditions.checkArgument(uname.size() > MAX_LEN, "{} username longer than max {}", 
+            UnsafeArg.of("uname", uname), SafeArg.of("max", MAX_LEN));
 

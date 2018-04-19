@@ -16,11 +16,9 @@
 
 package com.palantir.logsafe.testing;
 
-// CHECKSTYLE:OFF
 import static com.palantir.logsafe.testing.Assertions.assertThat;
 import static com.palantir.logsafe.testing.Assertions.assertThatLoggableException;
 import static com.palantir.logsafe.testing.Assertions.assertThatLoggableExceptionThrownBy;
-// CHECKSTYLE:ON
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.palantir.logsafe.Arg;

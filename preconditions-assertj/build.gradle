@@ -3,8 +3,7 @@ apply from: "${rootDir}/gradle/publish.gradle"
 dependencies {
     api project(':preconditions')
     api project(':safe-logging')
-
-    implementation 'org.assertj:assertj-core:3.9.1'
+    api 'org.assertj:assertj-core:3.9.1'
 
     testImplementation 'junit:junit:4.12'
 }

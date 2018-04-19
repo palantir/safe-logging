@@ -16,9 +16,11 @@
 
 package com.palantir.logsafe.testing;
 
+// CHECKSTYLE:OFF
 import static com.palantir.logsafe.testing.Assertions.assertThat;
 import static com.palantir.logsafe.testing.Assertions.assertThatLoggableException;
 import static com.palantir.logsafe.testing.Assertions.assertThatLoggableExceptionThrownBy;
+// CHECKSTYLE:ON
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.palantir.logsafe.Arg;
@@ -37,7 +39,7 @@ import org.assertj.core.internal.StandardComparisonStrategy;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
-public class LoggableExceptionAssertionsTest {
+public final class LoggableExceptionAssertionsTest {
 
     public SafeIllegalArgumentException illegalArgumentException = new SafeIllegalArgumentException(
             "{index} must be less than {size}", UnsafeArg.of("index", 4), SafeArg.of("size", 1));
@@ -48,20 +50,20 @@ public class LoggableExceptionAssertionsTest {
     public void testIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertion.isInstanceOf(SafeIllegalArgumentException.class)
                 .hasMessage("{index} must be less than {size}")
-                .hasExactlyArgs(UnsafeArg.of("index", 4), SafeArg.of("size", 1))
-                .hasArgs(UnsafeArg.of("index", 4));
+                .hasOnlyArgs(UnsafeArg.of("index", 4), SafeArg.of("size", 1))
+                .hasAllArgs(UnsafeArg.of("index", 4));
     }
 
     public void testNullPointerException(LoggableExceptionAssert<SafeNullPointerException> assertion) {
         assertion.isInstanceOf(SafeNullPointerException.class)
                 .hasMessage("")
-                .hasExactlyArgs();
+                .hasOnlyArgs();
     }
 
     public void testIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
         assertion.isInstanceOf(SafeIllegalStateException.class)
                 .hasMessage("")
-                .hasExactlyArgs();
+                .hasOnlyArgs();
     }
 
     public void testLoggableException(LoggableExceptionAssert<LoggableException> assertion) {
@@ -106,7 +108,7 @@ public class LoggableExceptionAssertionsTest {
 
     public void testFailIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
         Arg<?> arg = SafeArg.of("missing", "missing");
-        assertThatThrownBy(() -> assertion.hasArgs(arg))
+        assertThatThrownBy(() -> assertion.hasAllArgs(arg))
                 .hasMessage(ShouldContain.shouldContain(
                         illegalStateException.getArgs(), Collections.singleton(arg), Collections.singleton(arg),
                         StandardComparisonStrategy.instance()).create());
@@ -155,7 +157,7 @@ public class LoggableExceptionAssertionsTest {
     }
 
     private static class LoggableException extends Throwable implements SafeLoggable {
-        public LoggableException() {
+        LoggableException() {
             super("test message");
         }
 

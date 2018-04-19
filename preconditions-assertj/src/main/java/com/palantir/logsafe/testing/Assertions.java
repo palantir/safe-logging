@@ -50,7 +50,8 @@ public class Assertions extends org.assertj.core.api.Assertions {
             ThrowingCallable shouldRaiseThrowable) {
         Throwable throwable = AssertionsForClassTypes.catchThrowable(shouldRaiseThrowable);
         if (!SafeLoggable.class.isInstance(throwable)) {
-            throw Failures.instance().failure(String.format("Expecting code to throw a SafeLoggable exception, but caught a %s which does not", throwable.getClass().getCanonicalName()));
+            throw Failures.instance().failure(String.format("Expecting code to throw a SafeLoggable exception, "
+                    + "but caught a %s which does not", throwable.getClass().getCanonicalName()));
         }
         return new LoggableExceptionAssert<>((T) throwable);
     }

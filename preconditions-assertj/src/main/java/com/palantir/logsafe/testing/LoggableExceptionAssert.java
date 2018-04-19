@@ -29,21 +29,17 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     public LoggableExceptionAssert(T actual) {
         super(actual, LoggableExceptionAssert.class);
 
-        if (actual == null) {
-            argsAssert = null;
-        } else {
-            argsAssert = new ArgsAssert(actual.getArgs());
-        }
+        argsAssert = actual == null ? null : new ArgsAssert(actual.getArgs());
     }
 
-    public final LoggableExceptionAssert<T> hasExactlyArgs(Arg<?>... args) {
+    public final LoggableExceptionAssert<T> hasOnlyArgs(Arg<?>... args) {
         isNotNull();
 
-        argsAssert.containsExactlyInAnyOrder(args);
+        argsAssert.containsOnly(args);
         return this;
     }
 
-    public final LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
+    public final LoggableExceptionAssert<T> hasAllArgs(Arg<?>... args) {
         isNotNull();
 
         argsAssert.contains(args);

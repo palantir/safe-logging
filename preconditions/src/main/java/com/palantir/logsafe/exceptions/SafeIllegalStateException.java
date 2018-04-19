@@ -26,6 +26,7 @@ public final class SafeIllegalStateException extends IllegalStateException imple
     private final List<Arg<?>> arguments;
 
     public SafeIllegalStateException() {
+        super("");
         this.arguments = Collections.emptyList();
     }
 
@@ -40,7 +41,7 @@ public final class SafeIllegalStateException extends IllegalStateException imple
     }
 
     public SafeIllegalStateException(Throwable cause) {
-        super(cause);
+        super("", cause);
         this.arguments = Collections.emptyList();
     }
 

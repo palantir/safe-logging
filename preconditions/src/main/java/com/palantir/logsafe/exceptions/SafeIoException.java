@@ -23,26 +23,20 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
-public final class SafeIOException extends IOException implements SafeLoggable {
+public final class SafeIoException extends IOException implements SafeLoggable {
     private final List<Arg<?>> arguments;
 
-    public SafeIOException() {
-        super("");
-        this.arguments = Collections.emptyList();
-    }
-
-    public SafeIOException(String message, Arg<?>... arguments) {
+    public SafeIoException(String message, Arg<?>... arguments) {
         super(message);
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIOException(String message, Throwable cause, Arg<?>... arguments) {
+    public SafeIoException(String message, Throwable cause, Arg<?>... arguments) {
         super(message, cause);
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIOException(Throwable cause, Arg<?> arguments) {
+    public SafeIoException(Throwable cause, Arg<?> arguments) {
         super(cause);
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }

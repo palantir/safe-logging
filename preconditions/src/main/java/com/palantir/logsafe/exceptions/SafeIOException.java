@@ -23,7 +23,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class SafeIOException extends IOException implements SafeLoggable {
+@SuppressWarnings("checkstyle:AbbreviationAsWordInName")
+public final class SafeIOException extends IOException implements SafeLoggable {
     private final List<Arg<?>> arguments;
 
     public SafeIOException() {

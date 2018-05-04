@@ -36,11 +36,6 @@ public final class SafeIoException extends IOException implements SafeLoggable {
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIoException(Throwable cause, Arg<?> arguments) {
-        super(cause);
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
-    }
-
     @Override
     public String getLogMessage() {
         return getMessage();

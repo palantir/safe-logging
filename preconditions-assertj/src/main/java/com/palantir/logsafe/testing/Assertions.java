@@ -19,6 +19,7 @@ package com.palantir.logsafe.testing;
 import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
+import com.palantir.logsafe.exceptions.SafeIoException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
@@ -37,6 +38,10 @@ public class Assertions extends org.assertj.core.api.Assertions {
     }
 
     public static LoggableExceptionAssert<SafeNullPointerException> assertThat(SafeNullPointerException actual) {
+        return new LoggableExceptionAssert<>(actual);
+    }
+
+    public static LoggableExceptionAssert<SafeIoException> assertThat(SafeIoException actual) {
         return new LoggableExceptionAssert<>(actual);
     }
 

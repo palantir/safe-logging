@@ -16,7 +16,9 @@
 
 package com.palantir.logsafe.testing;
 
+import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.SafeLoggable;
+import com.palantir.logsafe.UnsafeArg;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeIoException;
@@ -26,6 +28,14 @@ import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.assertj.core.internal.Failures;
 
 public class Assertions extends org.assertj.core.api.Assertions {
+
+    static {
+        org.assertj.core.api.Assertions.registerFormatterForType(
+                SafeArg.class, arg -> String.format("SafeArg[%s=%s]", arg.getName(), arg.getValue()));
+        org.assertj.core.api.Assertions.registerFormatterForType(
+                UnsafeArg.class, arg -> String.format("UnsafeArg[%s=%s]", arg.getName(), arg.getValue()));
+    }
+
     Assertions() {}
 
     public static LoggableExceptionAssert<SafeIllegalArgumentException> assertThat(

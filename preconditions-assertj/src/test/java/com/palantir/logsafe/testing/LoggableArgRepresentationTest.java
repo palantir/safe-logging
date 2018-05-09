@@ -30,7 +30,7 @@ public class LoggableArgRepresentationTest {
     @Test
     public void toStringOf_safeArg() {
         assertThat(representation.toStringOf(SafeArg.of("hello", "world")))
-                .isEqualTo("SafeArg[hello=world]");
+                .isEqualTo("SafeArg[hello=\"world\"]");
     }
 
     @Test
@@ -44,7 +44,7 @@ public class LoggableArgRepresentationTest {
     @Test
     public void toStringOf_unsafeArg() {
         assertThat(representation.toStringOf(UnsafeArg.of("hello", "world")))
-                .isEqualTo("UnsafeArg[hello=world]");
+                .isEqualTo("UnsafeArg[hello=\"world\"]");
     }
 
 }

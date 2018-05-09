@@ -28,7 +28,7 @@ public class LoggableArgRepresentation extends StandardRepresentation  {
             return String.format("%s[%s=%s]",
                     arg.getClass().getSimpleName(),
                     arg.getName(),
-                    super.fallbackToStringOf(arg.getValue()));
+                    toStringOf(arg.getValue()));
         }
         return super.fallbackToStringOf(object);
     }

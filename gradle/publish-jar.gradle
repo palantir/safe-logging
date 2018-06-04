@@ -16,3 +16,8 @@ bintray {
         publications = ['nebula']
     }
 }
+
+publish.dependsOn bintrayUpload
+bintrayUpload.onlyIf {
+    versionDetails().isCleanTag
+}

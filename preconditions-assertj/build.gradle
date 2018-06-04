@@ -1,9 +1,9 @@
-apply from: "${rootDir}/gradle/publish.gradle"
+apply from: "${rootDir}/gradle/publish-jar.gradle"
 
 dependencies {
     api project(':preconditions')
     api project(':safe-logging')
-    api 'org.assertj:assertj-core:3.9.1'
+    api 'org.assertj:assertj-core'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit'
 }

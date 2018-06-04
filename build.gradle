@@ -5,6 +5,7 @@ buildscript {
     }
 
     dependencies {
+        classpath 'com.netflix.nebula:nebula-dependency-recommender:5.2.0'
         classpath 'gradle.plugin.com.palantir:gradle-circle-style:1.1.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.6'
         classpath 'com.netflix.nebula:nebula-publishing-plugin:5.1.5'
@@ -31,10 +32,16 @@ dependencies {
 }
 
 allprojects {
+    apply plugin: 'com.palantir.configuration-resolver'
+    apply plugin: 'nebula.dependency-recommender'
+
     group 'com.palantir.safe-logging'
     version gitVersion()
 
-    apply plugin: 'com.palantir.configuration-resolver'
+    dependencyRecommendations {
+        strategy OverrideTransitives
+        propertiesFile file: project.rootProject.file('versions.props')
+    }
 
     configurations.all {
         resolutionStrategy {
@@ -62,9 +69,5 @@ subprojects {
         }
     }
     tasks.check.dependsOn(javadoc)
-
-    if (System.env.CIRCLE_TEST_REPORTS) {
-        test.reports.junitXml.destination = new File(System.env.CIRCLE_TEST_REPORTS, it.getName())
-    }
 }
 

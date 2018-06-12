@@ -1,3 +1,5 @@
+rootProject.name = 'safe-logging'
+
 include 'safe-logging'
 include 'preconditions'
 include 'preconditions-assertj'

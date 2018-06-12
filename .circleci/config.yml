@@ -34,7 +34,7 @@ jobs:
       - run:
           command: |
             mkdir -p ~/junit
-            find . -type f -regex ".*/build/.*TEST.*xml" -exec cp {} ~/junit/ \;
+            find . -type f -regex ".*/build/.*TEST.*xml" -exec cp --parents {} ~/junit/ \;
           when: always
       - store_test_results:
           path: ~/junit

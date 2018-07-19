@@ -9,7 +9,7 @@ buildscript {
         classpath 'gradle.plugin.com.palantir:gradle-circle-style:1.1.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.3'
         classpath 'com.netflix.nebula:nebula-publishing-plugin:5.1.5'
-        classpath 'com.palantir.baseline:gradle-baseline-java:0.20.1'
+        classpath 'com.palantir.baseline:gradle-baseline-java:0.24.0'
     }
 }
 
@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    baseline 'com.palantir.baseline:gradle-baseline-java-config:0.20.1@zip'
+    baseline 'com.palantir.baseline:gradle-baseline-java-config:0.24.0@zip'
 }
 
 allprojects {

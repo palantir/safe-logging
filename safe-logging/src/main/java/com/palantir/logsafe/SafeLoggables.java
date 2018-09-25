@@ -35,7 +35,7 @@ public final class SafeLoggables {
 
     public static String renderSafeLoggableAndArgs(SafeLoggable safeLoggable) {
         String renderedArgs = safeLoggable.getArgs().stream()
-                .map(arg -> arg.getName() + ": " + arg.getValue()).collect(Collectors.joining(", "))
+                .map(arg -> arg.getName() + ": " + arg.getValue()).collect(Collectors.joining(", "));
         return renderArgs(safeLoggable.getLogMessage(), safeLoggable.getArgs()) + "\n"
                 + "args: {" + renderedArgs + "}";
     }

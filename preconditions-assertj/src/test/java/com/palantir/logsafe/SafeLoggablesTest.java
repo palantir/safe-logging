@@ -57,14 +57,14 @@ public class SafeLoggablesTest {
         List<Arg<?>> args = Lists.newArrayList(
                 SafeArg.of("mr", "important client"),
                 SafeArg.of("person", "Nick"),
-                SafeArg.of("group", ", the data flows team"));
+                SafeArg.of("group", ", the expandables"));
         String rendered = SafeLoggables.renderSafeLoggableAndArgs(safeLoggable(msg, args));
         assertThat(rendered).isEqualTo(
                 "Let me put it this way, Mr. important client. The Nick is the most reliable computer ever made."
-                        + "No Nick has ever made a mistake or distorted information. We are, the data flows team, "
+                        + "No Nick has ever made a mistake or distorted information. We are, the expandables, "
                         + "by any practical definition of the words, foolproof and incapable of error."
                         + "[no param] [no param]\n"
-                        + "args: {mr: important client, person: Nick, group: , the data flows team}");
+                        + "args: {mr: important client, person: Nick, group: , the expandables}");
     }
 
     private SafeLoggable safeLoggable(String message, List<Arg<?>> args) {

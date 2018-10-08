@@ -22,6 +22,7 @@ import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
+import javax.annotation.Nullable;
 
 public final class Preconditions {
     private Preconditions() {}
@@ -181,7 +182,7 @@ public final class Preconditions {
      * @throws SafeNullPointerException if {@code reference} is null
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference) {
+    public static <T> T checkNotNull(@Nullable T reference) {
         if (reference == null) {
             throw new SafeNullPointerException();
         }
@@ -197,7 +198,7 @@ public final class Preconditions {
      * @throws SafeNullPointerException if {@code reference} is null
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message) {
+    public static <T> T checkNotNull(@Nullable T reference, String message) {
         if (reference == null) {
             throw new SafeNullPointerException(message);
         }
@@ -210,7 +211,7 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg) {
+    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg);
         }
@@ -223,7 +224,7 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg1, Arg<?> arg2) {
+    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg1, Arg<?> arg2) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2);
         }
@@ -236,7 +237,7 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2, arg3);
         }
@@ -253,7 +254,7 @@ public final class Preconditions {
      * @throws SafeNullPointerException if {@code reference} is null
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(T reference, String message, Arg<?>... args) {
+    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?>... args) {
         if (reference == null) {
             throw new SafeNullPointerException(message, args);
         }

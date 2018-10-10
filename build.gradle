@@ -5,43 +5,27 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.netflix.nebula:nebula-dependency-recommender:6.0.0'
-        classpath 'gradle.plugin.com.palantir:gradle-circle-style:1.1.2'
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.3'
         classpath 'com.netflix.nebula:nebula-publishing-plugin:5.1.5'
-        classpath 'com.palantir.baseline:gradle-baseline-java:0.33.0'
+        classpath 'com.palantir.baseline:gradle-baseline-java:0.34.0'
     }
 }
 
 plugins {
-    id 'com.palantir.configuration-resolver' version '0.2.0'
     id 'com.palantir.git-version' version '0.11.0'
     id 'org.inferred.processors' version '1.2.2'
 }
 
-apply plugin: 'com.palantir.baseline-config' // provides baselineUpdateConfig task
-apply plugin: 'com.palantir.baseline-idea'
-apply plugin: 'com.palantir.circle.style'
-
-repositories {
-    maven { url 'https://palantir.bintray.com/releases/' }
-}
-
-dependencies {
-    baseline 'com.palantir.baseline:gradle-baseline-java-config:0.33.0@zip'
-}
+apply plugin: 'com.palantir.baseline'
 
 allprojects {
-    apply plugin: 'com.palantir.configuration-resolver'
-    apply plugin: 'nebula.dependency-recommender'
+    repositories {
+        jcenter()
+        maven { url 'https://palantir.bintray.com/releases/' }
+    }
 
     group 'com.palantir.safe-logging'
     version gitVersion()
-
-    dependencyRecommendations {
-        strategy OverrideTransitives
-        propertiesFile file: project.rootProject.file('versions.props')
-    }
 
     configurations.all {
         resolutionStrategy {
@@ -52,9 +36,6 @@ allprojects {
 
 subprojects {
     apply plugin: 'java-library'
-    apply plugin: 'com.palantir.baseline-checkstyle'
-    apply plugin: 'com.palantir.baseline-eclipse'
-    apply plugin: 'com.palantir.baseline-idea'
 
     repositories {
         jcenter()

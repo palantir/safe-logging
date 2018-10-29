@@ -47,7 +47,7 @@ public final class LoggableExceptionAssertionsTest {
 
     public void testIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertion.isInstanceOf(SafeIllegalArgumentException.class)
-                .hasMessage("{index} must be less than {size}")
+                .hasMessage("{index} must be less than {size}: {index=4, size=1}")
                 .hasExactlyArgs(UnsafeArg.of("index", 4), SafeArg.of("size", 1))
                 .hasArgs(UnsafeArg.of("index", 4));
     }

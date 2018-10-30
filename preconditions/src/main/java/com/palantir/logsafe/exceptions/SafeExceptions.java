@@ -25,17 +25,22 @@ final class SafeExceptions {
     private SafeExceptions() {}
 
     static String renderMessage(String message, Arg<?>... args) {
-        StringBuilder sb = new StringBuilder(message).append(": {");
-        for (int i = 0; i < args.length; i++) {
-            Arg<?> argument = args[i];
-            sb.append(argument.getName())
-                    .append("=")
-                    .append(argument.getValue());
-            if (i < args.length - 1) {
-                sb.append(", ");
-            }
+        if (args.length == 0) {
+            return message;
         }
-        return sb.append('}')
-                .toString();
+
+        StringBuilder builder = new StringBuilder();
+        builder.append(message).append(": {");
+        for (int i = 0; i < args.length; i++) {
+            Arg<?> arg = args[i];
+            if (i > 0) {
+                builder.append(", ");
+            }
+
+            builder.append(arg.getName()).append("=").append(arg.getValue());
+        }
+        builder.append("}");
+
+        return builder.toString();
     }
 }

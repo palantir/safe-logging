@@ -24,21 +24,24 @@ import java.util.Collections;
 import java.util.List;
 
 public final class SafeIoException extends IOException implements SafeLoggable {
+    private final String logMessage;
     private final List<Arg<?>> arguments;
 
     public SafeIoException(String message, Arg<?>... arguments) {
-        super(message);
+        super(SafeExceptions.renderMessage(message, arguments));
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeIoException(String message, Throwable cause, Arg<?>... arguments) {
-        super(message, cause);
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     @Override
     public String getLogMessage() {
-        return getMessage();
+        return logMessage;
     }
 
     @Override

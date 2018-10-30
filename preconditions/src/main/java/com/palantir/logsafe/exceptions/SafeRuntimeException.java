@@ -23,31 +23,36 @@ import java.util.Collections;
 import java.util.List;
 
 public final class SafeRuntimeException extends RuntimeException implements SafeLoggable {
+    private final String logMessage;
     private final List<Arg<?>> arguments;
 
     public SafeRuntimeException() {
         super("");
+        this.logMessage = "";
         this.arguments = Collections.emptyList();
     }
 
     public SafeRuntimeException(String message, Arg<?>... arguments) {
-        super(message);
+        super(SafeExceptions.renderMessage(message, arguments));
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeRuntimeException(String message, Throwable cause, Arg<?>... arguments) {
-        super(message, cause);
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeRuntimeException(Throwable cause) {
         super("", cause);
+        this.logMessage = "";
         this.arguments = Collections.emptyList();
     }
 
     @Override
     public String getLogMessage() {
-        return getMessage();
+        return logMessage;
     }
 
     @Override

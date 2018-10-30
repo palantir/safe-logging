@@ -23,31 +23,36 @@ import java.util.Collections;
 import java.util.List;
 
 public final class SafeIllegalArgumentException extends IllegalArgumentException implements SafeLoggable {
+    private final String logMessage;
     private final List<Arg<?>> arguments;
 
     public SafeIllegalArgumentException() {
         super("");
+        this.logMessage = "";
         this.arguments = Collections.emptyList();
     }
 
     public SafeIllegalArgumentException(String message, Arg<?>... arguments) {
-        super(message);
+        super(SafeExceptions.renderMessage(message, arguments));
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeIllegalArgumentException(String message, Throwable cause, Arg<?>... arguments) {
-        super(message, cause);
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeIllegalArgumentException(Throwable cause) {
         super("", cause);
+        this.logMessage = "";
         this.arguments = Collections.emptyList();
     }
 
     @Override
     public String getLogMessage() {
-        return getMessage();
+        return logMessage;
     }
 
     @Override

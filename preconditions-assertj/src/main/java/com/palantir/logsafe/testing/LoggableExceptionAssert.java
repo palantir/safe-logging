@@ -21,6 +21,7 @@ import com.palantir.logsafe.SafeLoggable;
 import java.util.List;
 import org.assertj.core.api.AbstractThrowableAssert;
 import org.assertj.core.api.ListAssert;
+import org.assertj.core.util.Objects;
 
 public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
         extends AbstractThrowableAssert<LoggableExceptionAssert<T>, T> {
@@ -66,6 +67,18 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
 
         argsAssert.contains(args);
         return this;
+    }
+
+    public final LoggableExceptionAssert<T> hasLogMessage(String logMessage) {
+        isNotNull();
+
+        String actualMessage = actual.getLogMessage();
+        if (!Objects.areEqual(actualMessage, logMessage)) {
+            throw new AssertionError(String.format("Expecting safe logging message:%n <%s>%nbut was:%n <%s>",
+                    logMessage, actualMessage));
+        }
+
+        return myself;
     }
 
     public final ArgsAssert args() {

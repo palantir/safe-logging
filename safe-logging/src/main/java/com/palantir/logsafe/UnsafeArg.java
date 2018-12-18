@@ -16,14 +16,16 @@
 
 package com.palantir.logsafe;
 
+import javax.annotation.Nullable;
+
 /** A wrapper around an argument that is not safe for logging. */
 public final class UnsafeArg<T> extends Arg<T> {
 
-    private UnsafeArg(String name, T value) {
+    private UnsafeArg(String name, @Nullable T value) {
         super(name, value);
     }
 
-    public static <T> UnsafeArg<T> of(String name, T value) {
+    public static <T> UnsafeArg<T> of(String name, @Nullable T value) {
         return new UnsafeArg<>(name, value);
     }
 

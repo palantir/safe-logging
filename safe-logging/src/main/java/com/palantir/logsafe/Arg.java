@@ -18,6 +18,7 @@ package com.palantir.logsafe;
 
 import java.io.Serializable;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 /** A wrapper around an argument used to build a formatted message. */
 public abstract class Arg<T> implements Serializable {
@@ -25,7 +26,7 @@ public abstract class Arg<T> implements Serializable {
     private final String name;
     private final T value;
 
-    protected Arg(String name, T value) {
+    protected Arg(String name, @Nullable T value) {
         this.name = Objects.requireNonNull(name, "name may not be null");
         this.value = value;
     }
@@ -36,6 +37,7 @@ public abstract class Arg<T> implements Serializable {
     }
 
     /** The value of this argument (which may be {@code null}). */
+    @Nullable
     public final T getValue() {
         return value;
     }

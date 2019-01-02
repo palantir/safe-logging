@@ -59,12 +59,13 @@ public abstract class Arg<T> implements Serializable {
         if (this == other) {
             return true;
         }
-        if (other == null || getClass() != other.getClass()) {
+        if (!(other instanceof Arg)) {
             return false;
         }
         Arg<?> arg = (Arg<?>) other;
         return Objects.equals(name, arg.name)
-                && Objects.equals(value, arg.value);
+                && Objects.equals(value, arg.value)
+                && (isSafeForLogging() == arg.isSafeForLogging());
     }
 
     @Override

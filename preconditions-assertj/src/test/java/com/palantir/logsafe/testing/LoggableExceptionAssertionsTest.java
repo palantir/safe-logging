@@ -156,6 +156,13 @@ public final class LoggableExceptionAssertionsTest {
         }));
     }
 
+    @Test
+    public void nullArgsAssert() {
+        assertThatThrownBy(() -> new LoggableExceptionAssert<>(null).isNotNull())
+                .isInstanceOf(AssertionError.class)
+                .hasMessageContaining("Expecting actual not to be null");
+    }
+
     private static class LoggableException extends Throwable implements SafeLoggable {
         LoggableException() {
             super("test message");

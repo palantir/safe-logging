@@ -50,5 +50,15 @@ subprojects {
         }
     }
     tasks.check.dependsOn(javadoc)
+
+    plugins.withId('com.palantir.baseline-error-prone', {
+        dependencies {
+            compileOnly 'com.google.code.findbugs:jsr305'
+            annotationProcessor 'com.uber.nullaway:nullaway'
+        }
+        tasks.withType(JavaCompile) {
+            options.errorprone.errorproneArgs += ['-XepOpt:NullAway:AnnotatedPackages=com.palantir']
+        }
+    })
 }
 

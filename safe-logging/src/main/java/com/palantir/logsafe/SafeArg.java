@@ -16,14 +16,16 @@
 
 package com.palantir.logsafe;
 
+import javax.annotation.Nullable;
+
 /** A wrapper around an argument known to be safe for logging. */
 public final class SafeArg<T> extends Arg<T> {
 
-    private SafeArg(String name, T value) {
+    private SafeArg(String name, @Nullable T value) {
         super(name, value);
     }
 
-    public static <T> SafeArg<T> of(String name, T value) {
+    public static <T> SafeArg<T> of(String name, @Nullable T value) {
         return new SafeArg<>(name, value);
     }
 

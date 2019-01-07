@@ -18,6 +18,7 @@ package com.palantir.logsafe.testing;
 
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeLoggable;
+import java.util.Collections;
 import java.util.List;
 import org.assertj.core.api.AbstractThrowableAssert;
 import org.assertj.core.api.ListAssert;
@@ -30,7 +31,8 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     public LoggableExceptionAssert(T actual) {
         super(actual, LoggableExceptionAssert.class);
 
-        argsAssert = actual == null ? null : new ArgsAssert(actual.getArgs());
+        List<Arg<?>> args = actual == null ? Collections.emptyList() : actual.getArgs();
+        argsAssert = new ArgsAssert(args);
     }
 
     /**

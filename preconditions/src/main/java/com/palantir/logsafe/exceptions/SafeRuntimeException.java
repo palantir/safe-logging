@@ -16,6 +16,7 @@
 
 package com.palantir.logsafe.exceptions;
 
+import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeLoggable;
 import java.util.Arrays;
@@ -32,13 +33,13 @@ public final class SafeRuntimeException extends RuntimeException implements Safe
         this.arguments = Collections.emptyList();
     }
 
-    public SafeRuntimeException(String message, Arg<?>... arguments) {
+    public SafeRuntimeException(@CompileTimeConstant String message, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeRuntimeException(String message, Throwable cause, Arg<?>... arguments) {
+    public SafeRuntimeException(@CompileTimeConstant String message, Throwable cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

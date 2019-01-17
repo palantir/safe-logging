@@ -19,6 +19,7 @@
 package com.palantir.logsafe;
 
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
+import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
@@ -46,7 +47,7 @@ public final class Preconditions {
      * @param message the loggable exception message
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
-    public static void checkArgument(boolean expression, String message) {
+    public static void checkArgument(boolean expression, @CompileTimeConstant String message) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message);
         }
@@ -57,7 +58,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg) {
+    public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg);
         }
@@ -68,7 +69,8 @@ public final class Preconditions {
      *
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg1, Arg<?> arg2) {
+    public static void checkArgument(
+            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg1, arg2);
         }
@@ -79,7 +81,8 @@ public final class Preconditions {
      *
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
-    public static void checkArgument(boolean expression, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public static void checkArgument(
+            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
         }
@@ -93,7 +96,7 @@ public final class Preconditions {
      * @param args the arguments to include in the {@link SafeIllegalArgumentException}
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
-    public static void checkArgument(boolean expression, String message, Arg<?>... args) {
+    public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, args);
         }
@@ -120,7 +123,7 @@ public final class Preconditions {
      * @param message the loggable exception message
      * @throws SafeIllegalStateException if {@code expression} is false
      */
-    public static void checkState(boolean expression, String message) {
+    public static void checkState(boolean expression, @CompileTimeConstant String message) {
         if (!expression) {
             throw new SafeIllegalStateException(message);
         }
@@ -131,7 +134,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
-    public static void checkState(boolean expression, String message, Arg<?> arg) {
+    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg);
         }
@@ -142,7 +145,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
-    public static void checkState(boolean expression, String message, Arg<?> arg1, Arg<?> arg2) {
+    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg1, arg2);
         }
@@ -153,7 +156,8 @@ public final class Preconditions {
      *
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
-    public static void checkState(boolean expression, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public static void checkState(
+            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg1, arg2, arg3);
         }
@@ -168,7 +172,7 @@ public final class Preconditions {
      * @param args the arguments to include in the {@link SafeIllegalStateException}
      * @throws SafeIllegalStateException if {@code expression} is false
      */
-    public static void checkState(boolean expression, String message, Arg<?>... args) {
+    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
         if (!expression) {
             throw new SafeIllegalStateException(message, args);
         }
@@ -198,7 +202,7 @@ public final class Preconditions {
      * @throws SafeNullPointerException if {@code reference} is null
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, String message) {
+    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message) {
         if (reference == null) {
             throw new SafeNullPointerException(message);
         }
@@ -211,7 +215,7 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg) {
+    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg);
         }
@@ -224,7 +228,8 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg1, Arg<?> arg2) {
+    public static <T> T checkNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2);
         }
@@ -237,7 +242,8 @@ public final class Preconditions {
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public static <T> T checkNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2, arg3);
         }
@@ -254,7 +260,7 @@ public final class Preconditions {
      * @throws SafeNullPointerException if {@code reference} is null
      */
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, String message, Arg<?>... args) {
+    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
         if (reference == null) {
             throw new SafeNullPointerException(message, args);
         }

@@ -16,6 +16,7 @@
 
 package com.palantir.logsafe.exceptions;
 
+import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeLoggable;
 import java.util.Arrays;
@@ -32,7 +33,7 @@ public final class SafeNullPointerException extends NullPointerException impleme
         this.arguments = Collections.emptyList();
     }
 
-    public SafeNullPointerException(String message, Arg<?>... arguments) {
+    public SafeNullPointerException(@CompileTimeConstant String message, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

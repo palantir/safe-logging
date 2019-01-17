@@ -16,6 +16,8 @@
 
 package com.palantir.logsafe;
 
+import com.google.errorprone.annotations.CompileTimeConstant;
+
 /** A wrapper around an argument that is not safe for logging. */
 public final class UnsafeArg<T> extends Arg<T> {
 
@@ -23,7 +25,7 @@ public final class UnsafeArg<T> extends Arg<T> {
         super(name, value);
     }
 
-    public static <T> UnsafeArg<T> of(String name, T value) {
+    public static <T> UnsafeArg<T> of(@CompileTimeConstant String name, T value) {
         return new UnsafeArg<>(name, value);
     }
 

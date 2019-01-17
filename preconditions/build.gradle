@@ -2,7 +2,6 @@ apply from: "${rootDir}/gradle/publish-jar.gradle"
 
 dependencies {
     api project(':safe-logging')
-    api 'com.google.errorprone:error_prone_annotations:2.1.3'
     compileOnly 'com.google.code.findbugs:jsr305'
 
     testImplementation 'junit:junit'

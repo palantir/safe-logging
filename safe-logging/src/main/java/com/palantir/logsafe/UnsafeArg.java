@@ -16,7 +16,6 @@
 
 package com.palantir.logsafe;
 
-import com.google.errorprone.annotations.CompileTimeConstant;
 import javax.annotation.Nullable;
 
 /** A wrapper around an argument that is not safe for logging. */
@@ -26,7 +25,7 @@ public final class UnsafeArg<T> extends Arg<T> {
         super(name, value);
     }
 
-    public static <T> UnsafeArg<T> of(@CompileTimeConstant String name, @Nullable T value) {
+    public static <T> UnsafeArg<T> of(String name, @Nullable T value) {
         return new UnsafeArg<>(name, value);
     }
 

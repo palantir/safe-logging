@@ -1,5 +1,1 @@
 apply from: "${rootDir}/gradle/publish-jar.gradle"
-
-dependencies {
-    api 'com.google.errorprone:error_prone_annotations'
-}

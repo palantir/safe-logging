@@ -3,6 +3,7 @@ apply from: "${rootDir}/gradle/publish-jar.gradle"
 dependencies {
     api project(':safe-logging')
     compileOnly 'com.google.code.findbugs:jsr305'
+    api 'com.google.errorprone:error_prone_annotations'
 
     testImplementation 'junit:junit'
     testImplementation 'org.assertj:assertj-core'

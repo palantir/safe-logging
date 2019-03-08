@@ -16,6 +16,7 @@
 
 package com.palantir.logsafe.exceptions;
 
+import com.google.common.base.MoreObjects;
 import com.palantir.logsafe.Arg;
 
 /**
@@ -29,17 +30,10 @@ final class SafeExceptions {
             return message;
         }
 
-        StringBuilder builder = new StringBuilder();
-        builder.append(message).append(": {");
-        for (int i = 0; i < args.length; i++) {
-            Arg<?> arg = args[i];
-            if (i > 0) {
-                builder.append(", ");
-            }
-
-            builder.append(arg.getName()).append("=").append(arg.getValue());
+        MoreObjects.ToStringHelper builder = MoreObjects.toStringHelper(message + ": ");
+        for (Arg<?> arg : args) {
+            builder.add(arg.getName(), arg.getValue());
         }
-        builder.append("}");
 
         return builder.toString();
     }

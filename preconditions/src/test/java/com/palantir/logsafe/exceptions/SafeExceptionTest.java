@@ -69,4 +69,17 @@ public class SafeExceptionTest {
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }
+
+    @Test
+    public void testArrayValues() {
+        SafeIllegalArgumentException exception = new SafeIllegalArgumentException(
+                "Failure",
+                SafeArg.of("value", 3),
+                SafeArg.of("strings", new String[] {"a", "b", "c"}),
+                UnsafeArg.of("ints", new int[] {1, 2}),
+                SafeArg.of("longs", new long[] {42, Integer.MAX_VALUE + 1L}));
+        assertThat(exception.getMessage())
+                .isEqualTo("Failure: {value=3, strings=[a, b, c], ints=[1, 2], longs=[42, 2147483648]}");
+        assertThat(exception.getLogMessage()).isEqualTo("Failure");
+    }
 }

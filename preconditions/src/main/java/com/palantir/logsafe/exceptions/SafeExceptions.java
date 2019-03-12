@@ -17,6 +17,7 @@
 package com.palantir.logsafe.exceptions;
 
 import com.palantir.logsafe.Arg;
+import java.util.Arrays;
 
 /**
  * {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations.
@@ -37,10 +38,22 @@ final class SafeExceptions {
                 builder.append(", ");
             }
 
-            builder.append(arg.getName()).append("=").append(arg.getValue());
+            builder.append(arg.getName()).append("=");
+            appendValue(builder, arg);
         }
-        builder.append("}");
+        builder.append('}');
 
         return builder.toString();
     }
+
+    private static void appendValue(StringBuilder builder, Arg<?> arg) {
+        Object value = arg.getValue();
+        if (value != null && value.getClass().isArray()) {
+            String arrayString = Arrays.deepToString(new Object[] {value});
+            builder.append(arrayString, 1, arrayString.length() - 1);
+        } else {
+            builder.append(value);
+        }
+    }
+
 }

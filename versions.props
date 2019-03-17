@@ -2,7 +2,7 @@ com.google.code.findbugs:jsr305 = 3.0.2
 com.google.guava:guava = 23.5-jre
 com.uber.nullaway:nullaway = 0.6.4
 junit:junit = 4.12
-org.assertj:assertj-core = 3.12.1
+org.assertj:assertj-core = 3.12.2
 
 org.checkerframework:checker-qual = 2.5.0
 com.google.errorprone:error_prone_annotations = 2.3.3

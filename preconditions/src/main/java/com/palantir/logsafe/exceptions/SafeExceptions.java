@@ -22,10 +22,10 @@ import java.util.Arrays;
 /**
  * {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations.
  */
-final class SafeExceptions {
+public final class SafeExceptions {
     private SafeExceptions() {}
 
-    static String renderMessage(String message, Arg<?>... args) {
+    public static String renderMessage(String message, Arg<?>... args) {
         if (args.length == 0) {
             return message;
         }

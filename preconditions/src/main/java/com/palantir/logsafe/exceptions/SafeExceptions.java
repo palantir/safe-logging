@@ -16,6 +16,7 @@
 
 package com.palantir.logsafe.exceptions;
 
+import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import java.util.Arrays;
 
@@ -25,13 +26,13 @@ import java.util.Arrays;
 public final class SafeExceptions {
     private SafeExceptions() {}
 
-    public static String renderMessage(String message, Arg<?>... args) {
+    public static String renderMessage(@CompileTimeConstant String safeMessage, Arg<?>... args) {
         if (args.length == 0) {
-            return message;
+            return safeMessage;
         }
 
         StringBuilder builder = new StringBuilder();
-        builder.append(message).append(": {");
+        builder.append(safeMessage).append(": {");
         for (int i = 0; i < args.length; i++) {
             Arg<?> arg = args[i];
             if (i > 0) {

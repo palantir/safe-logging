@@ -50,7 +50,10 @@ public final class LoggableExceptionAssertionsTest {
                 .hasMessage("{index} must be less than {size}: {index=4, size=1}")
                 .hasLogMessage("{index} must be less than {size}")
                 .hasExactlyArgs(UnsafeArg.of("index", 4), SafeArg.of("size", 1))
-                .hasArgs(UnsafeArg.of("index", 4));
+                .hasArgs(UnsafeArg.of("index", 4))
+                .hasArgs(SafeArg.of("size", 1))
+                .containsArgs(UnsafeArg.of("index", 4))
+                .containsArgs(SafeArg.of("size", 1));
     }
 
     public void testNullPointerException(LoggableExceptionAssert<SafeNullPointerException> assertion) {
@@ -108,7 +111,7 @@ public final class LoggableExceptionAssertionsTest {
 
     public void testFailIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
         Arg<?> arg = SafeArg.of("missing", "missing");
-        assertThatThrownBy(() -> assertion.hasArgs(arg))
+        assertThatThrownBy(() -> assertion.containsArgs(arg))
                 .hasMessage(ShouldContain.shouldContain(
                         illegalStateException.getArgs(), Collections.singleton(arg), Collections.singleton(arg),
                         StandardComparisonStrategy.instance()).create());

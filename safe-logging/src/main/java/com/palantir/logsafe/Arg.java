@@ -31,7 +31,7 @@ public abstract class Arg<T> implements Serializable {
     private final T value;
 
     protected Arg(String name, @Nullable T value) {
-        this.name = Preconditions.checkNotNull(name, "name may not be null");
+        this.name = Objects.requireNonNull(name, "name may not be null");
         this.value = value;
     }
 

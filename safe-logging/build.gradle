@@ -1,7 +1,7 @@
 apply from: "${rootDir}/gradle/publish-jar.gradle"
 
 tasks.withType(JavaCompile) {
-    options.errorprone {
-        check 'PreferSafeLoggingPreconditions', 'OFF'
-    }
+    options.errorprone.errorproneArgs += [
+            '-Xep:PreferSafeLoggingPreconditions:OFF',
+    ]
 }

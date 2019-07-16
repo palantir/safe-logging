@@ -54,6 +54,16 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     }
 
     /**
+     * Deprecated in favor of {@link #containsArgs}.
+     *
+     * @deprecated use {@link #containsArgs}
+     */
+    @Deprecated
+    public final LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
+        return containsArgs(args);
+    }
+
+    /**
      * Verifies that the actual group contains the given values, in any order.
      *
      * @param args the given arguments.
@@ -64,7 +74,7 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
      * @throws AssertionError if the exception argument list is {@code null}.
      * @throws AssertionError if the exception does not contain the given arguments.
      */
-    public final LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
+    public final LoggableExceptionAssert<T> containsArgs(Arg<?>... args) {
         isNotNull();
 
         argsAssert.contains(args);

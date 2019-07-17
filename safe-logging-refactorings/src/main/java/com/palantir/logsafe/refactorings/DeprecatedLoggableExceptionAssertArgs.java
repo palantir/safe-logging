@@ -18,6 +18,7 @@ package com.palantir.logsafe.refactorings;
 
 import com.google.errorprone.refaster.annotation.AfterTemplate;
 import com.google.errorprone.refaster.annotation.BeforeTemplate;
+import com.google.errorprone.refaster.annotation.Repeated;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.testing.LoggableExceptionAssert;
@@ -26,12 +27,12 @@ public final class DeprecatedLoggableExceptionAssertArgs<T extends Throwable & S
 
     @BeforeTemplate
     @SuppressWarnings("deprecation")
-    LoggableExceptionAssert<T> hasArgs(LoggableExceptionAssert<T> loggableExceptionAssert, Arg<?>... args) {
+    LoggableExceptionAssert<T> hasArgs(LoggableExceptionAssert<T> loggableExceptionAssert, @Repeated Arg<?> args) {
         return loggableExceptionAssert.hasArgs(args);
     }
 
     @AfterTemplate
-    LoggableExceptionAssert<T> containsArgs(LoggableExceptionAssert<T> loggableExceptionAssert, Arg<?>... args) {
+    LoggableExceptionAssert<T> containsArgs(LoggableExceptionAssert<T> loggableExceptionAssert, @Repeated Arg<?> args) {
         return loggableExceptionAssert.containsArgs(args);
     }
 }

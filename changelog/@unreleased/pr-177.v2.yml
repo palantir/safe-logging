@@ -1,0 +1,5 @@
+type: fix
+fix:
+  description: Fix refaster rule for `hasArgs` -> `containsArgs` migration.
+  links:
+  - https://github.com/palantir/safe-logging/pull/177

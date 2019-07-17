@@ -1,4 +1,4 @@
-rootProject.name = 'safe-logging'
+rootProject.name = 'safe-logging-root'
 
 include 'safe-logging'
 include 'safe-logging-refactorings'

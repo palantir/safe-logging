@@ -1,11 +1,13 @@
 # Run ./gradlew --write-locks to regenerate this file
+com.google.code.findbugs:jsr305:3.0.2 (4 constraints: e932ae18)
+com.google.errorprone:error_prone_annotations:2.3.3 (4 constraints: f532671c)
+
+[Test dependencies]
 com.github.kevinstern:software-and-algorithms:1.0 (1 constraints: 7e12fcf5)
 com.github.stephenc.jcip:jcip-annotations:1.0-1 (1 constraints: ee1017b8)
 com.google.auto:auto-common:0.10 (1 constraints: c0102aa7)
 com.google.code.findbugs:jFormatString:3.0.0 (1 constraints: f01022b8)
-com.google.code.findbugs:jsr305:3.0.2 (4 constraints: e932ae18)
 com.google.errorprone:error_prone_annotation:2.3.3 (2 constraints: d723874b)
-com.google.errorprone:error_prone_annotations:2.3.3 (4 constraints: f532671c)
 com.google.errorprone:error_prone_check_api:2.3.3 (1 constraints: f51029b8)
 com.google.errorprone:error_prone_core:2.3.3 (1 constraints: a8121509)
 com.google.errorprone:error_prone_refaster:2.3.3 (1 constraints: 0a050136)
@@ -17,9 +19,11 @@ com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava (1 c
 com.google.j2objc:j2objc-annotations:1.1 (1 constraints: b609eba0)
 com.google.protobuf:protobuf-java:3.4.0 (1 constraints: f4102eb8)
 com.googlecode.java-diff-utils:diffutils:1.3.0 (1 constraints: df129c1b)
+junit:junit:4.12 (1 constraints: db04ff30)
 org.assertj:assertj-core:3.12.2 (1 constraints: 3a053d3b)
 org.checkerframework:checker-qual:2.5.3 (4 constraints: 202a1965)
 org.checkerframework:dataflow:2.5.3 (2 constraints: db23f14b)
 org.checkerframework:javacutil:2.5.3 (1 constraints: 470d3a1d)
 org.codehaus.mojo:animal-sniffer-annotations:1.17 (1 constraints: ed09d8aa)
+org.hamcrest:hamcrest-core:1.3 (1 constraints: cc05fe3f)
 org.pcollections:pcollections:2.1.2 (1 constraints: f21022b8)

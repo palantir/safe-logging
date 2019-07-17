@@ -4,3 +4,7 @@ dependencies {
     implementation project(":preconditions-assertj")
     implementation 'com.google.errorprone:error_prone_refaster'
 }
+
+versionsLock {
+    testProject()
+}

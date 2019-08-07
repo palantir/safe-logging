@@ -24,11 +24,16 @@ import org.assertj.core.api.AbstractThrowableAssert;
 import org.assertj.core.api.ListAssert;
 import org.assertj.core.util.Objects;
 
-public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
+public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
         extends AbstractThrowableAssert<LoggableExceptionAssert<T>, T> {
     private final ArgsAssert argsAssert;
 
-    public LoggableExceptionAssert(T actual) {
+    static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> create(T actual) {
+        return new LoggableExceptionAssert<>(actual)
+                .withRepresentation(LoggableArgRepresentation.INSTANCE);
+    }
+
+    private LoggableExceptionAssert(T actual) {
         super(actual, LoggableExceptionAssert.class);
 
         List<Arg<?>> args = actual == null ? Collections.emptyList() : actual.getArgs();
@@ -44,9 +49,9 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
      * @throws AssertionError if the exception is {@code null}.
      * @throws AssertionError if the exception argument list is {@code null}.
      * @throws AssertionError if the exception arguments do not contain the given values, i.e. the exception contains
-     *           some or none of the given arguments, or the exception contains more arguments than the given ones.
+     * some or none of the given arguments, or the exception contains more arguments than the given ones.
      */
-    public final LoggableExceptionAssert<T> hasExactlyArgs(Arg<?>... args) {
+    public LoggableExceptionAssert<T> hasExactlyArgs(Arg<?>... args) {
         isNotNull();
 
         argsAssert.containsExactlyInAnyOrder(args);
@@ -59,7 +64,7 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
      * @deprecated use {@link #containsArgs}
      */
     @Deprecated
-    public final LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
+    public LoggableExceptionAssert<T> hasArgs(Arg<?>... args) {
         return containsArgs(args);
     }
 
@@ -74,14 +79,14 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
      * @throws AssertionError if the exception argument list is {@code null}.
      * @throws AssertionError if the exception does not contain the given arguments.
      */
-    public final LoggableExceptionAssert<T> containsArgs(Arg<?>... args) {
+    public LoggableExceptionAssert<T> containsArgs(Arg<?>... args) {
         isNotNull();
 
         argsAssert.contains(args);
         return this;
     }
 
-    public final LoggableExceptionAssert<T> hasLogMessage(String logMessage) {
+    public LoggableExceptionAssert<T> hasLogMessage(String logMessage) {
         isNotNull();
 
         String actualMessage = actual.getLogMessage();
@@ -90,10 +95,10 @@ public class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
                     logMessage, actualMessage));
         }
 
-        return myself;
+        return this;
     }
 
-    public final ArgsAssert args() {
+    public ArgsAssert args() {
         isNotNull();
 
         return argsAssert;

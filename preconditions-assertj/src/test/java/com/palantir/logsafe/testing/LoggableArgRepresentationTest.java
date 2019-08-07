@@ -25,26 +25,24 @@ import org.junit.Test;
 
 public class LoggableArgRepresentationTest {
 
-    private final LoggableArgRepresentation representation = new LoggableArgRepresentation();
-
     @Test
     public void toStringOf_safeArg() {
-        assertThat(representation.toStringOf(SafeArg.of("hello", "world")))
+        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(SafeArg.of("hello", "world")))
                 .isEqualTo("SafeArg[hello=\"world\"]");
     }
 
     @Test
     public void toStringOf_safeArg_complexType() {
         CompletableFuture<String> stringFuture = new CompletableFuture<>();
-        assertThat(representation.toStringOf(stringFuture)).isEqualTo("CompletableFuture[Incomplete]");
-        assertThat(representation.toStringOf(SafeArg.of("future", stringFuture)))
+        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(stringFuture)).isEqualTo(
+                "CompletableFuture[Incomplete]");
+        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(SafeArg.of("future", stringFuture)))
                 .isEqualTo("SafeArg[future=CompletableFuture[Incomplete]]");
     }
 
     @Test
     public void toStringOf_unsafeArg() {
-        assertThat(representation.toStringOf(UnsafeArg.of("hello", "world")))
+        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(UnsafeArg.of("hello", "world")))
                 .isEqualTo("UnsafeArg[hello=\"world\"]");
     }
-
 }

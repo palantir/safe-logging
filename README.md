@@ -51,6 +51,6 @@ Annotate Preconditions error messages with named `SafeArg` and `UnsafeArg` as ap
     // now
     import com.palantir.logsafe.Preconditions;
     ...
-    Preconditions.checkArgument(uname.size() > MAX_LEN, "{} username longer than max {}", 
+    Preconditions.checkArgument(uname.size() > MAX_LEN, "username longer than max",
             UnsafeArg.of("uname", uname), SafeArg.of("max", MAX_LEN));
 

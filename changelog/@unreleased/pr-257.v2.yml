@@ -1,0 +1,6 @@
+type: improvement
+improvement:
+  description: If ThrowableCallable passed to Assertions.assertThatLoggableExceptionThrownBy
+    does not throw, appropriate message will be propagated.
+  links:
+  - https://github.com/palantir/safe-logging/pull/257

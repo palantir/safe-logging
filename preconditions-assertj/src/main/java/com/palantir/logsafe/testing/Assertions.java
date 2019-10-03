@@ -22,8 +22,9 @@ import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeIoException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
 import org.assertj.core.api.AssertionsForClassTypes;
+import org.assertj.core.api.ThrowableAssert;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
-import org.assertj.core.internal.Failures;
+import org.assertj.core.error.BasicErrorMessageFactory;
 
 public class Assertions extends org.assertj.core.api.Assertions {
     Assertions() {}
@@ -54,10 +55,10 @@ public class Assertions extends org.assertj.core.api.Assertions {
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {
         Throwable throwable = AssertionsForClassTypes.catchThrowable(shouldRaiseThrowable);
-        if (!SafeLoggable.class.isInstance(throwable)) {
-            throw Failures.instance().failure(String.format("Expecting code to throw a SafeLoggable exception, "
-                    + "but caught a %s which does not", throwable.getClass().getCanonicalName()));
-        }
+        new ThrowableAssert(throwable)
+                .overridingErrorMessage(new BasicErrorMessageFactory("%nExpecting code to raise a throwable.").create())
+                .isNotNull();
+        new ThrowableAssert(throwable).isInstanceOf(SafeLoggable.class);
         return new LoggableExceptionAssert<>((T) throwable);
     }
 }

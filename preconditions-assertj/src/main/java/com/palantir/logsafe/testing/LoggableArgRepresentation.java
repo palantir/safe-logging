@@ -17,20 +17,25 @@
 package com.palantir.logsafe.testing;
 
 import com.palantir.logsafe.Arg;
+import org.assertj.core.presentation.Representation;
 import org.assertj.core.presentation.StandardRepresentation;
 
-public class LoggableArgRepresentation extends StandardRepresentation  {
+final class LoggableArgRepresentation extends StandardRepresentation {
+
+    static final Representation INSTANCE = new LoggableArgRepresentation();
+
+    private LoggableArgRepresentation() {}
 
     @Override
-    protected final String fallbackToStringOf(Object object) {
+    protected String fallbackToStringOf(Object object) {
         if (object instanceof Arg) {
             Arg<?> arg = (Arg<?>) object;
-            return String.format("%s[%s=%s]",
+            return String.format(
+                    "%s[%s=%s]",
                     arg.getClass().getSimpleName(),
                     arg.getName(),
                     toStringOf(arg.getValue()));
         }
         return super.fallbackToStringOf(object);
     }
-
 }

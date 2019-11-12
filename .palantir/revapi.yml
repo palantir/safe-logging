@@ -1,0 +1,26 @@
+versionOverrides: {}
+acceptedBreaks:
+  1.11.0:
+    com.palantir.safe-logging:preconditions: []
+    com.palantir.safe-logging:preconditions-assertj:
+    - code: "java.class.nowFinal"
+      old: "class com.palantir.logsafe.testing.LoggableExceptionAssert<T extends java.lang.Throwable,\
+        \ com.palantir.logsafe.SafeLoggable>"
+      new: "class com.palantir.logsafe.testing.LoggableExceptionAssert<T extends java.lang.Throwable,\
+        \ com.palantir.logsafe.SafeLoggable>"
+      justification: "{Acceptable visibility reduction in loggable assertion classes}"
+    - code: "java.class.visibilityReduced"
+      old: "class com.palantir.logsafe.testing.LoggableArgRepresentation"
+      new: "class com.palantir.logsafe.testing.LoggableArgRepresentation"
+      justification: "{Acceptable visibility reduction in loggable assertion classes}"
+    - code: "java.method.visibilityReduced"
+      old: "method void com.palantir.logsafe.testing.LoggableArgRepresentation::<init>()"
+      new: "method void com.palantir.logsafe.testing.LoggableArgRepresentation::<init>()"
+      justification: "{Acceptable visibility reduction in loggable assertion classes}"
+    - code: "java.method.visibilityReduced"
+      old: "method void com.palantir.logsafe.testing.LoggableExceptionAssert<T extends\
+        \ java.lang.Throwable, com.palantir.logsafe.SafeLoggable>::<init>(T)"
+      new: "method void com.palantir.logsafe.testing.LoggableExceptionAssert<T extends\
+        \ java.lang.Throwable, com.palantir.logsafe.SafeLoggable>::<init>(T)"
+      justification: "{Acceptable visibility reduction in loggable assertion classes}"
+    com.palantir.safe-logging:safe-logging: []

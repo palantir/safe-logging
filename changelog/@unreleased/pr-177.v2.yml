@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Register LoggableArgRepresentation explicitly instead of using the deprecated service loading mechanism.
+  links:
+    - https://github.com/palantir/safe-logging/pull/188

@@ -31,24 +31,24 @@ public class Assertions extends org.assertj.core.api.Assertions {
 
     public static LoggableExceptionAssert<SafeIllegalArgumentException> assertThat(
             SafeIllegalArgumentException actual) {
-        return new LoggableExceptionAssert<>(actual);
+        return LoggableExceptionAssert.create(actual);
     }
 
     public static LoggableExceptionAssert<SafeIllegalStateException> assertThat(SafeIllegalStateException actual) {
-        return new LoggableExceptionAssert<>(actual);
+        return LoggableExceptionAssert.create(actual);
     }
 
     public static LoggableExceptionAssert<SafeNullPointerException> assertThat(SafeNullPointerException actual) {
-        return new LoggableExceptionAssert<>(actual);
+        return LoggableExceptionAssert.create(actual);
     }
 
     public static LoggableExceptionAssert<SafeIoException> assertThat(SafeIoException actual) {
-        return new LoggableExceptionAssert<>(actual);
+        return LoggableExceptionAssert.create(actual);
     }
 
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableException(
             T actual) {
-        return new LoggableExceptionAssert<>(actual);
+        return LoggableExceptionAssert.create(actual);
     }
 
     @SuppressWarnings("unchecked")
@@ -59,6 +59,6 @@ public class Assertions extends org.assertj.core.api.Assertions {
                 .overridingErrorMessage(new BasicErrorMessageFactory("%nExpecting code to raise a throwable.").create())
                 .isNotNull();
         new ThrowableAssert(throwable).isInstanceOf(SafeLoggable.class);
-        return new LoggableExceptionAssert<>((T) throwable);
+        return LoggableExceptionAssert.create((T) throwable);
     }
 }

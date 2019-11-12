@@ -21,10 +21,8 @@ import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeIoException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
-import org.assertj.core.api.AssertionsForClassTypes;
-import org.assertj.core.api.ThrowableAssert;
+import org.assertj.core.api.InstanceOfAssertFactory;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
-import org.assertj.core.error.BasicErrorMessageFactory;
 
 public class Assertions extends org.assertj.core.api.Assertions {
     Assertions() {}
@@ -51,14 +49,17 @@ public class Assertions extends org.assertj.core.api.Assertions {
         return LoggableExceptionAssert.create(actual);
     }
 
-    @SuppressWarnings("unchecked")
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {
-        Throwable throwable = AssertionsForClassTypes.catchThrowable(shouldRaiseThrowable);
-        new ThrowableAssert(throwable)
-                .overridingErrorMessage(new BasicErrorMessageFactory("%nExpecting code to raise a throwable.").create())
-                .isNotNull();
-        new ThrowableAssert(throwable).isInstanceOf(SafeLoggable.class);
-        return LoggableExceptionAssert.create((T) throwable);
+        return assertThatThrownBy(shouldRaiseThrowable)
+                .asInstanceOf(loggableExceptionAssertFactory());
+    }
+
+    @SuppressWarnings("unchecked")
+    private static <T extends Throwable & SafeLoggable>
+            InstanceOfAssertFactory<SafeLoggable, LoggableExceptionAssert<T>> loggableExceptionAssertFactory() {
+        return new InstanceOfAssertFactory<>(
+                SafeLoggable.class,
+                safeLoggable -> LoggableExceptionAssert.create((T) safeLoggable));
     }
 }

@@ -1,6 +1,6 @@
 # Run ./gradlew --write-locks to regenerate this file
 com.google.code.findbugs:jsr305:3.0.2 (4 constraints: e932ae18)
-com.google.errorprone:error_prone_annotations:2.3.3 (4 constraints: f532671c)
+com.google.errorprone:error_prone_annotations:2.3.4 (4 constraints: f632ea1c)
 
 [Test dependencies]
 com.github.kevinstern:software-and-algorithms:1.0 (1 constraints: 7e12fcf5)

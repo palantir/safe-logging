@@ -23,7 +23,10 @@ import com.palantir.logsafe.exceptions.SafeIoException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
 import org.assertj.core.api.InstanceOfAssertFactory;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
+import org.assertj.core.util.CanIgnoreReturnValue;
+import org.assertj.core.util.CheckReturnValue;
 
+@CheckReturnValue
 public class Assertions extends org.assertj.core.api.Assertions {
     Assertions() {}
 
@@ -49,6 +52,7 @@ public class Assertions extends org.assertj.core.api.Assertions {
         return LoggableExceptionAssert.create(actual);
     }
 
+    @CanIgnoreReturnValue
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {
         return assertThatThrownBy(shouldRaiseThrowable)

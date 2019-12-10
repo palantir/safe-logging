@@ -4,7 +4,7 @@ apply plugin: 'com.palantir.revapi'
 dependencies {
     api project(':safe-logging')
     compileOnly 'com.google.code.findbugs:jsr305'
-    api 'com.google.errorprone:error_prone_annotations'
+    compileOnly 'com.google.errorprone:error_prone_annotations'
 
     testImplementation 'junit:junit'
     testImplementation 'org.assertj:assertj-core'

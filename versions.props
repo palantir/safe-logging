@@ -6,6 +6,6 @@ org.assertj:assertj-core = 3.14.0
 org.checkerframework:checker-qual = 2.5.0
 
 # dependency-upgrader:OFF
-# Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug
+# Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug: https://github.com/palantir/gradle-baseline/issues/1113
 com.google.errorprone:error_prone_annotations = 2.3.3
 com.google.errorprone:error_prone_refaster = 2.3.3

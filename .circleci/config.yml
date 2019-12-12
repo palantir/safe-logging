@@ -12,6 +12,7 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
+      - run: echo $Env:JAVA_HOME
       - run: ./gradlew.bat build
 
   compile:

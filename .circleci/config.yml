@@ -12,7 +12,7 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
-      - run: gradlew.bat build
+      - run: ./gradlew.bat build
 
   compile:
     docker: [{ image: 'circleci/openjdk:8u222-stretch-node' }]

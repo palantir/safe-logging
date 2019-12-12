@@ -191,29 +191,29 @@ workflows:
   build:
     jobs:
 
-      - compile:
-          filters: { tags: { only: /.*/ } }
+      # - compile:
+      #     filters: { tags: { only: /.*/ } }
 
-      - unit-test:
-          requires: [ compile ]
-          filters: { tags: { only: /.*/ } }
+      # - unit-test:
+      #     requires: [ compile ]
+      #     filters: { tags: { only: /.*/ } }
 
-      - unit-test-11:
-          filters: { tags: { only: /.*/ } }
+      # - unit-test-11:
+      #     filters: { tags: { only: /.*/ } }
 
-      - check:
-          requires: [ compile ]
-          filters: { tags: { only: /.*/ } }
+      # - check:
+      #     requires: [ compile ]
+      #     filters: { tags: { only: /.*/ } }
 
-      - markdown:
-          filters: { tags: { only: /.*/ } }
+      # - markdown:
+      #     filters: { tags: { only: /.*/ } }
 
-      - trial-publish:
-          requires: [ compile ]
+      # - trial-publish:
+      #     requires: [ compile ]
 
       - windows:
           filters: { tags: { only: /.*/ } }
 
-      - publish:
-          requires: [ unit-test, unit-test-11, check, windows ]
-          filters: { tags: { only: /.*/ }, branches: { only: develop } }
+      # - publish:
+      #     requires: [ unit-test, unit-test-11, check, windows ]
+      #     filters: { tags: { only: /.*/ }, branches: { only: develop } }

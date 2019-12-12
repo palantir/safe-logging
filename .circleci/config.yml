@@ -2,8 +2,17 @@
 # To request a modification to the general template, file an issue on Excavator.
 # To manually manage the CircleCI configuration for this project, remove the .circleci/template.sh file.
 
-version: 2
+version: 2.1
+orbs:
+  win: circleci/windows@2.2.0
 jobs:
+
+  windows:
+    executor: win/default
+    steps:
+      - checkout
+      - run: Write-Host 'Hello, Windows'
+
   compile:
     docker: [{ image: 'circleci/openjdk:8u222-stretch-node' }]
     resource_class: large
@@ -165,6 +174,7 @@ workflows:
   version: 2
   build:
     jobs:
+
       - compile:
           filters: { tags: { only: /.*/ } }
 
@@ -185,6 +195,9 @@ workflows:
       - trial-publish:
           requires: [ compile ]
 
+      - windows:
+          filters: { tags: { only: /.*/ } }
+
       - publish:
-          requires: [ unit-test, unit-test-11, check ]
+          requires: [ unit-test, unit-test-11, check, windows ]
           filters: { tags: { only: /.*/ }, branches: { only: develop } }

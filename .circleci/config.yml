@@ -12,8 +12,9 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
+      - run: choco install zulu11
       - run: echo $Env:JAVA_HOME
-      - run: ./gradlew.bat build
+      - run: ./gradlew.bat build --no-daemon
 
   compile:
     docker: [{ image: 'circleci/openjdk:8u222-stretch-node' }]

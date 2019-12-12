@@ -15,8 +15,9 @@ jobs:
     #   CIRCLE_ARTIFACTS: C:\Users\circleci\artifacts
     steps:
       - checkout
-      # - run: choco install zulu11
-      - run: echo $Env:JAVA_HOME
+      - run: |
+          choco install zulu11
+          echo $Env:JAVA_HOME
       - run: New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"
       - restore_cache: { key: 'windows-gradle-wrapper-v1-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}' }
       - restore_cache: { key: 'windows-dependencies-v1-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}' }

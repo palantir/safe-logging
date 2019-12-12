@@ -4,7 +4,7 @@
 
 version: 2.1
 orbs:
-  win: circleci/windows@2.2.0
+  win: circleci/windows@2.2.0 # https://circleci.com/orbs/registry/orb/circleci/windows
 jobs:
 
   windows:
@@ -12,6 +12,7 @@ jobs:
     steps:
       - checkout
       - run: Write-Host 'Hello, Windows'
+      - run: gradlew.bat build
 
   compile:
     docker: [{ image: 'circleci/openjdk:8u222-stretch-node' }]

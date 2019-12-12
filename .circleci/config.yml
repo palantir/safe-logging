@@ -17,7 +17,7 @@ jobs:
       - checkout
       - run: |
           choco install zulu11
-          refreshenv
+          Get-Content C:\ProgramData\chocolatey\logs\chocolatey.log
           echo $Env:JAVA_HOME
       - run: New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"
       - restore_cache: { key: 'windows-gradle-wrapper-v1-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}' }

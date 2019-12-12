@@ -128,12 +128,11 @@ jobs:
     #   CIRCLE_ARTIFACTS: C:\Users\circleci\artifacts
     steps:
       - run: |
+          New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"
           choco install zulu11
-          # Get-Content C:\ProgramData\chocolatey\logs\chocolatey.log
           $Env:JAVA_HOME = "C:\Program Files\Zulu\zulu-11"
           echo $Env:JAVA_HOME
       - checkout
-      - run: New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"
       - restore_cache: { key: 'windows-gradle-wrapper-v1-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}' }
       - restore_cache: { key: 'windows-dependencies-v1-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}' }
       - run: ./gradlew.bat build --no-daemon --stacktrace

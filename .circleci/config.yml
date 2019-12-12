@@ -18,6 +18,7 @@ jobs:
       - run: |
           choco install zulu11
           # Get-Content C:\ProgramData\chocolatey\logs\chocolatey.log
+          $Env:JAVA_HOME = "C:\Program Files\Zulu\zulu-11"
           echo $Env:JAVA_HOME
       - checkout
       - run: New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"

@@ -7,7 +7,7 @@ orbs:
   win: circleci/windows@2.2.0 # https://circleci.com/orbs/registry/orb/circleci/windows
 jobs:
 
-  windows:
+  build-windows:
     executor: win/default
     # TODO(dfox): baseline-circleci fails with these https://circleci.com/gh/palantir/safe-logging/5297
     # environment:
@@ -20,7 +20,7 @@ jobs:
       - run: New-Item -ItemType "directory" -Path "C:\Users\circleci\junit", "C:\Users\circleci\artifacts"
       - restore_cache: { key: 'windows-gradle-wrapper-v1-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}' }
       - restore_cache: { key: 'windows-dependencies-v1-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}' }
-      - run: ./gradlew.bat build --no-daemon --stacktrace -Porg.gradle.internal.launcher.welcomeMessageEnabled=false
+      - run: ./gradlew.bat build --no-daemon --stacktrace
       - save_cache:
           key: 'windows-dependencies-v1-{{ checksum "versions.props" }}-{{ checksum "build.gradle" }}'
           paths: [ C:\Users\circleci\.gradle\caches ]
@@ -212,7 +212,7 @@ workflows:
       # - trial-publish:
       #     requires: [ compile ]
 
-      - windows:
+      - build-windows:
           filters: { tags: { only: /.*/ } }
 
       # - publish:

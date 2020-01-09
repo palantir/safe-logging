@@ -23,6 +23,7 @@ import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 public final class Preconditions {
@@ -185,6 +186,7 @@ public final class Preconditions {
      * @return the non-null reference that was validated
      * @throws SafeNullPointerException if {@code reference} is null
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference) {
         if (reference == null) {
@@ -201,6 +203,7 @@ public final class Preconditions {
      * @return the non-null reference that was validated
      * @throws SafeNullPointerException if {@code reference} is null
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message) {
         if (reference == null) {
@@ -214,6 +217,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
         if (reference == null) {
@@ -227,6 +231,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
             @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
@@ -241,6 +246,7 @@ public final class Preconditions {
      *
      * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
             @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
@@ -259,6 +265,7 @@ public final class Preconditions {
      * @return the non-null reference that was validated
      * @throws SafeNullPointerException if {@code reference} is null
      */
+    @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
         if (reference == null) {

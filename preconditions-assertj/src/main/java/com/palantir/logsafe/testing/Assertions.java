@@ -55,15 +55,13 @@ public class Assertions extends org.assertj.core.api.Assertions {
     @CanIgnoreReturnValue
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {
-        return assertThatThrownBy(shouldRaiseThrowable)
-                .asInstanceOf(loggableExceptionAssertFactory());
+        return assertThatThrownBy(shouldRaiseThrowable).asInstanceOf(loggableExceptionAssertFactory());
     }
 
     @SuppressWarnings("unchecked")
     private static <T extends Throwable & SafeLoggable>
             InstanceOfAssertFactory<SafeLoggable, LoggableExceptionAssert<T>> loggableExceptionAssertFactory() {
         return new InstanceOfAssertFactory<>(
-                SafeLoggable.class,
-                safeLoggable -> LoggableExceptionAssert.create((T) safeLoggable));
+                SafeLoggable.class, safeLoggable -> LoggableExceptionAssert.create((T) safeLoggable));
     }
 }

@@ -25,7 +25,8 @@ import java.lang.annotation.Target;
 /**
  * Marks a parameter on a Jersey resource to be safe.
  *
- * Example:
+ * <p>Example:
+ *
  * <pre><code>
  *  import com.palantir.logsafe.Safe;
  *  import javax.ws.rs.Get;
@@ -41,20 +42,20 @@ import java.lang.annotation.Target;
  *          {@literal @}PathParam("bop") String bop);
  *  }
  * </code></pre>
- * If you sent a request to this server that looked like <code>/foo/bar/hello/world</code>, then
- * an implementation which relies on these annotations <i>must</i> guarantee that <code>hello</code>
- * will be preserved and <code>world</code> will not be preserved.
  *
- * An example output could look like one of these example:
+ * If you sent a request to this server that looked like <code>/foo/bar/hello/world</code>, then an implementation which
+ * relies on these annotations <i>must</i> guarantee that <code>hello</code> will be preserved and <code>world</code>
+ * will not be preserved.
+ *
+ * <p>An example output could look like one of these example:
+ *
  * <ul>
- * <li><code>/foo/bar/hello/_REDACTED_</code></li>
- * <li><code>/foo/bar/hello/{bop}</code></li>
- * <li><code>/foo/bar/hello/A7F386C91</code></li>
+ *   <li><code>/foo/bar/hello/_REDACTED_</code>
+ *   <li><code>/foo/bar/hello/{bop}</code>
+ *   <li><code>/foo/bar/hello/A7F386C91</code>
  * </ul>
  */
 @Documented
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Safe {
-
-}
+public @interface Safe {}

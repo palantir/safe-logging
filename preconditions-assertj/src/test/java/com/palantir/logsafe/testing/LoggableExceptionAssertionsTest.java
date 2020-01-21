@@ -46,7 +46,8 @@ public final class LoggableExceptionAssertionsTest {
     public LoggableException loggableException = new LoggableException();
 
     public void testIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
-        assertion.isInstanceOf(SafeIllegalArgumentException.class)
+        assertion
+                .isInstanceOf(SafeIllegalArgumentException.class)
                 .hasMessage("{index} must be less than {size}: {index=4, size=1}")
                 .hasLogMessage("{index} must be less than {size}")
                 .hasExactlyArgs(UnsafeArg.of("index", 4), SafeArg.of("size", 1))
@@ -57,22 +58,20 @@ public final class LoggableExceptionAssertionsTest {
     }
 
     public void testNullPointerException(LoggableExceptionAssert<SafeNullPointerException> assertion) {
-        assertion.isInstanceOf(SafeNullPointerException.class)
-                .hasMessage("")
-                .hasExactlyArgs();
+        assertion.isInstanceOf(SafeNullPointerException.class).hasMessage("").hasExactlyArgs();
     }
 
     public void testIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
-        assertion.isInstanceOf(SafeIllegalStateException.class)
-                .hasMessage("")
-                .hasExactlyArgs();
+        assertion.isInstanceOf(SafeIllegalStateException.class).hasMessage("").hasExactlyArgs();
     }
 
     public void testLoggableException(LoggableExceptionAssert<LoggableException> assertion) {
-        assertion.isInstanceOf(LoggableException.class)
+        assertion
+                .isInstanceOf(LoggableException.class)
                 .hasMessage("test message")
                 .hasLogMessage("test message")
-                .args().contains(UnsafeArg.of("arg", "value"));
+                .args()
+                .contains(UnsafeArg.of("arg", "value"));
     }
 
     @Test
@@ -105,30 +104,36 @@ public final class LoggableExceptionAssertionsTest {
 
     public void testFailIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertThatThrownBy(() -> assertion.hasMessage("not this"))
-                .hasMessage(ShouldHaveMessage.shouldHaveMessage(
-                        illegalArgumentException, "not this").create());
+                .hasMessage(ShouldHaveMessage.shouldHaveMessage(illegalArgumentException, "not this")
+                        .create());
     }
 
     public void testFailIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
         Arg<?> arg = SafeArg.of("missing", "missing");
         assertThatThrownBy(() -> assertion.containsArgs(arg))
                 .hasMessage(ShouldContain.shouldContain(
-                        illegalStateException.getArgs(), Collections.singleton(arg), Collections.singleton(arg),
-                        StandardComparisonStrategy.instance()).create());
+                                illegalStateException.getArgs(),
+                                Collections.singleton(arg),
+                                Collections.singleton(arg),
+                                StandardComparisonStrategy.instance())
+                        .create());
     }
 
     public void testFailNullPointerException(LoggableExceptionAssert<SafeNullPointerException> assertion) {
         assertThatThrownBy(() -> assertion.isInstanceOf(IllegalArgumentException.class))
-                .hasMessage(ShouldBeInstance.shouldBeInstance(
-                        nullPointerException, IllegalArgumentException.class).create());
+                .hasMessage(ShouldBeInstance.shouldBeInstance(nullPointerException, IllegalArgumentException.class)
+                        .create());
     }
 
     public void testFailLoggableException(LoggableExceptionAssert<?> assertion) {
         SafeArg<?> safeArg = SafeArg.of("arg", "value");
         assertThatThrownBy(() -> assertion.args().contains(safeArg))
                 .hasMessage(ShouldContain.shouldContain(
-                        loggableException.getArgs(), Collections.singleton(safeArg), Collections.singleton(safeArg),
-                        StandardComparisonStrategy.instance()).create());
+                                loggableException.getArgs(),
+                                Collections.singleton(safeArg),
+                                Collections.singleton(safeArg),
+                                StandardComparisonStrategy.instance())
+                        .create());
     }
 
     @Test

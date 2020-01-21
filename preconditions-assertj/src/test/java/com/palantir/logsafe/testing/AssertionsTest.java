@@ -28,7 +28,7 @@ public final class AssertionsTest {
 
     @Test
     public void testCodeDoesNotThrowException() {
-        org.assertj.core.api.Assertions.assertThatThrownBy(() -> assertThatLoggableExceptionThrownBy(() -> { }))
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> assertThatLoggableExceptionThrownBy(() -> {}))
                 .isExactlyInstanceOf(AssertionError.class)
                 .hasMessage(new BasicErrorMessageFactory("%nExpecting code to raise a throwable.").create());
     }
@@ -37,9 +37,11 @@ public final class AssertionsTest {
     public void testCodeThrowsNotSafeLoggable() {
         RuntimeException exception = new RuntimeException("Oops");
         org.assertj.core.api.Assertions.assertThatThrownBy(() -> assertThatLoggableExceptionThrownBy(() -> {
-            throw exception;
-        })).isExactlyInstanceOf(AssertionError.class)
-                .hasMessage(ShouldBeInstance.shouldBeInstance(exception, SafeLoggable.class).create());
+                    throw exception;
+                }))
+                .isExactlyInstanceOf(AssertionError.class)
+                .hasMessage(ShouldBeInstance.shouldBeInstance(exception, SafeLoggable.class)
+                        .create());
     }
 
     @Test

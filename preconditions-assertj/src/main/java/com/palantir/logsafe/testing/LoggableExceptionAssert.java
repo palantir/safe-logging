@@ -29,8 +29,7 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     private final ArgsAssert argsAssert;
 
     static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> create(T actual) {
-        return new LoggableExceptionAssert<>(actual)
-                .withRepresentation(LoggableArgRepresentation.INSTANCE);
+        return new LoggableExceptionAssert<>(actual).withRepresentation(LoggableArgRepresentation.INSTANCE);
     }
 
     private LoggableExceptionAssert(T actual) {
@@ -49,7 +48,7 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
      * @throws AssertionError if the exception is {@code null}.
      * @throws AssertionError if the exception argument list is {@code null}.
      * @throws AssertionError if the exception arguments do not contain the given values, i.e. the exception contains
-     * some or none of the given arguments, or the exception contains more arguments than the given ones.
+     *     some or none of the given arguments, or the exception contains more arguments than the given ones.
      */
     public LoggableExceptionAssert<T> hasExactlyArgs(Arg<?>... args) {
         isNotNull();
@@ -91,8 +90,8 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
 
         String actualMessage = actual.getLogMessage();
         if (!Objects.areEqual(actualMessage, logMessage)) {
-            throw new AssertionError(String.format("Expecting safe logging message:%n <%s>%nbut was:%n <%s>",
-                    logMessage, actualMessage));
+            throw new AssertionError(String.format(
+                    "Expecting safe logging message:%n <%s>%nbut was:%n <%s>", logMessage, actualMessage));
         }
 
         return this;

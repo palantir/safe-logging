@@ -27,45 +27,40 @@ public class SafeExceptionTest {
 
     @Test
     public void testSafeIllegalArgumentException() {
-        SafeIllegalArgumentException exception = new SafeIllegalArgumentException("Failure",
-                SafeArg.of("value", 3),
-                UnsafeArg.of("user", "akarp"));
+        SafeIllegalArgumentException exception =
+                new SafeIllegalArgumentException("Failure", SafeArg.of("value", 3), UnsafeArg.of("user", "akarp"));
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }
 
     @Test
     public void testSafeIllegalStateException() {
-        SafeIllegalStateException exception = new SafeIllegalStateException("Failure",
-                SafeArg.of("value", 3),
-                UnsafeArg.of("user", "akarp"));
+        SafeIllegalStateException exception =
+                new SafeIllegalStateException("Failure", SafeArg.of("value", 3), UnsafeArg.of("user", "akarp"));
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }
 
     @Test
     public void testSafeIoException() {
-        SafeIoException exception = new SafeIoException("Failure",
-                SafeArg.of("value", 3),
-                UnsafeArg.of("user", "akarp"));
+        SafeIoException exception =
+                new SafeIoException("Failure", SafeArg.of("value", 3), UnsafeArg.of("user", "akarp"));
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }
 
     @Test
     public void testSafeNullPointerException() {
-        SafeNullPointerException exception = new SafeNullPointerException("Failure",
-                SafeArg.of("value", 3),
-                UnsafeArg.of("user", "akarp"));
+        SafeNullPointerException exception =
+                new SafeNullPointerException("Failure", SafeArg.of("value", 3), UnsafeArg.of("user", "akarp"));
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }
 
     @Test
     public void testSafeRuntimeException() {
-        SafeRuntimeException exception = new SafeRuntimeException("Failure",
-                SafeArg.of("value", 3),
-                UnsafeArg.of("user", "akarp"));
+        SafeRuntimeException exception =
+                new SafeRuntimeException("Failure", SafeArg.of("value", 3), UnsafeArg.of("user", "akarp"));
         assertThat(exception.getMessage()).isEqualTo("Failure: {value=3, user=akarp}");
         assertThat(exception.getLogMessage()).isEqualTo("Failure");
     }

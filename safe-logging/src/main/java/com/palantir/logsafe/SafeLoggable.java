@@ -26,5 +26,4 @@ public interface SafeLoggable {
 
     /** The arguments associated with the message. */
     List<Arg<?>> getArgs();
-
 }

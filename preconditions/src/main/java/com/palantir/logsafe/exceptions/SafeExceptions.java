@@ -20,9 +20,7 @@ import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import java.util.Arrays;
 
-/**
- * {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations.
- */
+/** {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations. */
 public final class SafeExceptions {
     private SafeExceptions() {}
 
@@ -56,5 +54,4 @@ public final class SafeExceptions {
             builder.append(value);
         }
     }
-
 }

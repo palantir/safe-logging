@@ -34,8 +34,8 @@ public class LoggableArgRepresentationTest {
     @Test
     public void toStringOf_safeArg_complexType() {
         CompletableFuture<String> stringFuture = new CompletableFuture<>();
-        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(stringFuture)).isEqualTo(
-                "CompletableFuture[Incomplete]");
+        assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(stringFuture))
+                .isEqualTo("CompletableFuture[Incomplete]");
         assertThat(LoggableArgRepresentation.INSTANCE.toStringOf(SafeArg.of("future", stringFuture)))
                 .isEqualTo("SafeArg[future=CompletableFuture[Incomplete]]");
     }

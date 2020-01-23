@@ -104,8 +104,8 @@ public final class Preconditions {
     }
 
     /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
+     * Ensures the truth of an expression involving the state of the calling instance, but not involving any parameters
+     * to the calling method.
      *
      * @param expression a boolean expression
      * @throws SafeIllegalStateException if {@code expression} is false
@@ -117,8 +117,8 @@ public final class Preconditions {
     }
 
     /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
+     * Ensures the truth of an expression involving the state of the calling instance, but not involving any parameters
+     * to the calling method.
      *
      * @param expression a boolean expression
      * @param message the loggable exception message
@@ -165,8 +165,8 @@ public final class Preconditions {
     }
 
     /**
-     * Ensures the truth of an expression involving the state of the calling instance, but not
-     * involving any parameters to the calling method.
+     * Ensures the truth of an expression involving the state of the calling instance, but not involving any parameters
+     * to the calling method.
      *
      * @param expression a boolean expression
      * @param message the loggable exception message

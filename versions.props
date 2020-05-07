@@ -1,6 +1,6 @@
 com.google.code.findbugs:jsr305 = 3.0.2
 com.google.guava:guava = 23.5-jre
-com.uber.nullaway:nullaway = 0.7.9
+com.uber.nullaway:nullaway = 0.7.10
 junit:junit = 4.13
 org.assertj:assertj-core = 3.16.0
 org.checkerframework:checker-qual = 2.5.0

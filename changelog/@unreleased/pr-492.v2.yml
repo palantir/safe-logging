@@ -1,0 +1,5 @@
+type: fix
+fix:
+  description: SafeLoggable exception message rendering no longer fails on null args
+  links:
+  - https://github.com/palantir/safe-logging/pull/492

@@ -25,20 +25,24 @@ public final class SafeExceptions {
     private SafeExceptions() {}
 
     public static String renderMessage(@CompileTimeConstant String safeMessage, Arg<?>... args) {
-        if (args.length == 0) {
+        if (args == null || args.length == 0) {
             return safeMessage;
         }
 
         StringBuilder builder = new StringBuilder();
         builder.append(safeMessage).append(": {");
-        for (int i = 0; i < args.length; i++) {
-            Arg<?> arg = args[i];
-            if (i > 0) {
-                builder.append(", ");
-            }
+        boolean first = true;
+        for (Arg<?> arg : args) {
+            if (arg != null) {
+                if (!first) {
+                    builder.append(", ");
+                } else {
+                    first = false;
+                }
 
-            builder.append(arg.getName()).append("=");
-            appendValue(builder, arg);
+                builder.append(arg.getName()).append("=");
+                appendValue(builder, arg);
+            }
         }
         builder.append('}');
 

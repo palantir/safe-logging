@@ -23,7 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a parameter on a Jersey resource to be safe.
+ * Marks a parameter on a resource to be safe.
  *
  * <p>Example:
  *

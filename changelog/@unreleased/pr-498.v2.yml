@@ -1,0 +1,5 @@
+type: feature
+feature:
+  description: Add @Unsafe annotation as inverse of @Safe
+  links:
+  - https://github.com/palantir/safe-logging/pull/498

@@ -23,7 +23,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Marks a parameter on a Jersey resource to be unsafe.
+ * Explicitly marks a parameter as unsafe.
  *
  * <p>Inverse of {@link Safe}.
  */

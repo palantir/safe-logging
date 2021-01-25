@@ -34,7 +34,6 @@ import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 

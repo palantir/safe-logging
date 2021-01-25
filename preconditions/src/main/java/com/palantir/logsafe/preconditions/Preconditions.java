@@ -27,10 +27,11 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.palantir.logsafe;
+package com.palantir.logsafe.preconditions;
 
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.CompileTimeConstant;
+import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
@@ -38,13 +39,6 @@ import com.palantir.logsafe.exceptions.SafeNullPointerException;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-/**
- * Prefer {@link com.palantir.logsafe.preconditions.Preconditions}. This class
- * exists for backwards compatibility.
- *
- * @deprecated in favor of {@link com.palantir.logsafe.preconditions.Preconditions}.
- */
-@Deprecated
 public final class Preconditions {
     private Preconditions() {}
 
@@ -55,7 +49,9 @@ public final class Preconditions {
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
     public static void checkArgument(boolean expression) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression);
+        if (!expression) {
+            throw new SafeIllegalArgumentException();
+        }
     }
 
     /**
@@ -66,7 +62,9 @@ public final class Preconditions {
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
     public static void checkArgument(boolean expression, @CompileTimeConstant String message) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression, message);
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message);
+        }
     }
 
     /**
@@ -75,7 +73,9 @@ public final class Preconditions {
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
     public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression, message, arg);
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message, arg);
+        }
     }
 
     /**
@@ -85,7 +85,9 @@ public final class Preconditions {
      */
     public static void checkArgument(
             boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression, message, arg1, arg2);
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message, arg1, arg2);
+        }
     }
 
     /**
@@ -95,7 +97,9 @@ public final class Preconditions {
      */
     public static void checkArgument(
             boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression, message, arg1, arg2, arg3);
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
+        }
     }
 
     /**
@@ -107,7 +111,9 @@ public final class Preconditions {
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
     public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
-        com.palantir.logsafe.preconditions.Preconditions.checkArgument(expression, message, args);
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message, args);
+        }
     }
 
     /**
@@ -118,7 +124,9 @@ public final class Preconditions {
      * @throws SafeIllegalStateException if {@code expression} is false
      */
     public static void checkState(boolean expression) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression);
+        if (!expression) {
+            throw new SafeIllegalStateException();
+        }
     }
 
     /**
@@ -130,7 +138,9 @@ public final class Preconditions {
      * @throws SafeIllegalStateException if {@code expression} is false
      */
     public static void checkState(boolean expression, @CompileTimeConstant String message) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression, message);
+        if (!expression) {
+            throw new SafeIllegalStateException(message);
+        }
     }
 
     /**
@@ -139,7 +149,9 @@ public final class Preconditions {
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
     public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression, message, arg);
+        if (!expression) {
+            throw new SafeIllegalStateException(message, arg);
+        }
     }
 
     /**
@@ -148,7 +160,9 @@ public final class Preconditions {
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
     public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression, message, arg1, arg2);
+        if (!expression) {
+            throw new SafeIllegalStateException(message, arg1, arg2);
+        }
     }
 
     /**
@@ -158,7 +172,9 @@ public final class Preconditions {
      */
     public static void checkState(
             boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression, message, arg1, arg2, arg3);
+        if (!expression) {
+            throw new SafeIllegalStateException(message, arg1, arg2, arg3);
+        }
     }
 
     /**
@@ -171,7 +187,9 @@ public final class Preconditions {
      * @throws SafeIllegalStateException if {@code expression} is false
      */
     public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
-        com.palantir.logsafe.preconditions.Preconditions.checkState(expression, message, args);
+        if (!expression) {
+            throw new SafeIllegalStateException(message, args);
+        }
     }
 
     /**
@@ -184,7 +202,10 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference);
+        if (reference == null) {
+            throw new SafeNullPointerException();
+        }
+        return reference;
     }
 
     /**
@@ -198,7 +219,10 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference, message);
+        if (reference == null) {
+            throw new SafeNullPointerException(message);
+        }
+        return reference;
     }
 
     /**
@@ -209,7 +233,10 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference, message, arg);
+        if (reference == null) {
+            throw new SafeNullPointerException(message, arg);
+        }
+        return reference;
     }
 
     /**
@@ -221,7 +248,10 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
             @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference, message, arg1, arg2);
+        if (reference == null) {
+            throw new SafeNullPointerException(message, arg1, arg2);
+        }
+        return reference;
     }
 
     /**
@@ -233,7 +263,10 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
             @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference, message, arg1, arg2, arg3);
+        if (reference == null) {
+            throw new SafeNullPointerException(message, arg1, arg2, arg3);
+        }
+        return reference;
     }
 
     /**
@@ -248,6 +281,9 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
-        return com.palantir.logsafe.preconditions.Preconditions.checkNotNull(reference, message, args);
+        if (reference == null) {
+            throw new SafeNullPointerException(message, args);
+        }
+        return reference;
     }
 }

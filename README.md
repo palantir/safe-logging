@@ -54,3 +54,28 @@ Annotate Preconditions error messages with named `SafeArg` and `UnsafeArg` as ap
     Preconditions.checkArgument(uname.size() > MAX_LEN, "username longer than max",
             UnsafeArg.of("uname", uname), SafeArg.of("max", MAX_LEN));
 
+
+Iterables
+=============
+Guava Iterables equivalent which produces exceptions conforming to the SafeLoggable standard
+(using the above Preconditions)
+
+Usage
+-----
+
+Add dependency to gradle:
+
+    compile "com.palantir.safe-logging:iterables"
+
+Example:
+
+    // previously
+    import com.google.common.collect.Iterators;
+    ...
+    Preconditions.checkState(collection.size() == 1, "Expected exactly one element in collection", args);
+    return Iterators.getOnlyElement(collection.iterator());
+
+    // now
+    import com.palantir.logsafe.Iterables;
+    ...
+    Iterables.getOnlyElement(collection, args);

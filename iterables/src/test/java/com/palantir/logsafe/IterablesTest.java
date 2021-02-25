@@ -16,11 +16,11 @@
 
 package com.palantir.logsafe;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import com.google.common.collect.ImmutableSet;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class IterablesTest {
     @Test
@@ -43,23 +43,5 @@ public class IterablesTest {
         assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of()))
                 .isInstanceOf(IllegalStateException.class)
                 .hasMessageContaining(Iterables.DEFAULT_ERROR_MESSAGE);
-    }
-
-    @Test
-    public void getOnlyElementThrowsIfMoreThanOneElementWithCustomMessage() {
-        String element1 = "element1";
-        String element2 = "element2";
-        String message = "some other error message";
-        assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of(element1, element2), message))
-                .isInstanceOf(IllegalStateException.class)
-                .hasMessageContaining(message);
-    }
-
-    @Test
-    public void getOnlyElementThrowsIfEmptyWithCustomMessage() {
-        String message = "some other error message";
-        assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of(), message))
-                .isInstanceOf(IllegalStateException.class)
-                .hasMessageContaining(message);
     }
 }

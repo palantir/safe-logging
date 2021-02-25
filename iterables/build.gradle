@@ -3,9 +3,9 @@ apply plugin: 'com.palantir.revapi'
 
 dependencies {
     api project(':safe-logging')
-    compile 'preconditions'
+    api project(':preconditions')
     compileOnly 'com.google.code.findbugs:jsr305'
-    api 'com.google.errorprone:error_prone_annotations'
+    compile group: 'com.google.guava', name: 'guava'
 
     testImplementation 'junit:junit'
     testImplementation 'org.assertj:assertj-core'

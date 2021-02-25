@@ -29,23 +29,17 @@
  */
 package com.palantir.logsafe;
 
-import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Iterators;
 import java.util.Collection;
 
 public final class Iterables {
-    @VisibleForTesting
-    static final String DEFAULT_ERROR_MESSAGE = "Expected exactly one element in collection";
+    public static final String DEFAULT_ERROR_MESSAGE = "Expected exactly one element in collection";
 
     private Iterables() {}
 
     public static <T, C extends Collection<T>> T getOnlyElement(C collection, Arg<?>... args) {
-        return getOnlyElement(collection, DEFAULT_ERROR_MESSAGE, args);
-    }
-
-    public static <T, C extends Collection<T>> T getOnlyElement(C collection, String message, Arg<?>... args) {
-        Preconditions.checkState(collection.size() == 1, message, args);
+        Preconditions.checkState(collection.size() == 1, DEFAULT_ERROR_MESSAGE, args);
         return Iterators.getOnlyElement(collection.iterator());
     }
 }

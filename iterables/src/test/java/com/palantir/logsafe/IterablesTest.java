@@ -20,7 +20,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.google.common.collect.ImmutableSet;
-import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import org.junit.Test;
 
 public class IterablesTest {
@@ -35,12 +34,32 @@ public class IterablesTest {
         String element1 = "element1";
         String element2 = "element2";
         assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of(element1, element2)))
-                .isInstanceOf(SafeIllegalStateException.class);
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(Iterables.DEFAULT_ERROR_MESSAGE);
     }
 
     @Test
     public void getOnlyElementThrowsIfEmpty() {
         assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of()))
-                .isInstanceOf(SafeIllegalStateException.class);
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(Iterables.DEFAULT_ERROR_MESSAGE);
+    }
+
+    @Test
+    public void getOnlyElementThrowsIfMoreThanOneElementWithCustomMessage() {
+        String element1 = "element1";
+        String element2 = "element2";
+        String message = "some other error message";
+        assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of(element1, element2), message))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(message);
+    }
+
+    @Test
+    public void getOnlyElementThrowsIfEmptyWithCustomMessage() {
+        String message = "some other error message";
+        assertThatThrownBy(() -> Iterables.getOnlyElement(ImmutableSet.of(), message))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining(message);
     }
 }

@@ -16,11 +16,11 @@
 
 package com.palantir.logsafe;
 
-import com.google.common.collect.ImmutableSet;
-import org.junit.Test;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+import com.google.common.collect.ImmutableSet;
+import org.junit.Test;
 
 public class IterablesTest {
     @Test

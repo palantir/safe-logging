@@ -73,7 +73,7 @@ Example:
     import com.google.common.collect.Iterators;
     ...
     Preconditions.checkState(collection.size() == 1, "Expected exactly one element in collection", args);
-    return Iterators.getOnlyElement(collection.iterator());
+    return Iterables.getOnlyElement(collection);
 
     // now
     import com.palantir.logsafe.Iterables;

@@ -1,0 +1,12 @@
+apply from: "${rootDir}/gradle/publish-jar.gradle"
+apply plugin: 'com.palantir.revapi'
+
+dependencies {
+    api project(':safe-logging')
+    api project(':preconditions')
+    compileOnly 'com.google.code.findbugs:jsr305'
+    compile group: 'com.google.guava', name: 'guava'
+
+    testImplementation 'junit:junit'
+    testImplementation 'org.assertj:assertj-core'
+}

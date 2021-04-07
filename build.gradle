@@ -1,7 +1,9 @@
 buildscript {
     repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        maven { url 'https://palantir.bintray.com/releases' }
         jcenter()
-        maven { url 'https://palantir.bintray.com/releases/' }
     }
 
     dependencies {
@@ -25,8 +27,9 @@ apply plugin: 'com.palantir.baseline'
 allprojects {
     apply plugin: 'com.palantir.java-format'
     repositories {
+        mavenCentral()
+        maven { url 'https://palantir.bintray.com/releases' }
         jcenter()
-        maven { url 'https://palantir.bintray.com/releases/' }
     }
 
     group 'com.palantir.safe-logging'
@@ -37,6 +40,8 @@ subprojects {
     apply plugin: 'java-library'
 
     repositories {
+        mavenCentral()
+        maven { url 'https://palantir.bintray.com/releases' }
         jcenter()
     }
 

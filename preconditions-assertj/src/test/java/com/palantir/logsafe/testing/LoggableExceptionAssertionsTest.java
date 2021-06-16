@@ -171,6 +171,7 @@ public final class LoggableExceptionAssertionsTest {
                 .hasMessageContaining("Expecting actual not to be null");
     }
 
+    @SuppressWarnings("ExtendsErrorOrThrowable")
     private static class LoggableException extends Throwable implements SafeLoggable {
         LoggableException() {
             super("test message");

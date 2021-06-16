@@ -16,11 +16,6 @@
 
 package com.palantir.logsafe.testing;
 
-import static com.palantir.logsafe.testing.Assertions.assertThat;
-import static com.palantir.logsafe.testing.Assertions.assertThatLoggableException;
-import static com.palantir.logsafe.testing.Assertions.assertThatLoggableExceptionThrownBy;
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.SafeLoggable;
@@ -28,14 +23,20 @@ import com.palantir.logsafe.UnsafeArg;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
-import java.util.Collections;
-import java.util.List;
 import org.assertj.core.error.ShouldBeInstance;
 import org.assertj.core.error.ShouldContain;
 import org.assertj.core.error.ShouldHaveMessage;
 import org.assertj.core.internal.StandardComparisonStrategy;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
+
+import java.util.Collections;
+import java.util.List;
+
+import static com.palantir.logsafe.testing.Assertions.assertThat;
+import static com.palantir.logsafe.testing.Assertions.assertThatLoggableException;
+import static com.palantir.logsafe.testing.Assertions.assertThatLoggableExceptionThrownBy;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public final class LoggableExceptionAssertionsTest {
 
@@ -104,7 +105,7 @@ public final class LoggableExceptionAssertionsTest {
 
     public void testFailIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertThatThrownBy(() -> assertion.hasMessage("not this"))
-                .hasMessage(ShouldHaveMessage.shouldHaveMessage(illegalArgumentException, "not this")
+                .hasMessageContaining(ShouldHaveMessage.shouldHaveMessage(illegalArgumentException, "not this")
                         .create());
     }
 

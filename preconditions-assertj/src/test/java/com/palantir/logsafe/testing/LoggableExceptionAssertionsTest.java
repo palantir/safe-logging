@@ -104,7 +104,7 @@ public final class LoggableExceptionAssertionsTest {
 
     public void testFailIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertThatThrownBy(() -> assertion.hasMessage("not this"))
-                .hasMessage(ShouldHaveMessage.shouldHaveMessage(illegalArgumentException, "not this")
+                .hasMessageContaining(ShouldHaveMessage.shouldHaveMessage(illegalArgumentException, "not this")
                         .create());
     }
 

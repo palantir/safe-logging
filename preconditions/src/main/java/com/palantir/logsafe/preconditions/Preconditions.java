@@ -27,10 +27,11 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.palantir.logsafe;
+package com.palantir.logsafe.preconditions;
 
 import com.google.errorprone.annotations.CanIgnoreReturnValue;
 import com.google.errorprone.annotations.CompileTimeConstant;
+import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;

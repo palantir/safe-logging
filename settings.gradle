@@ -1,7 +1,9 @@
 rootProject.name = 'safe-logging-root'
 
 include 'safe-logging'
+include 'safe-logging-exceptions'
 include 'safe-logging-refactorings'
 include 'preconditions'
+include 'preconditions-legacy'
 include 'preconditions-assertj'
 

@@ -3,6 +3,8 @@ com.google.guava:guava = 30.1.1-jre
 com.uber.nullaway:nullaway = 0.9.1
 junit:junit = 4.13.2
 org.assertj:assertj-core = 3.20.2
+org.junit.jupiter:* = 5.5.0
+org.junit.vintage:* = 5.5.0
 org.checkerframework:checker-qual = 2.5.0
 
 # dependency-upgrader:OFF

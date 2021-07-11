@@ -21,7 +21,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.UnsafeArg;
 import java.util.concurrent.CompletableFuture;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public class LoggableArgRepresentationTest {
 

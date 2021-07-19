@@ -4,8 +4,14 @@ com.uber.nullaway:nullaway = 0.9.1
 junit:junit = 4.13.2
 org.assertj:assertj-core = 3.20.2
 org.checkerframework:checker-qual = 2.5.0
+com.squareup:javapoet = 1.13.0
+com.palantir.goethe:goethe = 0.2.0
 
 # dependency-upgrader:OFF
 # Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug: https://github.com/palantir/gradle-baseline/issues/1113
 com.google.errorprone:error_prone_annotations = 2.3.3
 com.google.errorprone:error_prone_refaster = 2.3.3
+
+# Don't automatically force everything to upgrade slf4j
+org.slf4j:slf4j-api = 1.7.31
+# dependency-upgrader:ON

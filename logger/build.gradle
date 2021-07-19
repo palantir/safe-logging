@@ -1,0 +1,15 @@
+apply plugin: 'com.palantir.external-publish-jar'
+apply plugin: 'com.palantir.revapi'
+
+dependencies {
+    api project(':safe-logging')
+    api 'com.google.errorprone:error_prone_annotations'
+    implementation project(':logger-spi')
+    // Delegate to slf4j by default, if no other implementation is present.
+    // Perhaps JUL would be a better option to avoid third party dependencies entirely?
+    implementation 'org.slf4j:slf4j-api'
+}
+
+sourceCompatibility = 11
+// No great way to use a block comment for copyright statements
+tasks.spotlessJavaCheck.enabled = false

@@ -4,4 +4,6 @@ include 'safe-logging'
 include 'safe-logging-refactorings'
 include 'preconditions'
 include 'preconditions-assertj'
-
+include 'logger-generator'
+include 'logger-spi'
+include 'logger'

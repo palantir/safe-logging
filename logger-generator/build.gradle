@@ -1,0 +1,16 @@
+dependencies {
+    implementation 'org.slf4j:slf4j-api'
+    implementation project(':safe-logging')
+    implementation 'com.google.errorprone:error_prone_annotations'
+    implementation 'com.squareup:javapoet'
+    implementation 'com.palantir.goethe:goethe'
+}
+
+sourceCompatibility = 11
+
+task generate(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.palantir.logsafe.logger.generator.LoggerGenerator'
+}
+
+tasks.check.dependsOn tasks.generate

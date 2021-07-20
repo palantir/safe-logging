@@ -5,9 +5,7 @@ dependencies {
     api project(':safe-logging')
     api 'com.google.errorprone:error_prone_annotations'
     implementation project(':logger-spi')
-    // Delegate to slf4j by default, if no other implementation is present.
-    // Perhaps JUL would be a better option to avoid third party dependencies entirely?
-    implementation 'org.slf4j:slf4j-api'
+    runtimeOnly project(':logger-slf4j')
 }
 
 sourceCompatibility = 11

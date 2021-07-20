@@ -1,4 +1,5 @@
 # Run ./gradlew --write-locks to regenerate this file
+com.google.auto.service:auto-service-annotations:1.0 (1 constraints: a5041a2c)
 com.google.code.findbugs:jsr305:3.0.2 (4 constraints: e932ae18)
 com.google.errorprone:error_prone_annotations:2.5.1 (4 constraints: f932711c)
 com.palantir.goethe:goethe:0.2.0 (1 constraints: 0405f135)

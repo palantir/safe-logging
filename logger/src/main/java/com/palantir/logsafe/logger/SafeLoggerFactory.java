@@ -16,8 +16,12 @@
 
 package com.palantir.logsafe.logger;
 
+import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.logger.spi.SafeLoggerFactoryBridge;
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.ServiceLoader;
 
 /** Factory used to access {@link SafeLogger} instance. */
@@ -27,7 +31,8 @@ public final class SafeLoggerFactory {
             ServiceLoader.load(SafeLoggerFactoryBridge.class, SafeLoggerFactory.class.getClassLoader()).stream()
                     .map(ServiceLoader.Provider::get)
                     .max(Comparator.comparing(SafeLoggerFactoryBridge::priority))
-                    .orElse(DefaultSlf4JSafeLoggerFactoryBridge.INSTANCE);
+                    // Should never happen unless dependencies are explicitly excluded
+                    .orElseThrow(NoSafeLoggerImplementationsException::new);
 
     /** Returns a {@link SafeLogger} for the {@code clazz} origin. */
     public static SafeLogger get(Class<?> clazz) {
@@ -40,4 +45,24 @@ public final class SafeLoggerFactory {
     }
 
     private SafeLoggerFactory() {}
+
+    private static final class NoSafeLoggerImplementationsException extends RuntimeException implements SafeLoggable {
+
+        private static final String MESSAGE = "Unable to find any logsafe logger-spi implementations. "
+                + "Was  the`logger-slf4j` dependency excluded?";
+
+        NoSafeLoggerImplementationsException() {
+            super(MESSAGE);
+        }
+
+        @Override
+        public String getLogMessage() {
+            return MESSAGE;
+        }
+
+        @Override
+        public List<Arg<?>> getArgs() {
+            return Collections.emptyList();
+        }
+    }
 }

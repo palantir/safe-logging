@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-package com.palantir.logsafe.logger;
+package com.palantir.logsafe.logger.slf4j;
 
+import com.google.auto.service.AutoService;
 import com.palantir.logsafe.logger.spi.SafeLoggerBridge;
 import com.palantir.logsafe.logger.spi.SafeLoggerFactoryBridge;
 import org.slf4j.LoggerFactory;
 
-final class DefaultSlf4JSafeLoggerFactoryBridge implements SafeLoggerFactoryBridge {
+@AutoService(SafeLoggerFactoryBridge.class)
+public final class Slf4JSafeLoggerFactoryBridge implements SafeLoggerFactoryBridge {
 
-    static final SafeLoggerFactoryBridge INSTANCE = new DefaultSlf4JSafeLoggerFactoryBridge();
+    public Slf4JSafeLoggerFactoryBridge() {}
 
     @Override
     public int priority() {
-        return Integer.MIN_VALUE;
+        // Default priority, negative values may be used
+        // to opt out and positive values are preferred.
+        return 0;
     }
 
     @Override

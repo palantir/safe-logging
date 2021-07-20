@@ -46,7 +46,7 @@ public final class LoggerGenerator {
     private static final ClassName BRIDGE_NAME = ClassName.get("com.palantir.logsafe.logger.spi", "SafeLoggerBridge");
     private static final ClassName LOGGER_NAME = ClassName.get("com.palantir.logsafe.logger", "SafeLogger");
     private static final ClassName SLF4J_BRIDGE_NAME =
-            ClassName.get("com.palantir.logsafe.logger", "Slf4jSafeLoggerBridge");
+            ClassName.get("com.palantir.logsafe.logger.slf4j", "Slf4jSafeLoggerBridge");
     private static final ClassName THROWABLE_TYPE = ClassName.get(Throwable.class);
     private static final String THROWABLE_NAME = "throwable";
     private static final TypeName ARG_TYPE =
@@ -62,7 +62,7 @@ public final class LoggerGenerator {
         JavaFile implementation = generateLoggerImplementation();
         Goethe.formatAndEmit(implementation, Paths.get("../logger/src/main/java"));
         JavaFile slf4jBridge = generateSlf4jBridge();
-        Goethe.formatAndEmit(slf4jBridge, Paths.get("../logger/src/main/java"));
+        Goethe.formatAndEmit(slf4jBridge, Paths.get("../logger-slf4j/src/main/java"));
     }
 
     private static JavaFile generateLoggerImplementation() {

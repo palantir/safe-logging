@@ -6,6 +6,7 @@ org.assertj:assertj-core = 3.20.2
 org.checkerframework:checker-qual = 2.5.0
 com.squareup:javapoet = 1.13.0
 com.palantir.goethe:goethe = 0.2.0
+com.google.auto.service:* = 1.0
 
 # dependency-upgrader:OFF
 # Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug: https://github.com/palantir/gradle-baseline/issues/1113

@@ -16,6 +16,8 @@
 
 package com.palantir.logsafe.logger.spi;
 
+import com.palantir.logsafe.Safe;
+
 /** Bridge which must be implemented by frameworks which implement the safe-logging facade API. */
 public interface SafeLoggerFactoryBridge {
 
@@ -27,8 +29,8 @@ public interface SafeLoggerFactoryBridge {
     int priority();
 
     /** Returns a {@link SafeLoggerBridge} for the {@code clazz} origin. */
-    SafeLoggerBridge get(Class<?> clazz);
+    SafeLoggerBridge get(@Safe Class<?> clazz);
 
     /** Returns a {@link SafeLoggerBridge} for the {@code name} origin. */
-    SafeLoggerBridge get(String name);
+    SafeLoggerBridge get(@Safe String name);
 }

@@ -17,6 +17,7 @@
 package com.palantir.logsafe.logger;
 
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.logger.spi.SafeLoggerFactoryBridge;
 import java.util.Collections;
@@ -35,12 +36,12 @@ public final class SafeLoggerFactory {
                     .orElseThrow(NoSafeLoggerImplementationsException::new);
 
     /** Returns a {@link SafeLogger} for the {@code clazz} origin. */
-    public static SafeLogger get(Class<?> clazz) {
+    public static SafeLogger get(@Safe Class<?> clazz) {
         return new SafeLogger(BRIDGE.get(clazz));
     }
 
     /** Returns a {@link SafeLogger} for the {@code name} origin. */
-    public static SafeLogger get(String name) {
+    public static SafeLogger get(@Safe String name) {
         return new SafeLogger(BRIDGE.get(name));
     }
 

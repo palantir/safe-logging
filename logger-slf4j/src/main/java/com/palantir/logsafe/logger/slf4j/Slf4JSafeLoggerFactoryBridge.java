@@ -17,6 +17,7 @@
 package com.palantir.logsafe.logger.slf4j;
 
 import com.google.auto.service.AutoService;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.logger.spi.SafeLoggerBridge;
 import com.palantir.logsafe.logger.spi.SafeLoggerFactoryBridge;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ import org.slf4j.LoggerFactory;
 @AutoService(SafeLoggerFactoryBridge.class)
 public final class Slf4JSafeLoggerFactoryBridge implements SafeLoggerFactoryBridge {
 
+    /** ServiceLoader requires a public no-arg constructor */
     public Slf4JSafeLoggerFactoryBridge() {}
 
     @Override
@@ -34,12 +36,12 @@ public final class Slf4JSafeLoggerFactoryBridge implements SafeLoggerFactoryBrid
     }
 
     @Override
-    public SafeLoggerBridge get(Class<?> clazz) {
+    public SafeLoggerBridge get(@Safe Class<?> clazz) {
         return new Slf4jSafeLoggerBridge(LoggerFactory.getLogger(clazz));
     }
 
     @Override
-    public SafeLoggerBridge get(String name) {
+    public SafeLoggerBridge get(@Safe String name) {
         return new Slf4jSafeLoggerBridge(LoggerFactory.getLogger(name));
     }
 }

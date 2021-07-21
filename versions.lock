@@ -1,6 +1,10 @@
 # Run ./gradlew --write-locks to regenerate this file
+com.google.auto.service:auto-service-annotations:1.0 (1 constraints: a5041a2c)
 com.google.code.findbugs:jsr305:3.0.2 (4 constraints: e932ae18)
 com.google.errorprone:error_prone_annotations:2.5.1 (4 constraints: f932711c)
+com.palantir.goethe:goethe:0.2.0 (1 constraints: 0405f135)
+com.squareup:javapoet:1.13.0 (2 constraints: 2b113eee)
+org.slf4j:slf4j-api:1.7.31 (1 constraints: 3e05463b)
 
 [Test dependencies]
 com.github.kevinstern:software-and-algorithms:1.0 (1 constraints: 7e12fcf5)

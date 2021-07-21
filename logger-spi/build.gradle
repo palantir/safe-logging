@@ -1,0 +1,11 @@
+apply plugin: 'com.palantir.external-publish-jar'
+apply plugin: 'com.palantir.revapi'
+
+dependencies {
+    api project(':safe-logging')
+    api 'com.google.errorprone:error_prone_annotations'
+}
+
+sourceCompatibility = 11
+// No great way to use a block comment for copyright statements
+tasks.spotlessJavaCheck.enabled = false

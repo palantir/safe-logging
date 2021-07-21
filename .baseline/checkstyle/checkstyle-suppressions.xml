@@ -26,4 +26,7 @@
 
     <!-- Generated code should not be subjected to checkstyle. -->
     <suppress files="[/\\].*[/\\]generated.*[/\\]" checks="." />
+
+    <!-- Generated SafeLogger/SafeLoggerBridge should not be subjected to checkstyle. -->
+    <suppress files=".*SafeLogger.*" checks=".*" />
 </suppressions>

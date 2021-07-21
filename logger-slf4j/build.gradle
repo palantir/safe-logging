@@ -1,0 +1,15 @@
+apply plugin: 'com.palantir.external-publish-jar'
+apply plugin: 'com.palantir.revapi'
+
+dependencies {
+    api project(':logger-spi')
+    implementation 'com.google.errorprone:error_prone_annotations'
+    implementation 'org.slf4j:slf4j-api'
+
+    compileOnly 'com.google.auto.service:auto-service-annotations'
+    annotationProcessor 'com.google.auto.service:auto-service'
+}
+
+sourceCompatibility = 11
+// No great way to use a block comment for copyright statements
+tasks.spotlessJavaCheck.enabled = false

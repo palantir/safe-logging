@@ -3,7 +3,8 @@ apply plugin: 'com.palantir.revapi'
 
 dependencies {
     api project(':safe-logging')
-    api 'com.google.errorprone:error_prone_annotations'
+    implementation 'com.google.errorprone:error_prone_annotations'
+    compileOnly 'com.google.code.findbugs:jsr305'
 }
 
 sourceCompatibility = 11

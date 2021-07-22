@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: '`Throwable` parameters are annotated `@Nullable`'
+  links:
+  - https://github.com/palantir/safe-logging/pull/569

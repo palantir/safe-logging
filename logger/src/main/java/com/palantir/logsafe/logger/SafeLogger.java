@@ -18,6 +18,7 @@ import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.logger.spi.SafeLoggerBridge;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 import javax.annotation.processing.Generated;
 
 /**
@@ -55,7 +56,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void trace(@CompileTimeConstant String message, Throwable throwable) {
+    public void trace(@CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.trace(message, throwable);
     }
 
@@ -72,7 +73,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable) {
+    public void trace(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.trace(message, arg0, throwable);
     }
 
@@ -89,7 +90,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable) {
+    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, throwable);
     }
 
@@ -106,7 +107,8 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable) {
+    public void trace(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, throwable);
     }
 
@@ -129,7 +131,7 @@ public final class SafeLogger {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, throwable);
     }
 
@@ -154,7 +156,7 @@ public final class SafeLogger {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, throwable);
     }
 
@@ -186,7 +188,7 @@ public final class SafeLogger {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, arg5, throwable);
     }
 
@@ -220,7 +222,7 @@ public final class SafeLogger {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, throwable);
     }
 
@@ -256,7 +258,7 @@ public final class SafeLogger {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, throwable);
     }
 
@@ -294,7 +296,7 @@ public final class SafeLogger {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, throwable);
     }
 
@@ -334,7 +336,7 @@ public final class SafeLogger {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.trace(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, throwable);
     }
 
@@ -353,7 +355,7 @@ public final class SafeLogger {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    public void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable) {
+    public void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         delegate.trace(message, args, throwable);
     }
 
@@ -377,7 +379,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void debug(@CompileTimeConstant String message, Throwable throwable) {
+    public void debug(@CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.debug(message, throwable);
     }
 
@@ -394,7 +396,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable) {
+    public void debug(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.debug(message, arg0, throwable);
     }
 
@@ -411,7 +413,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable) {
+    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, throwable);
     }
 
@@ -428,7 +430,8 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable) {
+    public void debug(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, throwable);
     }
 
@@ -451,7 +454,7 @@ public final class SafeLogger {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, throwable);
     }
 
@@ -476,7 +479,7 @@ public final class SafeLogger {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, throwable);
     }
 
@@ -508,7 +511,7 @@ public final class SafeLogger {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, arg5, throwable);
     }
 
@@ -542,7 +545,7 @@ public final class SafeLogger {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, throwable);
     }
 
@@ -578,7 +581,7 @@ public final class SafeLogger {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, throwable);
     }
 
@@ -616,7 +619,7 @@ public final class SafeLogger {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, throwable);
     }
 
@@ -656,7 +659,7 @@ public final class SafeLogger {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.debug(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, throwable);
     }
 
@@ -675,7 +678,7 @@ public final class SafeLogger {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    public void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable) {
+    public void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         delegate.debug(message, args, throwable);
     }
 
@@ -699,7 +702,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void info(@CompileTimeConstant String message, Throwable throwable) {
+    public void info(@CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.info(message, throwable);
     }
 
@@ -716,7 +719,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable) {
+    public void info(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.info(message, arg0, throwable);
     }
 
@@ -733,7 +736,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable) {
+    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, throwable);
     }
 
@@ -750,7 +753,8 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable) {
+    public void info(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, throwable);
     }
 
@@ -773,7 +777,7 @@ public final class SafeLogger {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, throwable);
     }
 
@@ -798,7 +802,7 @@ public final class SafeLogger {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, throwable);
     }
 
@@ -830,7 +834,7 @@ public final class SafeLogger {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, arg5, throwable);
     }
 
@@ -864,7 +868,7 @@ public final class SafeLogger {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, throwable);
     }
 
@@ -900,7 +904,7 @@ public final class SafeLogger {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, throwable);
     }
 
@@ -938,7 +942,7 @@ public final class SafeLogger {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, throwable);
     }
 
@@ -978,7 +982,7 @@ public final class SafeLogger {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.info(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, throwable);
     }
 
@@ -997,7 +1001,7 @@ public final class SafeLogger {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    public void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable) {
+    public void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         delegate.info(message, args, throwable);
     }
 
@@ -1021,7 +1025,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void warn(@CompileTimeConstant String message, Throwable throwable) {
+    public void warn(@CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.warn(message, throwable);
     }
 
@@ -1038,7 +1042,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable) {
+    public void warn(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.warn(message, arg0, throwable);
     }
 
@@ -1055,7 +1059,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable) {
+    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, throwable);
     }
 
@@ -1072,7 +1076,8 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable) {
+    public void warn(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, throwable);
     }
 
@@ -1095,7 +1100,7 @@ public final class SafeLogger {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, throwable);
     }
 
@@ -1120,7 +1125,7 @@ public final class SafeLogger {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, throwable);
     }
 
@@ -1152,7 +1157,7 @@ public final class SafeLogger {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, arg5, throwable);
     }
 
@@ -1186,7 +1191,7 @@ public final class SafeLogger {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, throwable);
     }
 
@@ -1222,7 +1227,7 @@ public final class SafeLogger {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, throwable);
     }
 
@@ -1260,7 +1265,7 @@ public final class SafeLogger {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, throwable);
     }
 
@@ -1300,7 +1305,7 @@ public final class SafeLogger {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.warn(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, throwable);
     }
 
@@ -1319,7 +1324,7 @@ public final class SafeLogger {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    public void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable) {
+    public void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         delegate.warn(message, args, throwable);
     }
 
@@ -1343,7 +1348,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void error(@CompileTimeConstant String message, Throwable throwable) {
+    public void error(@CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.error(message, throwable);
     }
 
@@ -1360,7 +1365,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable) {
+    public void error(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.error(message, arg0, throwable);
     }
 
@@ -1377,7 +1382,7 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable) {
+    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, throwable);
     }
 
@@ -1394,7 +1399,8 @@ public final class SafeLogger {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable) {
+    public void error(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, throwable);
     }
 
@@ -1417,7 +1423,7 @@ public final class SafeLogger {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, throwable);
     }
 
@@ -1442,7 +1448,7 @@ public final class SafeLogger {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, throwable);
     }
 
@@ -1474,7 +1480,7 @@ public final class SafeLogger {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, arg5, throwable);
     }
 
@@ -1508,7 +1514,7 @@ public final class SafeLogger {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, throwable);
     }
 
@@ -1544,7 +1550,7 @@ public final class SafeLogger {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, throwable);
     }
 
@@ -1582,7 +1588,7 @@ public final class SafeLogger {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, throwable);
     }
 
@@ -1622,7 +1628,7 @@ public final class SafeLogger {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable) {
+            @Nullable Throwable throwable) {
         delegate.error(message, arg0, arg1, arg2, arg3, arg4, arg5, arg6, arg7, arg8, arg9, throwable);
     }
 
@@ -1641,7 +1647,7 @@ public final class SafeLogger {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    public void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable) {
+    public void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         delegate.error(message, args, throwable);
     }
 }

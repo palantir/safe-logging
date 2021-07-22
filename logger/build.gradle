@@ -3,8 +3,9 @@ apply plugin: 'com.palantir.revapi'
 
 dependencies {
     api project(':safe-logging')
-    api 'com.google.errorprone:error_prone_annotations'
     implementation project(':logger-spi')
+    implementation 'com.google.errorprone:error_prone_annotations'
+    compileOnly 'com.google.code.findbugs:jsr305'
     runtimeOnly project(':logger-slf4j')
 }
 

@@ -37,6 +37,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.stream.Stream;
+import javax.annotation.Nullable;
 import javax.annotation.processing.Generated;
 import javax.lang.model.element.Modifier;
 
@@ -141,6 +142,7 @@ public final class LoggerGenerator {
 
             ParameterSpec throwableParameter = ParameterSpec.builder(THROWABLE_TYPE, THROWABLE_NAME)
                     .addJavadoc("Throwable to log with a stack trace\n")
+                    .addAnnotation(Nullable.class)
                     .build();
 
             for (int i = 0; i <= 10; i++) {

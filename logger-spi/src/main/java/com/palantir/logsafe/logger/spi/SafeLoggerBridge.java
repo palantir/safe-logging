@@ -16,6 +16,7 @@ package com.palantir.logsafe.logger.spi;
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import java.util.List;
+import javax.annotation.Nullable;
 import javax.annotation.processing.Generated;
 
 /**
@@ -41,7 +42,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, Throwable throwable);
+    void trace(@CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -54,7 +55,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable);
+    void trace(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -67,7 +68,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable);
+    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -80,7 +81,8 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable);
+    void trace(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -99,7 +101,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -119,7 +121,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -147,7 +149,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -177,7 +179,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -209,7 +211,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -243,7 +245,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -279,7 +281,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -294,7 +296,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable);
+    void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /**
      * Returns {@code true} if the {@code debug} level is enabled.
@@ -312,7 +314,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, Throwable throwable);
+    void debug(@CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -325,7 +327,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable);
+    void debug(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -338,7 +340,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable);
+    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -351,7 +353,8 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable);
+    void debug(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -370,7 +373,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -390,7 +393,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -418,7 +421,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -448,7 +451,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -480,7 +483,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -514,7 +517,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -550,7 +553,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -565,7 +568,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable);
+    void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /**
      * Returns {@code true} if the {@code info} level is enabled.
@@ -583,7 +586,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, Throwable throwable);
+    void info(@CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -596,7 +599,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable);
+    void info(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -609,7 +612,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable);
+    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -622,7 +625,8 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable);
+    void info(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -641,7 +645,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -661,7 +665,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -689,7 +693,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -719,7 +723,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -751,7 +755,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -785,7 +789,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -821,7 +825,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -836,7 +840,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable);
+    void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /**
      * Returns {@code true} if the {@code warn} level is enabled.
@@ -854,7 +858,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, Throwable throwable);
+    void warn(@CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -867,7 +871,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable);
+    void warn(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -880,7 +884,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable);
+    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -893,7 +897,8 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable);
+    void warn(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -912,7 +917,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -932,7 +937,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -960,7 +965,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -990,7 +995,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1022,7 +1027,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1056,7 +1061,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1092,7 +1097,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1107,7 +1112,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable);
+    void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /**
      * Returns {@code true} if the {@code error} level is enabled.
@@ -1125,7 +1130,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, Throwable throwable);
+    void error(@CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1138,7 +1143,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Throwable throwable);
+    void error(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1151,7 +1156,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Throwable throwable);
+    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1164,7 +1169,8 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Throwable throwable);
+    void error(
+            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1183,7 +1189,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg1,
             Arg<?> arg2,
             Arg<?> arg3,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1203,7 +1209,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg2,
             Arg<?> arg3,
             Arg<?> arg4,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1231,7 +1237,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg3,
             Arg<?> arg4,
             Arg<?> arg5,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1261,7 +1267,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg4,
             Arg<?> arg5,
             Arg<?> arg6,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1293,7 +1299,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg5,
             Arg<?> arg6,
             Arg<?> arg7,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1327,7 +1333,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg6,
             Arg<?> arg7,
             Arg<?> arg8,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1363,7 +1369,7 @@ public interface SafeLoggerBridge {
             Arg<?> arg7,
             Arg<?> arg8,
             Arg<?> arg9,
-            Throwable throwable);
+            @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1378,5 +1384,5 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, Throwable throwable);
+    void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 }

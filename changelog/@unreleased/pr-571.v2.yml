@@ -1,0 +1,6 @@
+type: feature
+feature:
+  description: Adds a `checkArgumentNotNull` method that is similar to `checkNotNull`
+    but throws `SafeIllegalArgumentException` instead.
+  links:
+  - https://github.com/palantir/safe-logging/pull/571

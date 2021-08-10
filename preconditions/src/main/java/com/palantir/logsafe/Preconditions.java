@@ -115,6 +115,102 @@ public final class Preconditions {
     }
 
     /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference an String reference
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalArgumentException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(@Nullable T reference) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException();
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference an String reference
+     * @param message the loggable exception message
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalArgumentException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(@Nullable T reference, @CompileTimeConstant String message) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkArgumentNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message, arg);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkArgumentNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message, arg1, arg2);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkArgumentNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference an String reference
+     * @param message the loggable exception message
+     * @param args the arguments to include in the {@link SafeIllegalArgumentException}
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalArgumentException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkArgumentNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message, args);
+        }
+        return reference;
+    }
+
+    /**
      * Ensures the truth of an expression involving the state of the calling instance, but not involving any parameters
      * to the calling method.
      *

@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Migrate the Preconditions utility to its own `com.palantir.logsafe.preconditions` package
+  links:
+  - https://github.com/palantir/safe-logging/pull/515

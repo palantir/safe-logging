@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
 @AutoService(SafeLoggerFactoryBridge.class)
 public final class Slf4JSafeLoggerFactoryBridge implements SafeLoggerFactoryBridge {
 
-    /** ServiceLoader requires a public no-arg constructor */
+    /** ServiceLoader requires a public no-arg constructor. */
     public Slf4JSafeLoggerFactoryBridge() {}
 
     @Override

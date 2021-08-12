@@ -44,6 +44,8 @@ import com.palantir.logsafe.logger.SafeLoggerFactory;
 private static final SafeLogger log = SafeLoggerFactory.get(MyClass.class);
 ...
 log.info("Twisted the {} knob {} times", UnsafeArg.of("knobName", knobName), SafeArg.of("count", count));
+// Even cleaner without slf4j-style interpolation markers:
+log.info("Twisted the knob", UnsafeArg.of("knob", knobName), SafeArg.of("twists", count));
 ```
 
 Preconditions

@@ -2,7 +2,7 @@
 <a href="https://autorelease.general.dmz.palantir.tech/palantir/safe-logging"><img src="https://img.shields.io/badge/Perform%20an-Autorelease-success.svg" alt="Autorelease"></a>
 </p>
 
-[ ![Download](https://api.bintray.com/packages/palantir/releases/safe-logging/images/download.svg) ](https://bintray.com/palantir/releases/safe-logging/_latestVersion)
+[ ![Maven Central](https://img.shields.io/maven-central/v/com.palantir.safe-logging/safe-logging) ](https://search.maven.org/search?q=g:com.palantir.safe-logging)
 
 License
 -------

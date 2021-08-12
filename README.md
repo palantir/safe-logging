@@ -17,16 +17,34 @@ Usage
 
 Add dependency to gradle:
 
-    compile "com.palantir.safe-logging:safe-logging"
+```gradle
+dependencies {
+    implementation 'com.palantir.safe-logging:logger'
+}
+```
 
-Annotate log messages with named `SafeArg` and `UnsafeArg` as appropriate.  For example:
+Update logger instances to use `SafeLogger` and annotate log parameters with
+named `SafeArg` and `UnsafeArg` as appropriate.  For example:
 
-    // previously
-    log.info("Twisted the {} knob {} times", knobName, count);
+### _Previously_
+```java
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-    // now
-    log.info("Twisted the {} knob {} times", UnsafeArg.of("knobName", knobName), SafeArg.of("count", count));
+private static final Logger log = LoggerFactory.getLogger(MyClass.class);
+...
+log.info("Twisted the {} knob {} times", knobName, count);
+```
 
+### _Now_
+```java
+import com.palantir.logsafe.logger.SafeLogger;
+import com.palantir.logsafe.logger.SafeLoggerFactory;
+
+private static final SafeLogger log = SafeLoggerFactory.get(MyClass.class);
+...
+log.info("Twisted the {} knob {} times", UnsafeArg.of("knobName", knobName), SafeArg.of("count", count));
+```
 
 Preconditions
 =============
@@ -37,20 +55,25 @@ Usage
 
 Add dependency to gradle:
 
-    compile "com.palantir.safe-logging:preconditions"
+```gradle
+dependencies {
+    implementation 'com.palantir.safe-logging:preconditions'
     // optional test utilities
-    testCompile "com.palantir.safe-logging:preconditions-assertj"
+    testImplementation 'com.palantir.safe-logging:preconditions-assertj'
+}
+```
 
 Annotate Preconditions error messages with named `SafeArg` and `UnsafeArg` as appropriate.  For example:
 
-    // previously
-    import com.google.common.base.Preconditions;
-    ...
-    Preconditions.checkArgument(uname.size() > MAX_LEN, "%s username longer than max %s", uname, MAX_LEN);
+```java
+// previously
+import com.google.common.base.Preconditions;
+...
+Preconditions.checkArgument(uname.size() > MAX_LEN, "%s username longer than max %s", uname, MAX_LEN);
 
-    // now
-    import com.palantir.logsafe.Preconditions;
-    ...
-    Preconditions.checkArgument(uname.size() > MAX_LEN, "username longer than max",
-            UnsafeArg.of("uname", uname), SafeArg.of("max", MAX_LEN));
-
+// now
+import com.palantir.logsafe.Preconditions;
+...
+Preconditions.checkArgument(uname.size() > MAX_LEN, "username longer than max",
+        UnsafeArg.of("uname", uname), SafeArg.of("max", MAX_LEN));
+```

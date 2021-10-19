@@ -22,7 +22,7 @@ import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import org.assertj.core.error.BasicErrorMessageFactory;
 import org.assertj.core.error.ShouldBeInstance;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 public final class AssertionsTest {
 

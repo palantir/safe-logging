@@ -40,7 +40,7 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     }
 
     /**
-     * Verifies that the actual group contains exactly the given values and nothing else, <b>in any order</b>.<br>
+     * Verifies that the actual exception contains exactly the given args and nothing else, <b>in any order</b>.<br>
      *
      * @param args the given arguments.
      * @return {@code this} assertion object
@@ -68,7 +68,7 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
     }
 
     /**
-     * Verifies that the actual group contains the given values, in any order.
+     * Verifies that the actual exception contains the given args, in any order.
      *
      * @param args the given arguments.
      * @return {@code this} assertion object
@@ -82,6 +82,16 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
         isNotNull();
 
         argsAssert.contains(args);
+        return this;
+    }
+
+    /**
+     * Verifies that the actual exception does not contain any args.
+     */
+    public LoggableExceptionAssert<T> hasNoArgs() {
+        isNotNull();
+
+        argsAssert.isEmpty();
         return this;
     }
 

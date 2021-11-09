@@ -58,11 +58,19 @@ public final class LoggableExceptionAssertionsTest {
     }
 
     public void testNullPointerException(LoggableExceptionAssert<SafeNullPointerException> assertion) {
-        assertion.isInstanceOf(SafeNullPointerException.class).hasMessage("").hasExactlyArgs();
+        assertion
+                .isInstanceOf(SafeNullPointerException.class)
+                .hasMessage("")
+                .hasExactlyArgs()
+                .hasNoArgs();
     }
 
     public void testIllegalStateException(LoggableExceptionAssert<SafeIllegalStateException> assertion) {
-        assertion.isInstanceOf(SafeIllegalStateException.class).hasMessage("").hasExactlyArgs();
+        assertion
+                .isInstanceOf(SafeIllegalStateException.class)
+                .hasMessage("")
+                .hasExactlyArgs()
+                .hasNoArgs();
     }
 
     public void testLoggableException(LoggableExceptionAssert<LoggableException> assertion) {

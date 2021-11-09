@@ -1,0 +1,6 @@
+type: feature
+feature:
+  description: '`LoggableExceptionAssert` now contains a `hasNoArgs` method for asserting
+    that an exception has no args.'
+  links:
+  - https://github.com/palantir/safe-logging/pull/607

@@ -7,7 +7,6 @@ dependencies {
     implementation 'com.palantir.goethe:goethe'
 }
 
-sourceCompatibility = 11
 
 task generate(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath

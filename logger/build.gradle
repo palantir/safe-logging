@@ -9,6 +9,5 @@ dependencies {
     runtimeOnly project(':logger-slf4j')
 }
 
-sourceCompatibility = 11
 // No great way to use a block comment for copyright statements
 tasks.spotlessJavaCheck.enabled = false

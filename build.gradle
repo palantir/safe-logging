@@ -21,6 +21,7 @@ plugins {
 apply plugin: 'com.palantir.external-publish'
 apply plugin: 'com.palantir.consistent-versions'
 apply plugin: 'com.palantir.baseline'
+apply plugin: 'com.palantir.baseline-java-versions'
 
 allprojects {
     apply plugin: 'com.palantir.java-format'
@@ -39,7 +40,6 @@ subprojects {
         mavenCentral()
     }
 
-    sourceCompatibility = 1.8
 
     tasks.withType(Javadoc) {
         // suppress Javadoc doclint warnings in Java 8+
@@ -60,3 +60,6 @@ subprojects {
     })
 }
 
+javaVersions {
+    libraryTarget = 11
+}

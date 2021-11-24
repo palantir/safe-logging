@@ -61,7 +61,7 @@ public final class LoggableExceptionAssertionsTest {
         assertion
                 .isInstanceOf(SafeNullPointerException.class)
                 .hasMessage("")
-                .hasExactlyArgs()
+                .hasNoArgs()
                 .hasNoArgs();
     }
 
@@ -69,7 +69,7 @@ public final class LoggableExceptionAssertionsTest {
         assertion
                 .isInstanceOf(SafeIllegalStateException.class)
                 .hasMessage("")
-                .hasExactlyArgs()
+                .hasNoArgs()
                 .hasNoArgs();
     }
 

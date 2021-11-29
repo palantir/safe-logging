@@ -8,3 +8,5 @@ dependencies {
 versionsLock {
     testProject()
 }
+
+tasks.checkClassUniqueness.enabled = false

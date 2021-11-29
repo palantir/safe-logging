@@ -37,6 +37,7 @@ import org.assertj.core.internal.StandardComparisonStrategy;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
+@SuppressWarnings("AssertNoArgs")
 public final class LoggableExceptionAssertionsTest {
 
     public SafeIllegalArgumentException illegalArgumentException = new SafeIllegalArgumentException(

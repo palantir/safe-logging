@@ -37,6 +37,7 @@ import org.assertj.core.internal.StandardComparisonStrategy;
 import org.assertj.core.util.Lists;
 import org.junit.Test;
 
+@SuppressWarnings("AssertNoArgs")
 public final class LoggableExceptionAssertionsTest {
 
     public SafeIllegalArgumentException illegalArgumentException = new SafeIllegalArgumentException(
@@ -61,7 +62,7 @@ public final class LoggableExceptionAssertionsTest {
         assertion
                 .isInstanceOf(SafeNullPointerException.class)
                 .hasMessage("")
-                .hasNoArgs()
+                .hasExactlyArgs()
                 .hasNoArgs();
     }
 
@@ -69,7 +70,7 @@ public final class LoggableExceptionAssertionsTest {
         assertion
                 .isInstanceOf(SafeIllegalStateException.class)
                 .hasMessage("")
-                .hasNoArgs()
+                .hasExactlyArgs()
                 .hasNoArgs();
     }
 

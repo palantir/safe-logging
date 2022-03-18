@@ -16,15 +16,21 @@
 
 package com.palantir.logsafe.testing;
 
+import com.google.auto.service.AutoService;
 import com.palantir.logsafe.Arg;
 import org.assertj.core.presentation.Representation;
 import org.assertj.core.presentation.StandardRepresentation;
 
-final class LoggableArgRepresentation extends StandardRepresentation {
+/**
+ * A {@link Representation} implementation which includes the {@link Arg} {@link Class#getSimpleName()},
+ * {@link Arg#getName()}, and {@link Arg#getValue()}.
+ */
+@AutoService(Representation.class)
+public final class LoggableArgRepresentation extends StandardRepresentation {
 
     static final Representation INSTANCE = new LoggableArgRepresentation();
 
-    private LoggableArgRepresentation() {}
+    public LoggableArgRepresentation() {}
 
     @Override
     protected String fallbackToStringOf(Object object) {

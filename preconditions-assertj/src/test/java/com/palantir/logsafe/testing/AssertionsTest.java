@@ -18,6 +18,7 @@ package com.palantir.logsafe.testing;
 
 import static com.palantir.logsafe.testing.Assertions.assertThatLoggableExceptionThrownBy;
 
+import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.SafeLoggable;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import org.assertj.core.error.BasicErrorMessageFactory;
@@ -49,5 +50,15 @@ public final class AssertionsTest {
         assertThatLoggableExceptionThrownBy(() -> {
             throw new SafeIllegalStateException("Hello");
         });
+    }
+
+    @Test
+    public void testCodeThrowsSafeLoggableWithArgUsesCorrectRepresentation() {
+        org.assertj.core.api.Assertions.assertThatThrownBy(() -> assertThatLoggableExceptionThrownBy(() -> {
+                            throw new SafeIllegalStateException("Hello", SafeArg.of("c", "d"));
+                        })
+                        .hasExactlyArgs(SafeArg.of("a", "b")))
+                .isInstanceOf(AssertionError.class)
+                .hasMessageContainingAll("[SafeArg[a=\"b\"]]", "[SafeArg[c=\"d\"]]");
     }
 }

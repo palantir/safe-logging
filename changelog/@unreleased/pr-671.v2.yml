@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: preconditions-assertj applies a global representation for `Arg`
+  links:
+  - https://github.com/palantir/safe-logging/pull/671

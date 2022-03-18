@@ -6,6 +6,9 @@ dependencies {
     api project(':safe-logging')
     api 'org.assertj:assertj-core'
 
+    compileOnly 'com.google.auto.service:auto-service-annotations'
+    annotationProcessor 'com.google.auto.service:auto-service'
+
     testImplementation 'junit:junit'
 }
 

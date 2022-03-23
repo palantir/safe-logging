@@ -1,0 +1,8 @@
+type: improvement
+improvement:
+  description: Add a `@DoNotLog` annotation to describe types which mustn't be logged.
+    Existing `@Safe` and `@Unsafe` annotations can be applied to types and methods
+    to more expressively describe element safety. Subclasses inherit safe-logging
+    annotations from parents.
+  links:
+  - https://github.com/palantir/safe-logging/pull/674

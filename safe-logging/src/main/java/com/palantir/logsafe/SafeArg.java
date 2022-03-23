@@ -25,7 +25,7 @@ public final class SafeArg<T> extends Arg<T> {
         super(name, value);
     }
 
-    public static <T> SafeArg<T> of(String name, @Nullable T value) {
+    public static <T> SafeArg<T> of(String name, @Safe @Nullable T value) {
         return new SafeArg<>(name, value);
     }
 

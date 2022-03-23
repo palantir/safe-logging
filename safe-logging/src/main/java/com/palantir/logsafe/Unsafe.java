@@ -18,16 +18,18 @@ package com.palantir.logsafe;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Explicitly marks a parameter as unsafe.
+ * Explicitly marks an element as unsafe.
  *
  * <p>Inverse of {@link Safe}.
  */
 @Documented
-@Target(ElementType.PARAMETER)
+@Inherited
+@Target({ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Unsafe {}

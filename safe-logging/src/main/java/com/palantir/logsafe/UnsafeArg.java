@@ -25,7 +25,7 @@ public final class UnsafeArg<T> extends Arg<T> {
         super(name, value);
     }
 
-    public static <T> UnsafeArg<T> of(String name, @Nullable @Unsafe T value) {
+    public static <T> UnsafeArg<T> of(@Safe String name, @Nullable @Unsafe T value) {
         return new UnsafeArg<>(name, value);
     }
 

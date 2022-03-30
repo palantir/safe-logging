@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: safe-logging annotations may be applied to fields and variables
+  links:
+  - https://github.com/palantir/safe-logging/pull/682

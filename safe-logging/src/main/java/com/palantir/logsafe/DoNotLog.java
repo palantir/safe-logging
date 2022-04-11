@@ -29,6 +29,13 @@ import java.lang.annotation.Target;
  */
 @Documented
 @Inherited
-@Target({ElementType.TYPE, ElementType.METHOD, ElementType.PARAMETER, ElementType.LOCAL_VARIABLE, ElementType.FIELD})
+@Target({
+    ElementType.TYPE,
+    ElementType.METHOD,
+    ElementType.PARAMETER,
+    ElementType.LOCAL_VARIABLE,
+    ElementType.FIELD,
+    ElementType.TYPE_USE
+})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DoNotLog {}

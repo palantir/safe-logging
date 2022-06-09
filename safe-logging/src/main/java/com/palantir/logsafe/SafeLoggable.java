@@ -22,6 +22,7 @@ import java.util.List;
 public interface SafeLoggable {
 
     /** The message, which is safe to log. */
+    @Safe
     String getLogMessage();
 
     /** The arguments associated with the message. */

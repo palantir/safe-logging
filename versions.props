@@ -6,7 +6,7 @@ junit:junit = 4.13.2
 org.assertj:assertj-core = 3.23.1
 org.checkerframework:checker-qual = 3.23.0
 com.squareup:javapoet = 1.13.0
-com.palantir.goethe:goethe = 0.7.0
+com.palantir.goethe:goethe = 0.8.0
 com.google.auto.service:* = 1.0.1
 
 # dependency-upgrader:OFF

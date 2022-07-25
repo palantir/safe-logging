@@ -8,6 +8,7 @@ org.checkerframework:checker-qual = 3.23.0
 com.squareup:javapoet = 1.13.0
 com.palantir.goethe:goethe = 0.8.0
 com.google.auto.service:* = 1.0.1
+org.apache.logging.log4j:* = 2.18.0
 
 # dependency-upgrader:OFF
 # Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug: https://github.com/palantir/gradle-baseline/issues/1113
@@ -16,5 +17,4 @@ com.google.errorprone:error_prone_refaster = 2.3.3
 
 # Don't automatically force everything to upgrade slf4j
 org.slf4j:slf4j-api = 1.7.31
-org.apache.logging.log4j:* = 2.17.2
 # dependency-upgrader:ON

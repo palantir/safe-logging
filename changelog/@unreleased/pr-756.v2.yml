@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Implement the `logger-log4j` module using log4j apis directly
+  links:
+  - https://github.com/palantir/safe-logging/pull/756

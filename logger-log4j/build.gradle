@@ -1,0 +1,13 @@
+apply plugin: 'com.palantir.external-publish-jar'
+
+dependencies {
+    api project(':logger-spi')
+    implementation 'com.google.errorprone:error_prone_annotations'
+    compileOnly 'org.apache.logging.log4j:log4j-api'
+    compileOnly 'com.google.code.findbugs:jsr305'
+    compileOnly 'com.google.auto.service:auto-service-annotations'
+    annotationProcessor 'com.google.auto.service:auto-service'
+}
+
+// No great way to use a block comment for copyright statements
+tasks.spotlessJavaCheck.enabled = false

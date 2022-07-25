@@ -48,6 +48,9 @@ public final class LoggerGenerator {
     private static final ClassName LOGGER_NAME = ClassName.get("com.palantir.logsafe.logger", "SafeLogger");
     private static final ClassName SLF4J_BRIDGE_NAME =
             ClassName.get("com.palantir.logsafe.logger.slf4j", "Slf4jSafeLoggerBridge");
+
+    private static final ClassName LOG4J_BRIDGE_NAME =
+            ClassName.get("com.palantir.logsafe.logger.log4j", "Log4jSafeLoggerBridge");
     private static final ClassName THROWABLE_TYPE = ClassName.get(Throwable.class);
     private static final String THROWABLE_NAME = "throwable";
     private static final TypeName ARG_TYPE =
@@ -55,7 +58,7 @@ public final class LoggerGenerator {
     private static final TypeName ARGS_LIST_TYPE =
             ParameterizedTypeName.get(ClassName.get(List.class), WildcardTypeName.subtypeOf(ARG_TYPE));
     private static final String DELEGATE = "delegate";
-    private static final String SLF4J_MARKER = "MARKER";
+    private static final String MARKER_FIELD = "MARKER";
 
     public static void main(String[] _args) {
         JavaFile bridge = generateLoggerBridge();
@@ -64,6 +67,8 @@ public final class LoggerGenerator {
         Goethe.formatAndEmit(implementation, Paths.get("../logger/src/main/java"));
         JavaFile slf4jBridge = generateSlf4jBridge();
         Goethe.formatAndEmit(slf4jBridge, Paths.get("../logger-slf4j/src/main/java"));
+        JavaFile log4jBridge = generateLog4jBridge();
+        Goethe.formatAndEmit(log4jBridge, Paths.get("../logger-log4j/src/main/java"));
     }
 
     private static JavaFile generateLoggerImplementation() {
@@ -182,7 +187,7 @@ public final class LoggerGenerator {
                         .build())
                 .addModifiers(Modifier.FINAL)
                 .addSuperinterface(BRIDGE_NAME)
-                .addField(FieldSpec.builder(ClassName.get(org.slf4j.Marker.class), SLF4J_MARKER)
+                .addField(FieldSpec.builder(ClassName.get(org.slf4j.Marker.class), MARKER_FIELD)
                         .addModifiers(Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
                         .initializer("$T.getMarker($S)", org.slf4j.MarkerFactory.class, Safe.class.getName())
                         .build())
@@ -205,7 +210,7 @@ public final class LoggerGenerator {
             boolean hasArgList = hasArgList(spec);
             boolean hasThrowableArg = hasThrowableArg(spec);
             CodeBlock args = Stream.concat(
-                            Stream.of(CodeBlock.of("$N", SLF4J_MARKER)),
+                            Stream.of(CodeBlock.of("$N", MARKER_FIELD)),
                             spec.parameters.stream().flatMap(param -> {
                                 if (hasArgList && ARGS_LIST_TYPE.equals(param.type)) {
                                     if (hasThrowableArg) {
@@ -263,6 +268,99 @@ public final class LoggerGenerator {
     private static boolean requiresSlf4jLevelCheck(MethodSpec spec) {
         // Always level check prior to delegating to a var-args method
         return spec.parameters.size() > 3
+                // Level check prior to converting args list into an object-array
+                || hasArgList(spec);
+    }
+
+    private static JavaFile generateLog4jBridge() {
+        TypeSpec.Builder loggerBuilder = TypeSpec.classBuilder(LOG4J_BRIDGE_NAME)
+                .addAnnotation(AnnotationSpec.builder(Generated.class)
+                        .addMember("value", "$S", LoggerGenerator.class.getName())
+                        .build())
+                .addModifiers(Modifier.FINAL)
+                .addSuperinterface(BRIDGE_NAME)
+                .addField(FieldSpec.builder(ClassName.get(org.apache.logging.log4j.Marker.class), MARKER_FIELD)
+                        .addModifiers(Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
+                        .initializer(
+                                "$T.getMarker($S)", org.apache.logging.log4j.MarkerManager.class, Safe.class.getName())
+                        .build())
+                .addField(FieldSpec.builder(ClassName.get(org.apache.logging.log4j.Logger.class), DELEGATE)
+                        .addModifiers(Modifier.PRIVATE, Modifier.FINAL)
+                        .build())
+                .addMethod(MethodSpec.constructorBuilder()
+                        .addParameter(
+                                ParameterSpec.builder(ClassName.get(org.apache.logging.log4j.Logger.class), DELEGATE)
+                                        .build())
+                        .addStatement(
+                                "this.$1N = $2T.requireNonNull($1N, $3S)",
+                                DELEGATE,
+                                Objects.class,
+                                "Log4j Logger is required")
+                        .build());
+        for (MethodSpec spec : createLoggerBridge().methodSpecs) {
+            MethodSpec.Builder methodBuilder = spec.toBuilder();
+            methodBuilder.modifiers.clear();
+            boolean isVoidMethod = ClassName.VOID.equals(spec.returnType);
+            boolean hasArgList = hasArgList(spec);
+            boolean hasThrowableArg = hasThrowableArg(spec);
+            CodeBlock args = Stream.concat(
+                            Stream.of(CodeBlock.of("$N", MARKER_FIELD)),
+                            spec.parameters.stream().flatMap(param -> {
+                                if (hasArgList && ARGS_LIST_TYPE.equals(param.type)) {
+                                    if (hasThrowableArg) {
+                                        return Stream.of(CodeBlock.of("merge($N, $N)", param.name, THROWABLE_NAME));
+                                    } else {
+                                        return Stream.of(
+                                                CodeBlock.of("$N.toArray(new $T[0])", param.name, Object.class));
+                                    }
+                                } else if (hasThrowableArg && hasArgList && THROWABLE_TYPE.equals(param.type)) {
+                                    return Stream.empty();
+                                }
+                                return Stream.of(CodeBlock.of("$N", param.name));
+                            }))
+                    .collect(CodeBlock.joining(", "));
+            methodBuilder.addAnnotation(Override.class).addModifiers(Modifier.PUBLIC);
+            boolean requiresLevelCheck = requiresLog4jLevelCheck(spec);
+            if (requiresLevelCheck) {
+                methodBuilder.beginControlFlow(
+                        "if ($N())",
+                        LoggerLevel.valueOf(spec.name.toUpperCase(Locale.ENGLISH))
+                                .isEnabled());
+            }
+            methodBuilder.addStatement("$L$N.$N($L)", isVoidMethod ? "" : "return ", DELEGATE, spec.name, args);
+            if (requiresLevelCheck) {
+                methodBuilder.endControlFlow();
+            }
+            loggerBuilder.addMethod(methodBuilder.build());
+        }
+        return JavaFile.builder(
+                        LOG4J_BRIDGE_NAME.packageName(),
+                        loggerBuilder
+                                .addMethod(MethodSpec.methodBuilder("merge")
+                                        .addModifiers(Modifier.PRIVATE, Modifier.STATIC)
+                                        .returns(ArrayTypeName.of(Object.class))
+                                        .addParameter(ParameterSpec.builder(ARGS_LIST_TYPE, "args")
+                                                .build())
+                                        .addParameter(ParameterSpec.builder(THROWABLE_TYPE, THROWABLE_NAME)
+                                                .build())
+                                        .addStatement(
+                                                "$1T $2N = $3N.toArray(new $4T[$3N.size() + 1])",
+                                                ArrayTypeName.of(Object.class),
+                                                "result",
+                                                "args",
+                                                Object.class)
+                                        .addStatement("$1N[$1N.length - 1] = $2N", "result", THROWABLE_NAME)
+                                        .addStatement("return $N", "result")
+                                        .build())
+                                .build())
+                .skipJavaLangImports(true)
+                .addFileComment(copyright(2022))
+                .build();
+    }
+
+    private static boolean requiresLog4jLevelCheck(MethodSpec spec) {
+        // Always level check prior to delegating to a var-args method
+        return spec.parameters.size() > 11
                 // Level check prior to converting args list into an object-array
                 || hasArgList(spec);
     }

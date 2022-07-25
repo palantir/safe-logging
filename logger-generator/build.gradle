@@ -1,5 +1,6 @@
 dependencies {
     implementation 'org.slf4j:slf4j-api'
+    implementation 'org.apache.logging.log4j:log4j-api'
     implementation project(':safe-logging')
     implementation 'com.google.errorprone:error_prone_annotations'
     implementation 'com.google.code.findbugs:jsr305'

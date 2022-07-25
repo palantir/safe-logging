@@ -16,4 +16,5 @@ com.google.errorprone:error_prone_refaster = 2.3.3
 
 # Don't automatically force everything to upgrade slf4j
 org.slf4j:slf4j-api = 1.7.31
+org.apache.logging.log4j:* = 2.17.2
 # dependency-upgrader:ON

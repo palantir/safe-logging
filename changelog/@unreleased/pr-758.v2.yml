@@ -1,0 +1,5 @@
+type: break
+break:
+  description: Rev the major version to avoid matching ambiguous patterns
+  links:
+  - https://github.com/palantir/safe-logging/pull/758

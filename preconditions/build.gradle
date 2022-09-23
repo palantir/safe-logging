@@ -4,6 +4,7 @@ apply plugin: 'com.palantir.revapi'
 dependencies {
     api project(':safe-logging')
     compileOnly 'com.google.code.findbugs:jsr305'
+    implementation 'org.jetbrains:annotations'
     api 'com.google.errorprone:error_prone_annotations'
 
     testImplementation 'junit:junit'

@@ -1,7 +1,7 @@
 com.fasterxml.jackson.core:jackson-databind = 2.13.2.1
 com.google.code.findbugs:jsr305 = 3.0.2
 com.google.guava:guava = 31.1-jre
-com.uber.nullaway:nullaway = 0.10.8
+com.uber.nullaway:nullaway = 0.10.9
 junit:junit = 4.13.2
 org.assertj:assertj-core = 3.24.2
 org.jetbrains:annotations = 24.0.0

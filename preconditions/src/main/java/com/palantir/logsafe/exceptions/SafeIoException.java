@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nullable;
 
 public final class SafeIoException extends IOException implements SafeLoggable {
     private final String logMessage;
@@ -34,7 +35,7 @@ public final class SafeIoException extends IOException implements SafeLoggable {
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIoException(@CompileTimeConstant String message, Throwable cause, Arg<?>... arguments) {
+    public SafeIoException(@CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

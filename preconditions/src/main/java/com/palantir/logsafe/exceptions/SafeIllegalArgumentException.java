@@ -22,6 +22,7 @@ import com.palantir.logsafe.SafeLoggable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nullable;
 
 public final class SafeIllegalArgumentException extends IllegalArgumentException implements SafeLoggable {
     private final String logMessage;
@@ -39,13 +40,14 @@ public final class SafeIllegalArgumentException extends IllegalArgumentException
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIllegalArgumentException(@CompileTimeConstant String message, Throwable cause, Arg<?>... arguments) {
+    public SafeIllegalArgumentException(
+            @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIllegalArgumentException(Throwable cause) {
+    public SafeIllegalArgumentException(@Nullable Throwable cause) {
         super("", cause);
         this.logMessage = "";
         this.arguments = Collections.emptyList();

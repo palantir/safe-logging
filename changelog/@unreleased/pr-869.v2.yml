@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Add `@Nullable` annotations to exception causes
+  links:
+  - https://github.com/palantir/safe-logging/pull/869

@@ -24,18 +24,20 @@ import java.io.UncheckedIOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import javax.annotation.Nullable;
 
 public final class SafeUncheckedIoException extends UncheckedIOException implements SafeLoggable {
     private final String logMessage;
     private final List<Arg<?>> arguments;
 
-    public SafeUncheckedIoException(@CompileTimeConstant String message, IOException cause, Arg<?>... arguments) {
+    public SafeUncheckedIoException(
+            @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeUncheckedIoException(IOException cause) {
+    public SafeUncheckedIoException(@Nullable IOException cause) {
         super("", cause);
         this.logMessage = "";
         this.arguments = Collections.emptyList();

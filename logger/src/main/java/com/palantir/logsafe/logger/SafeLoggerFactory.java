@@ -50,7 +50,7 @@ public final class SafeLoggerFactory {
     private static final class NoSafeLoggerImplementationsException extends RuntimeException implements SafeLoggable {
 
         private static final String MESSAGE = "Unable to find any logsafe logger-spi implementations. "
-                + "Was  the`logger-slf4j` dependency excluded?";
+                + "Was the `logger-slf4j` dependency excluded?";
 
         NoSafeLoggerImplementationsException() {
             super(MESSAGE);

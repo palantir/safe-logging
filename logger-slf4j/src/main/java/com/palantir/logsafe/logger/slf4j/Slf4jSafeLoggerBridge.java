@@ -34,9 +34,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
         this.delegate = Objects.requireNonNull(delegate, "Slf4j Logger is required");
     }
 
-    /**
-     * Returns {@code true} if the {@code trace} level is enabled.
-     */
+    /** Returns {@code true} if the {@code trace} level is enabled. */
     @Override
     public boolean isTraceEnabled() {
         return delegate.isTraceEnabled(MARKER);
@@ -44,6 +42,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -53,6 +52,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -63,6 +63,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -72,6 +73,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -82,6 +84,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -91,6 +94,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -103,6 +107,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -114,6 +119,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -127,6 +133,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -138,6 +145,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -156,6 +164,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -168,6 +177,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -187,6 +197,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -205,6 +216,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -225,6 +237,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -244,6 +257,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -265,6 +279,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -285,6 +300,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -307,6 +323,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -328,6 +345,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -351,6 +369,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -373,6 +392,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -397,6 +417,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
@@ -409,6 +430,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code trace} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
@@ -420,9 +442,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
         }
     }
 
-    /**
-     * Returns {@code true} if the {@code debug} level is enabled.
-     */
+    /** Returns {@code true} if the {@code debug} level is enabled. */
     @Override
     public boolean isDebugEnabled() {
         return delegate.isDebugEnabled(MARKER);
@@ -430,6 +450,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -439,6 +460,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -449,6 +471,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -458,6 +481,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -468,6 +492,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -477,6 +502,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -489,6 +515,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -500,6 +527,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -513,6 +541,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -524,6 +553,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -542,6 +572,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -554,6 +585,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -573,6 +605,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -591,6 +624,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -611,6 +645,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -630,6 +665,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -651,6 +687,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -671,6 +708,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -693,6 +731,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -714,6 +753,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -737,6 +777,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -759,6 +800,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -783,6 +825,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
@@ -795,6 +838,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code debug} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
@@ -806,9 +850,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
         }
     }
 
-    /**
-     * Returns {@code true} if the {@code info} level is enabled.
-     */
+    /** Returns {@code true} if the {@code info} level is enabled. */
     @Override
     public boolean isInfoEnabled() {
         return delegate.isInfoEnabled(MARKER);
@@ -816,6 +858,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -825,6 +868,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -835,6 +879,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -844,6 +889,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -854,6 +900,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -863,6 +910,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -875,6 +923,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -886,6 +935,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -899,6 +949,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -910,6 +961,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -928,6 +980,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -940,6 +993,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -959,6 +1013,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -977,6 +1032,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -997,6 +1053,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1016,6 +1073,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1037,6 +1095,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1057,6 +1116,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1079,6 +1139,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1100,6 +1161,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1123,6 +1185,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1145,6 +1208,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1169,6 +1233,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
@@ -1181,6 +1246,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code info} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
@@ -1192,9 +1258,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
         }
     }
 
-    /**
-     * Returns {@code true} if the {@code warn} level is enabled.
-     */
+    /** Returns {@code true} if the {@code warn} level is enabled. */
     @Override
     public boolean isWarnEnabled() {
         return delegate.isWarnEnabled(MARKER);
@@ -1202,6 +1266,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1211,6 +1276,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1221,6 +1287,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1230,6 +1297,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1240,6 +1308,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1249,6 +1318,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1261,6 +1331,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1272,6 +1343,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1285,6 +1357,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1296,6 +1369,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1314,6 +1388,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1326,6 +1401,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1345,6 +1421,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1363,6 +1440,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1383,6 +1461,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1402,6 +1481,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1423,6 +1503,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1443,6 +1524,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1465,6 +1547,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1486,6 +1569,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1509,6 +1593,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1531,6 +1616,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1555,6 +1641,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
@@ -1567,6 +1654,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code warn} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
@@ -1578,9 +1666,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
         }
     }
 
-    /**
-     * Returns {@code true} if the {@code error} level is enabled.
-     */
+    /** Returns {@code true} if the {@code error} level is enabled. */
     @Override
     public boolean isErrorEnabled() {
         return delegate.isErrorEnabled(MARKER);
@@ -1588,6 +1674,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1597,6 +1684,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1607,6 +1695,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1616,6 +1705,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1626,6 +1716,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1635,6 +1726,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1647,6 +1739,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1658,6 +1751,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1671,6 +1765,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1682,6 +1777,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1700,6 +1796,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1712,6 +1809,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1731,6 +1829,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1749,6 +1848,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1769,6 +1869,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1788,6 +1889,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1809,6 +1911,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1829,6 +1932,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1851,6 +1955,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1872,6 +1977,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1895,6 +2001,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
@@ -1917,6 +2024,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
@@ -1941,6 +2049,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
@@ -1953,6 +2062,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
 
     /**
      * Logs the provided parameters at {@code error} level.
+     *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace

@@ -70,6 +70,10 @@ public abstract class Arg<T> implements Serializable {
 
     @Override
     public final int hashCode() {
-        return Objects.hash(name, value);
+        int result = 1;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + Objects.hashCode(value);
+        result = 31 * result + Boolean.hashCode(isSafeForLogging());
+        return result;
     }
 }

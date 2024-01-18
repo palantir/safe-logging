@@ -7,6 +7,7 @@ dependencies {
     api 'org.jetbrains:annotations'
     api 'com.google.errorprone:error_prone_annotations'
 
-    testImplementation 'junit:junit'
     testImplementation 'org.assertj:assertj-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
 }

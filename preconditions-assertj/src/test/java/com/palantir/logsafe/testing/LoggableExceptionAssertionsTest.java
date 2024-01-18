@@ -35,7 +35,7 @@ import org.assertj.core.error.ShouldContain;
 import org.assertj.core.error.ShouldHaveMessage;
 import org.assertj.core.internal.StandardComparisonStrategy;
 import org.assertj.core.util.Lists;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 @SuppressWarnings("AssertNoArgs")
 public final class LoggableExceptionAssertionsTest {

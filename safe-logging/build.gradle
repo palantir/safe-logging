@@ -4,3 +4,10 @@ apply plugin: 'com.palantir.revapi'
 tasks.withType(JavaCompile) {
     options.errorprone.disable 'PreferSafeLoggingPreconditions'
 }
+
+dependencies {
+    compileOnly 'com.google.code.findbugs:jsr305'
+
+    testImplementation 'junit:junit'
+    testImplementation 'org.assertj:assertj-core'
+}

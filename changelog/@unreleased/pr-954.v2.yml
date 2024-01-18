@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Arg#hashCode does not allocate
+  links:
+  - https://github.com/palantir/safe-logging/pull/954

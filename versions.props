@@ -9,6 +9,7 @@ org.apache.logging.log4j:* = 2.22.1
 org.assertj:assertj-core = 3.25.1
 org.checkerframework:checker-qual = 3.42.0
 org.jetbrains:annotations = 24.1.0
+org.junit.jupiter:* = 5.9.2
 
 # dependency-upgrader:OFF
 # Don't want to impose 2.3.4 on downstream consumers as this triggers a baseline bug: https://github.com/palantir/gradle-baseline/issues/1113

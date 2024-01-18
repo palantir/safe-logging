@@ -8,6 +8,7 @@ tasks.withType(JavaCompile) {
 dependencies {
     compileOnly 'com.google.code.findbugs:jsr305'
 
-    testImplementation 'junit:junit'
     testImplementation 'org.assertj:assertj-core'
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api'
 }

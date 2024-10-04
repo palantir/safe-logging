@@ -34,6 +34,7 @@ import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
+import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import org.jetbrains.annotations.Contract;
@@ -103,6 +104,18 @@ public final class Preconditions {
             boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
+        }
+    }
+
+    /**
+     * Ensures the truth of an expression involving one or more parameters to the calling method.
+     *
+     * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
+     */
+    @Contract("false, _, _ -> fail")
+    public static void checkArgument(boolean expression, @CompileTimeConstant String message, List<Arg<?>> args) {
+        if (!expression) {
+            throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
         }
     }
 
@@ -206,6 +219,22 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
+     * <p>See {@link #checkArgumentNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null, _, _ -> fail; !null, _, _ -> param1")
+    public static <T> T checkArgumentNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, List<Arg<?>> args) {
+        if (reference == null) {
+            throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
      * @param reference an String reference
      * @param message   the loggable exception message
      * @param args      the arguments to include in the {@link SafeIllegalArgumentException}
@@ -286,6 +315,18 @@ public final class Preconditions {
             boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg1, arg2, arg3);
+        }
+    }
+
+    /**
+     * Ensures the truth of an expression involving one or more parameters to the calling method.
+     *
+     * <p>See {@link #checkState(boolean, String, Arg...)} for details.
+     */
+    @Contract("false, _, _ -> fail")
+    public static void checkState(boolean expression, @CompileTimeConstant String message, List<Arg<?>> args) {
+        if (!expression) {
+            throw new SafeIllegalStateException(message, args.toArray(new Arg<?>[0]));
         }
     }
 
@@ -383,6 +424,21 @@ public final class Preconditions {
             @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2, arg3);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkNotNull(Object, String, Arg...)} for details.
+     */
+    @Contract("null, _, _ -> fail; !null, _, _ -> param1")
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, List<Arg<?>> args) {
+        if (reference == null) {
+            throw new SafeNullPointerException(message, args.toArray(new Arg<?>[0]));
         }
         return reference;
     }

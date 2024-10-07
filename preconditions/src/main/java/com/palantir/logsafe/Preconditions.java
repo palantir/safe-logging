@@ -113,7 +113,8 @@ public final class Preconditions {
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
     @Contract("false, _, _ -> fail")
-    public static void checkArgument(boolean expression, @CompileTimeConstant String message, List<Arg<?>> args) {
+    public static void checkArgument(
+            boolean expression, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
         }
@@ -225,7 +226,7 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     public static <T> T checkArgumentNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, List<Arg<?>> args) {
+            @Nullable T reference, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
         }
@@ -324,7 +325,8 @@ public final class Preconditions {
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
     @Contract("false, _, _ -> fail")
-    public static void checkState(boolean expression, @CompileTimeConstant String message, List<Arg<?>> args) {
+    public static void checkState(
+            boolean expression, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (!expression) {
             throw new SafeIllegalStateException(message, args.toArray(new Arg<?>[0]));
         }
@@ -436,7 +438,8 @@ public final class Preconditions {
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     @Nonnull
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, List<Arg<?>> args) {
+    public static <T> T checkNotNull(
+            @Nullable T reference, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (reference == null) {
             throw new SafeNullPointerException(message, args.toArray(new Arg<?>[0]));
         }

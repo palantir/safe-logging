@@ -33,10 +33,14 @@ public final class SafeNullPointerException extends NullPointerException impleme
         this.arguments = Collections.emptyList();
     }
 
-    public SafeNullPointerException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeNullPointerException(@CompileTimeConstant String message, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeNullPointerException(@CompileTimeConstant String message, Arg<?>... arguments) {
+        this(message, Arrays.asList(arguments));
     }
 
     @Override

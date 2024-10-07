@@ -116,7 +116,7 @@ public final class Preconditions {
     public static void checkArgument(
             boolean expression, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (!expression) {
-            throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
+            throw new SafeIllegalArgumentException(message, args);
         }
     }
 
@@ -228,7 +228,7 @@ public final class Preconditions {
     public static <T> T checkArgumentNotNull(
             @Nullable T reference, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (reference == null) {
-            throw new SafeIllegalArgumentException(message, args.toArray(new Arg<?>[0]));
+            throw new SafeIllegalArgumentException(message, args);
         }
         return reference;
     }
@@ -328,7 +328,7 @@ public final class Preconditions {
     public static void checkState(
             boolean expression, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (!expression) {
-            throw new SafeIllegalStateException(message, args.toArray(new Arg<?>[0]));
+            throw new SafeIllegalStateException(message, args);
         }
     }
 
@@ -441,7 +441,7 @@ public final class Preconditions {
     public static <T> T checkNotNull(
             @Nullable T reference, @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (reference == null) {
-            throw new SafeNullPointerException(message, args.toArray(new Arg<?>[0]));
+            throw new SafeNullPointerException(message, args);
         }
         return reference;
     }

@@ -34,17 +34,26 @@ public final class SafeIllegalArgumentException extends IllegalArgumentException
         this.arguments = Collections.emptyList();
     }
 
-    public SafeIllegalArgumentException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeIllegalArgumentException(@CompileTimeConstant String message, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIllegalArgumentException(
+            @CompileTimeConstant String message, @Nullable Throwable cause, List<? extends Arg<?>> arguments) {
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIllegalArgumentException(@CompileTimeConstant String message, Arg<?>... arguments) {
+        this(message, Arrays.asList(arguments));
     }
 
     public SafeIllegalArgumentException(
             @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments), cause);
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(message, cause, Arrays.asList(arguments));
     }
 
     public SafeIllegalArgumentException(@Nullable Throwable cause) {

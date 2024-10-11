@@ -34,17 +34,26 @@ public final class SafeIllegalStateException extends IllegalStateException imple
         this.arguments = Collections.emptyList();
     }
 
-    public SafeIllegalStateException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeIllegalStateException(@CompileTimeConstant String message, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIllegalStateException(
+            @CompileTimeConstant String message, @Nullable Throwable cause, List<? extends Arg<?>> arguments) {
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIllegalStateException(@CompileTimeConstant String message, Arg<?>... arguments) {
+        this(message, Arrays.asList(arguments));
     }
 
     public SafeIllegalStateException(
             @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments), cause);
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(message, cause, Arrays.asList(arguments));
     }
 
     public SafeIllegalStateException(@Nullable Throwable cause) {

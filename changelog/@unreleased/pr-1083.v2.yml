@@ -1,0 +1,5 @@
+type: improvement
+improvement:
+  description: Preconditions' methods now accept List<Arg<?>> as a parameter.
+  links:
+  - https://github.com/palantir/safe-logging/pull/1083

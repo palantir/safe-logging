@@ -31,10 +31,15 @@ public final class SafeUncheckedIoException extends UncheckedIOException impleme
     private final List<Arg<?>> arguments;
 
     public SafeUncheckedIoException(
-            @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
+            @CompileTimeConstant String message, @Nullable IOException cause, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeUncheckedIoException(
+            @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
+        this(message, cause, Arrays.asList(arguments));
     }
 
     public SafeUncheckedIoException(@Nullable IOException cause) {

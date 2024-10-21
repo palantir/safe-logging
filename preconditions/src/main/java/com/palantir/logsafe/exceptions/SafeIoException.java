@@ -29,16 +29,25 @@ public final class SafeIoException extends IOException implements SafeLoggable {
     private final String logMessage;
     private final List<Arg<?>> arguments;
 
-    public SafeIoException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeIoException(@CompileTimeConstant String message, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIoException(
+            @CompileTimeConstant String message, @Nullable Throwable cause, List<? extends Arg<?>> arguments) {
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeIoException(@CompileTimeConstant String message, Arg<?>... arguments) {
+        this(message, Arrays.asList(arguments));
     }
 
     public SafeIoException(@CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments), cause);
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(message, cause, Arrays.asList(arguments));
     }
 
     @Override

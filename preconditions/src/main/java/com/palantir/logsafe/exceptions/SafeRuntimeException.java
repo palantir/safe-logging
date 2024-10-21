@@ -34,16 +34,25 @@ public final class SafeRuntimeException extends RuntimeException implements Safe
         this.arguments = Collections.emptyList();
     }
 
-    public SafeRuntimeException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeRuntimeException(@CompileTimeConstant String message, List<? extends Arg<?>> arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeRuntimeException(
+            @CompileTimeConstant String message, @Nullable Throwable cause, List<? extends Arg<?>> arguments) {
+        super(SafeExceptions.renderMessage(message, arguments), cause);
+        this.logMessage = message;
+        this.arguments = Collections.unmodifiableList(arguments);
+    }
+
+    public SafeRuntimeException(@CompileTimeConstant String message, Arg<?>... arguments) {
+        this(message, Arrays.asList(arguments));
     }
 
     public SafeRuntimeException(@CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments), cause);
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(message, cause, Arrays.asList(arguments));
     }
 
     public SafeRuntimeException(@Nullable Throwable cause) {

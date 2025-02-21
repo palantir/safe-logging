@@ -21,6 +21,7 @@ import com.palantir.logsafe.SafeLoggable;
 import java.util.Collections;
 import java.util.List;
 import org.assertj.core.api.AbstractThrowableAssert;
+import org.assertj.core.api.InstanceOfAssertFactory;
 import org.assertj.core.api.ListAssert;
 import org.assertj.core.util.Objects;
 
@@ -30,6 +31,13 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
 
     static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> create(T actual) {
         return new LoggableExceptionAssert<>(actual).withRepresentation(LoggableArgRepresentation.INSTANCE);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T extends Throwable & SafeLoggable>
+            InstanceOfAssertFactory<SafeLoggable, LoggableExceptionAssert<T>> instanceOfAssertFactory() {
+        return new InstanceOfAssertFactory<>(
+                SafeLoggable.class, safeLoggable -> LoggableExceptionAssert.create((T) safeLoggable));
     }
 
     private LoggableExceptionAssert(T actual) {

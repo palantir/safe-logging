@@ -21,7 +21,6 @@ import com.palantir.logsafe.exceptions.SafeIllegalArgumentException;
 import com.palantir.logsafe.exceptions.SafeIllegalStateException;
 import com.palantir.logsafe.exceptions.SafeIoException;
 import com.palantir.logsafe.exceptions.SafeNullPointerException;
-import org.assertj.core.api.InstanceOfAssertFactory;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.assertj.core.util.CanIgnoreReturnValue;
 import org.assertj.core.util.CheckReturnValue;
@@ -55,13 +54,6 @@ public class Assertions extends org.assertj.core.api.Assertions {
     @CanIgnoreReturnValue
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {
-        return assertThatThrownBy(shouldRaiseThrowable).asInstanceOf(loggableExceptionAssertFactory());
-    }
-
-    @SuppressWarnings("unchecked")
-    private static <T extends Throwable & SafeLoggable>
-            InstanceOfAssertFactory<SafeLoggable, LoggableExceptionAssert<T>> loggableExceptionAssertFactory() {
-        return new InstanceOfAssertFactory<>(
-                SafeLoggable.class, safeLoggable -> LoggableExceptionAssert.create((T) safeLoggable));
+        return assertThatThrownBy(shouldRaiseThrowable).asInstanceOf(LoggableExceptionAssert.instanceOfAssertFactory());
     }
 }

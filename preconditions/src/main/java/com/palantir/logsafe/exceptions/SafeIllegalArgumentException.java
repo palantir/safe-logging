@@ -19,47 +19,41 @@ package com.palantir.logsafe.exceptions;
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeLoggable;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
 
 public final class SafeIllegalArgumentException extends IllegalArgumentException implements SafeLoggable {
-    private final String logMessage;
-    private final List<Arg<?>> arguments;
+    private final SafeExceptionData data;
 
     public SafeIllegalArgumentException() {
-        super("");
-        this.logMessage = "";
-        this.arguments = Collections.emptyList();
+        this(SafeExceptionData.of(), null);
     }
 
     public SafeIllegalArgumentException(@CompileTimeConstant String message, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments));
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(SafeExceptionData.of(message, arguments), null);
     }
 
     public SafeIllegalArgumentException(
             @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
-        super(SafeExceptions.renderMessage(message, arguments), cause);
-        this.logMessage = message;
-        this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
+        this(SafeExceptionData.of(message, arguments), cause);
     }
 
     public SafeIllegalArgumentException(@Nullable Throwable cause) {
-        super("", cause);
-        this.logMessage = "";
-        this.arguments = Collections.emptyList();
+        this(SafeExceptionData.of(), cause);
+    }
+
+    private SafeIllegalArgumentException(SafeExceptionData data, @Nullable Throwable cause) {
+        super(data.unsafeMessage(), cause);
+        this.data = data;
     }
 
     @Override
     public String getLogMessage() {
-        return logMessage;
+        return data.logMessage();
     }
 
     @Override
     public List<Arg<?>> getArgs() {
-        return arguments;
+        return data.args();
     }
 }

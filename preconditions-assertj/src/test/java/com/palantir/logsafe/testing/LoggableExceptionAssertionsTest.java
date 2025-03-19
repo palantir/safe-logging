@@ -186,7 +186,7 @@ public final class LoggableExceptionAssertionsTest {
             super("test message");
         }
 
-        @SuppressWarnings("for-rollout:IllegalSafeLoggingArgument")
+        @SuppressWarnings({"for-rollout:IllegalSafeLoggingArgument", "for-rollout:RemoveRolloutSuppressions"})
         @Override
         public String getLogMessage() {
             return getMessage();

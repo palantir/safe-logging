@@ -15,6 +15,7 @@ package com.palantir.logsafe.logger.spi;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.processing.Generated;
@@ -34,7 +35,7 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void trace(@CompileTimeConstant String message);
+    void trace(@Safe @CompileTimeConstant String message);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -42,29 +43,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, @Nullable Throwable throwable);
+    void trace(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0);
-
-    /**
-     * Logs the provided parameters at {@code trace} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     * @param throwable Throwable to log with a stack trace
-     */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
-
-    /**
-     * Logs the provided parameters at {@code trace} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -72,14 +58,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -87,15 +73,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code trace} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -104,7 +89,27 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable);
+
+    /**
+     * Logs the provided parameters at {@code trace} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     */
+    void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+
+    /**
+     * Logs the provided parameters at {@code trace} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     * @param throwable Throwable to log with a stack trace
+     */
+    void trace(
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -116,7 +121,8 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
+    void trace(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -125,7 +131,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -139,7 +145,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -154,7 +160,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -169,7 +175,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -185,7 +191,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -201,7 +207,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -218,7 +224,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -235,7 +241,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -253,7 +259,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -271,7 +277,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -290,7 +296,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -309,7 +315,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
-    void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args);
+    void trace(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args);
 
     /**
      * Logs the provided parameters at {@code trace} level.
@@ -318,7 +324,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
+    void trace(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /** Returns {@code true} if the {@code debug} level is enabled. */
     boolean isDebugEnabled();
@@ -328,7 +334,7 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void debug(@CompileTimeConstant String message);
+    void debug(@Safe @CompileTimeConstant String message);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -336,29 +342,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, @Nullable Throwable throwable);
+    void debug(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0);
-
-    /**
-     * Logs the provided parameters at {@code debug} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     * @param throwable Throwable to log with a stack trace
-     */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
-
-    /**
-     * Logs the provided parameters at {@code debug} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -366,14 +357,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -381,15 +372,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code debug} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -398,7 +388,27 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable);
+
+    /**
+     * Logs the provided parameters at {@code debug} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     */
+    void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+
+    /**
+     * Logs the provided parameters at {@code debug} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     * @param throwable Throwable to log with a stack trace
+     */
+    void debug(
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -410,7 +420,8 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
+    void debug(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -419,7 +430,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -433,7 +444,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -448,7 +459,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -463,7 +474,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -479,7 +490,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -495,7 +506,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -512,7 +523,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -529,7 +540,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -547,7 +558,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -565,7 +576,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -584,7 +595,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -603,7 +614,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
-    void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args);
+    void debug(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args);
 
     /**
      * Logs the provided parameters at {@code debug} level.
@@ -612,7 +623,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
+    void debug(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /** Returns {@code true} if the {@code info} level is enabled. */
     boolean isInfoEnabled();
@@ -622,7 +633,7 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void info(@CompileTimeConstant String message);
+    void info(@Safe @CompileTimeConstant String message);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -630,29 +641,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, @Nullable Throwable throwable);
+    void info(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0);
-
-    /**
-     * Logs the provided parameters at {@code info} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     * @param throwable Throwable to log with a stack trace
-     */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
-
-    /**
-     * Logs the provided parameters at {@code info} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -660,14 +656,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -675,15 +671,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void info(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code info} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -692,7 +687,27 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable);
+
+    /**
+     * Logs the provided parameters at {@code info} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     */
+    void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+
+    /**
+     * Logs the provided parameters at {@code info} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     * @param throwable Throwable to log with a stack trace
+     */
+    void info(
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -704,7 +719,8 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
+    void info(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -713,7 +729,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -727,7 +743,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -742,7 +758,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -757,7 +773,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -773,7 +789,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -789,7 +805,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -806,7 +822,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -823,7 +839,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -841,7 +857,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -859,7 +875,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -878,7 +894,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -897,7 +913,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
-    void info(@CompileTimeConstant String message, List<? extends Arg<?>> args);
+    void info(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args);
 
     /**
      * Logs the provided parameters at {@code info} level.
@@ -906,7 +922,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
+    void info(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /** Returns {@code true} if the {@code warn} level is enabled. */
     boolean isWarnEnabled();
@@ -916,7 +932,7 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void warn(@CompileTimeConstant String message);
+    void warn(@Safe @CompileTimeConstant String message);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -924,29 +940,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, @Nullable Throwable throwable);
+    void warn(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0);
-
-    /**
-     * Logs the provided parameters at {@code warn} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     * @param throwable Throwable to log with a stack trace
-     */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
-
-    /**
-     * Logs the provided parameters at {@code warn} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -954,14 +955,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -969,15 +970,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code warn} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -986,7 +986,27 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable);
+
+    /**
+     * Logs the provided parameters at {@code warn} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     */
+    void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+
+    /**
+     * Logs the provided parameters at {@code warn} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     * @param throwable Throwable to log with a stack trace
+     */
+    void warn(
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -998,7 +1018,8 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
+    void warn(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1007,7 +1028,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1021,7 +1042,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1036,7 +1057,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1051,7 +1072,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1067,7 +1088,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1083,7 +1104,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1100,7 +1121,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1117,7 +1138,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1135,7 +1156,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1153,7 +1174,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1172,7 +1193,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1191,7 +1212,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
-    void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args);
+    void warn(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args);
 
     /**
      * Logs the provided parameters at {@code warn} level.
@@ -1200,7 +1221,7 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
+    void warn(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 
     /** Returns {@code true} if the {@code error} level is enabled. */
     boolean isErrorEnabled();
@@ -1210,7 +1231,7 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void error(@CompileTimeConstant String message);
+    void error(@Safe @CompileTimeConstant String message);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1218,29 +1239,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, @Nullable Throwable throwable);
+    void error(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0);
-
-    /**
-     * Logs the provided parameters at {@code error} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     * @param throwable Throwable to log with a stack trace
-     */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
-
-    /**
-     * Logs the provided parameters at {@code error} level.
-     *
-     * @param message Message string to log, supports slf4j-style curly-brace interpolation
-     */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1248,14 +1254,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1263,15 +1269,14 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param throwable Throwable to log with a stack trace
      */
-    void error(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable);
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable);
 
     /**
      * Logs the provided parameters at {@code error} level.
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1280,7 +1285,27 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable);
+
+    /**
+     * Logs the provided parameters at {@code error} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     */
+    void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3);
+
+    /**
+     * Logs the provided parameters at {@code error} level.
+     *
+     * @param message Message string to log, supports slf4j-style curly-brace interpolation
+     * @param throwable Throwable to log with a stack trace
+     */
+    void error(
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1292,7 +1317,8 @@ public interface SafeLoggerBridge {
      *
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
-    void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
+    void error(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1301,7 +1327,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1315,7 +1341,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1330,7 +1356,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1345,7 +1371,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1361,7 +1387,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1377,7 +1403,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1394,7 +1420,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1411,7 +1437,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1429,7 +1455,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1447,7 +1473,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1466,7 +1492,7 @@ public interface SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1485,7 +1511,7 @@ public interface SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      * @param args List of safe-loggable arguments associated with this event
      */
-    void error(@CompileTimeConstant String message, List<? extends Arg<?>> args);
+    void error(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args);
 
     /**
      * Logs the provided parameters at {@code error} level.
@@ -1494,5 +1520,5 @@ public interface SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      * @param throwable Throwable to log with a stack trace
      */
-    void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
+    void error(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable);
 }

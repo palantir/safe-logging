@@ -18,13 +18,14 @@ package com.palantir.logsafe.exceptions;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import java.util.Arrays;
 
 /** {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations. */
 public final class SafeExceptions {
     private SafeExceptions() {}
 
-    public static String renderMessage(@CompileTimeConstant String safeMessage, Arg<?>... args) {
+    public static String renderMessage(@Safe @CompileTimeConstant String safeMessage, Arg<?>... args) {
         if (args == null || args.length == 0) {
             return safeMessage;
         }

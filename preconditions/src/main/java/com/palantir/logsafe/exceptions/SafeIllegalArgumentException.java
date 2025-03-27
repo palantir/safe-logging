@@ -18,6 +18,7 @@ package com.palantir.logsafe.exceptions;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.SafeLoggable;
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,14 +35,14 @@ public final class SafeIllegalArgumentException extends IllegalArgumentException
         this.arguments = Collections.emptyList();
     }
 
-    public SafeIllegalArgumentException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeIllegalArgumentException(@Safe @CompileTimeConstant String message, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
     public SafeIllegalArgumentException(
-            @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
+            @Safe @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

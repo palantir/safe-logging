@@ -62,7 +62,7 @@ public final class Preconditions {
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
     @Contract("false, _ -> fail")
-    public static void checkArgument(boolean expression, @CompileTimeConstant String message) {
+    public static void checkArgument(boolean expression, @Safe @CompileTimeConstant String message) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message);
         }
@@ -74,7 +74,7 @@ public final class Preconditions {
      * <p>See {@link #checkArgument(boolean, String, Arg...)} for details.
      */
     @Contract("false, _, _ -> fail")
-    public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
+    public static void checkArgument(boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg);
         }
@@ -87,7 +87,7 @@ public final class Preconditions {
      */
     @Contract("false, _, _, _ -> fail")
     public static void checkArgument(
-            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+            boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg1, arg2);
         }
@@ -100,7 +100,7 @@ public final class Preconditions {
      */
     @Contract("false, _, _, _, _ -> fail")
     public static void checkArgument(
-            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+            boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
         }
@@ -115,7 +115,7 @@ public final class Preconditions {
      * @throws SafeIllegalArgumentException if {@code expression} is false
      */
     @Contract("false, _, _ -> fail")
-    public static void checkArgument(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
+    public static void checkArgument(boolean expression, @Safe @CompileTimeConstant String message, Arg<?>... args) {
         if (!expression) {
             throw new SafeIllegalArgumentException(message, args);
         }
@@ -149,7 +149,7 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     @Contract("null, _ -> fail; !null, _ -> param1")
-    public static <T> T checkArgumentNotNull(@Nullable T reference, @CompileTimeConstant String message) {
+    public static <T> T checkArgumentNotNull(@Nullable T reference, @Safe @CompileTimeConstant String message) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message);
         }
@@ -164,7 +164,8 @@ public final class Preconditions {
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     @Nonnull
     @CanIgnoreReturnValue
-    public static <T> T checkArgumentNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
+    public static <T> T checkArgumentNotNull(
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message, arg);
         }
@@ -180,7 +181,7 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     @Contract("null, _, _, _ -> fail; !null, _, _, _ -> param1")
     public static <T> T checkArgumentNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message, arg1, arg2);
         }
@@ -196,7 +197,7 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     @Contract("null, _, _, _, _ -> fail; !null, _, _, _, _ -> param1")
     public static <T> T checkArgumentNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message, arg1, arg2, arg3);
         }
@@ -216,7 +217,7 @@ public final class Preconditions {
     @CanIgnoreReturnValue
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     public static <T> T checkArgumentNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?>... args) {
         if (reference == null) {
             throw new SafeIllegalArgumentException(message, args);
         }
@@ -246,7 +247,7 @@ public final class Preconditions {
      * @throws SafeIllegalStateException if {@code expression} is false
      */
     @Contract("false, _ -> fail")
-    public static void checkState(boolean expression, @CompileTimeConstant String message) {
+    public static void checkState(boolean expression, @Safe @CompileTimeConstant String message) {
         if (!expression) {
             throw new SafeIllegalStateException(message);
         }
@@ -258,7 +259,7 @@ public final class Preconditions {
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
     @Contract("false, _, _ -> fail")
-    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg) {
+    public static void checkState(boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg);
         }
@@ -270,7 +271,8 @@ public final class Preconditions {
      * <p>See {@link #checkState(boolean, String, Arg...)} for details.
      */
     @Contract("false, _, _, _ -> fail")
-    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+    public static void checkState(
+            boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg1, arg2);
         }
@@ -283,7 +285,7 @@ public final class Preconditions {
      */
     @Contract("false, _, _, _, _ -> fail")
     public static void checkState(
-            boolean expression, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+            boolean expression, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (!expression) {
             throw new SafeIllegalStateException(message, arg1, arg2, arg3);
         }
@@ -299,7 +301,7 @@ public final class Preconditions {
      * @throws SafeIllegalStateException if {@code expression} is false
      */
     @Contract("false, _, _ -> fail")
-    public static void checkState(boolean expression, @CompileTimeConstant String message, Arg<?>... args) {
+    public static void checkState(boolean expression, @Safe @CompileTimeConstant String message, Arg<?>... args) {
         if (!expression) {
             throw new SafeIllegalStateException(message, args);
         }
@@ -333,7 +335,7 @@ public final class Preconditions {
     @Contract("null, _ -> fail; !null, _ -> param1")
     @Nonnull
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message) {
+    public static <T> T checkNotNull(@Nullable T reference, @Safe @CompileTimeConstant String message) {
         if (reference == null) {
             throw new SafeNullPointerException(message);
         }
@@ -348,7 +350,7 @@ public final class Preconditions {
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     @Nonnull
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?> arg) {
+    public static <T> T checkNotNull(@Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg);
         }
@@ -364,7 +366,7 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2);
         }
@@ -380,7 +382,7 @@ public final class Preconditions {
     @Nonnull
     @CanIgnoreReturnValue
     public static <T> T checkNotNull(
-            @Nullable T reference, @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (reference == null) {
             throw new SafeNullPointerException(message, arg1, arg2, arg3);
         }
@@ -399,7 +401,7 @@ public final class Preconditions {
     @Contract("null, _, _ -> fail; !null, _, _ -> param1")
     @Nonnull
     @CanIgnoreReturnValue
-    public static <T> T checkNotNull(@Nullable T reference, @CompileTimeConstant String message, Arg<?>... args) {
+    public static <T> T checkNotNull(@Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?>... args) {
         if (reference == null) {
             throw new SafeNullPointerException(message, args);
         }

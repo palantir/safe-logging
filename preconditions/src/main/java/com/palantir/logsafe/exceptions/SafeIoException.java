@@ -18,6 +18,7 @@ package com.palantir.logsafe.exceptions;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.SafeLoggable;
 import java.io.IOException;
 import java.util.Arrays;
@@ -29,13 +30,13 @@ public final class SafeIoException extends IOException implements SafeLoggable {
     private final String logMessage;
     private final List<Arg<?>> arguments;
 
-    public SafeIoException(@CompileTimeConstant String message, Arg<?>... arguments) {
+    public SafeIoException(@Safe @CompileTimeConstant String message, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments));
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));
     }
 
-    public SafeIoException(@CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
+    public SafeIoException(@Safe @CompileTimeConstant String message, @Nullable Throwable cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

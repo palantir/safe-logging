@@ -18,6 +18,7 @@ package com.palantir.logsafe.exceptions;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.SafeLoggable;
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -31,7 +32,7 @@ public final class SafeUncheckedIoException extends UncheckedIOException impleme
     private final List<Arg<?>> arguments;
 
     public SafeUncheckedIoException(
-            @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
+            @Safe @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);
         this.logMessage = message;
         this.arguments = Collections.unmodifiableList(Arrays.asList(arguments));

@@ -15,6 +15,7 @@ package com.palantir.logsafe.logger.slf4j;
 
 import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
+import com.palantir.logsafe.Safe;
 import com.palantir.logsafe.logger.spi.SafeLoggerBridge;
 import java.util.List;
 import java.util.Objects;
@@ -46,7 +47,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void trace(@CompileTimeConstant String message) {
+    public void trace(@Safe @CompileTimeConstant String message) {
         delegate.trace(MARKER, message);
     }
 
@@ -57,7 +58,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void trace(@CompileTimeConstant String message, @Nullable Throwable throwable) {
+    public void trace(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.trace(MARKER, message, throwable);
     }
 
@@ -67,7 +68,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0) {
+    public void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0) {
         delegate.trace(MARKER, message, arg0);
     }
 
@@ -78,7 +79,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
+    public void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.trace(MARKER, message, arg0, throwable);
     }
 
@@ -88,7 +89,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
+    public void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
         delegate.trace(MARKER, message, arg0, arg1);
     }
 
@@ -99,7 +100,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
+    public void trace(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, arg0, arg1, throwable);
         }
@@ -111,7 +113,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
+    public void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, arg0, arg1, arg2);
         }
@@ -125,7 +127,11 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, arg0, arg1, arg2, throwable);
         }
@@ -137,7 +143,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void trace(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public void trace(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, arg0, arg1, arg2, arg3);
         }
@@ -151,7 +157,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -169,7 +175,12 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            Arg<?> arg3,
+            Arg<?> arg4) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, arg0, arg1, arg2, arg3, arg4);
         }
@@ -183,7 +194,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -202,7 +213,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -222,7 +233,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -242,7 +253,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -263,7 +274,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -284,7 +295,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -306,7 +317,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -328,7 +339,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -351,7 +362,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -374,7 +385,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -398,7 +409,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void trace(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -422,7 +433,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      */
     @Override
-    public void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args) {
+    public void trace(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, args.toArray(new Object[0]));
         }
@@ -436,7 +447,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void trace(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
+    public void trace(
+            @Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         if (isTraceEnabled()) {
             delegate.trace(MARKER, message, merge(args, throwable));
         }
@@ -454,7 +466,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void debug(@CompileTimeConstant String message) {
+    public void debug(@Safe @CompileTimeConstant String message) {
         delegate.debug(MARKER, message);
     }
 
@@ -465,7 +477,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void debug(@CompileTimeConstant String message, @Nullable Throwable throwable) {
+    public void debug(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.debug(MARKER, message, throwable);
     }
 
@@ -475,7 +487,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0) {
+    public void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0) {
         delegate.debug(MARKER, message, arg0);
     }
 
@@ -486,7 +498,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
+    public void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.debug(MARKER, message, arg0, throwable);
     }
 
@@ -496,7 +508,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
+    public void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
         delegate.debug(MARKER, message, arg0, arg1);
     }
 
@@ -507,7 +519,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
+    public void debug(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, arg0, arg1, throwable);
         }
@@ -519,7 +532,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
+    public void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, arg0, arg1, arg2);
         }
@@ -533,7 +546,11 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, arg0, arg1, arg2, throwable);
         }
@@ -545,7 +562,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void debug(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public void debug(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, arg0, arg1, arg2, arg3);
         }
@@ -559,7 +576,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -577,7 +594,12 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            Arg<?> arg3,
+            Arg<?> arg4) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, arg0, arg1, arg2, arg3, arg4);
         }
@@ -591,7 +613,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -610,7 +632,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -630,7 +652,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -650,7 +672,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -671,7 +693,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -692,7 +714,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -714,7 +736,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -736,7 +758,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -759,7 +781,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -782,7 +804,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -806,7 +828,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void debug(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -830,7 +852,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      */
     @Override
-    public void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args) {
+    public void debug(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, args.toArray(new Object[0]));
         }
@@ -844,7 +866,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void debug(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
+    public void debug(
+            @Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         if (isDebugEnabled()) {
             delegate.debug(MARKER, message, merge(args, throwable));
         }
@@ -862,7 +885,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void info(@CompileTimeConstant String message) {
+    public void info(@Safe @CompileTimeConstant String message) {
         delegate.info(MARKER, message);
     }
 
@@ -873,7 +896,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void info(@CompileTimeConstant String message, @Nullable Throwable throwable) {
+    public void info(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.info(MARKER, message, throwable);
     }
 
@@ -883,7 +906,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0) {
+    public void info(@Safe @CompileTimeConstant String message, Arg<?> arg0) {
         delegate.info(MARKER, message, arg0);
     }
 
@@ -894,7 +917,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
+    public void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.info(MARKER, message, arg0, throwable);
     }
 
@@ -904,7 +927,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
+    public void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
         delegate.info(MARKER, message, arg0, arg1);
     }
 
@@ -915,7 +938,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
+    public void info(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, arg0, arg1, throwable);
         }
@@ -927,7 +951,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
+    public void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, arg0, arg1, arg2);
         }
@@ -941,7 +965,11 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, arg0, arg1, arg2, throwable);
         }
@@ -953,7 +981,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void info(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public void info(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, arg0, arg1, arg2, arg3);
         }
@@ -967,7 +995,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -985,7 +1013,12 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            Arg<?> arg3,
+            Arg<?> arg4) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, arg0, arg1, arg2, arg3, arg4);
         }
@@ -999,7 +1032,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1018,7 +1051,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1038,7 +1071,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1058,7 +1091,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1079,7 +1112,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1100,7 +1133,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1122,7 +1155,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1144,7 +1177,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1167,7 +1200,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1190,7 +1223,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1214,7 +1247,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void info(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1238,7 +1271,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      */
     @Override
-    public void info(@CompileTimeConstant String message, List<? extends Arg<?>> args) {
+    public void info(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, args.toArray(new Object[0]));
         }
@@ -1252,7 +1285,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void info(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
+    public void info(
+            @Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         if (isInfoEnabled()) {
             delegate.info(MARKER, message, merge(args, throwable));
         }
@@ -1270,7 +1304,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void warn(@CompileTimeConstant String message) {
+    public void warn(@Safe @CompileTimeConstant String message) {
         delegate.warn(MARKER, message);
     }
 
@@ -1281,7 +1315,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void warn(@CompileTimeConstant String message, @Nullable Throwable throwable) {
+    public void warn(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.warn(MARKER, message, throwable);
     }
 
@@ -1291,7 +1325,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0) {
+    public void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0) {
         delegate.warn(MARKER, message, arg0);
     }
 
@@ -1302,7 +1336,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
+    public void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.warn(MARKER, message, arg0, throwable);
     }
 
@@ -1312,7 +1346,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
+    public void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
         delegate.warn(MARKER, message, arg0, arg1);
     }
 
@@ -1323,7 +1357,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
+    public void warn(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, arg0, arg1, throwable);
         }
@@ -1335,7 +1370,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
+    public void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, arg0, arg1, arg2);
         }
@@ -1349,7 +1384,11 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, arg0, arg1, arg2, throwable);
         }
@@ -1361,7 +1400,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void warn(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public void warn(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, arg0, arg1, arg2, arg3);
         }
@@ -1375,7 +1414,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1393,7 +1432,12 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            Arg<?> arg3,
+            Arg<?> arg4) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, arg0, arg1, arg2, arg3, arg4);
         }
@@ -1407,7 +1451,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1426,7 +1470,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1446,7 +1490,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1466,7 +1510,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1487,7 +1531,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1508,7 +1552,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1530,7 +1574,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1552,7 +1596,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1575,7 +1619,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1598,7 +1642,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1622,7 +1666,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void warn(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1646,7 +1690,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      */
     @Override
-    public void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args) {
+    public void warn(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, args.toArray(new Object[0]));
         }
@@ -1660,7 +1704,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void warn(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
+    public void warn(
+            @Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         if (isWarnEnabled()) {
             delegate.warn(MARKER, message, merge(args, throwable));
         }
@@ -1678,7 +1723,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void error(@CompileTimeConstant String message) {
+    public void error(@Safe @CompileTimeConstant String message) {
         delegate.error(MARKER, message);
     }
 
@@ -1689,7 +1734,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void error(@CompileTimeConstant String message, @Nullable Throwable throwable) {
+    public void error(@Safe @CompileTimeConstant String message, @Nullable Throwable throwable) {
         delegate.error(MARKER, message, throwable);
     }
 
@@ -1699,7 +1744,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0) {
+    public void error(@Safe @CompileTimeConstant String message, Arg<?> arg0) {
         delegate.error(MARKER, message, arg0);
     }
 
@@ -1710,7 +1755,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
+    public void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, @Nullable Throwable throwable) {
         delegate.error(MARKER, message, arg0, throwable);
     }
 
@@ -1720,7 +1765,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
+    public void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1) {
         delegate.error(MARKER, message, arg0, arg1);
     }
 
@@ -1731,7 +1776,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
+    public void error(
+            @Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, @Nullable Throwable throwable) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, arg0, arg1, throwable);
         }
@@ -1743,7 +1789,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
+    public void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, arg0, arg1, arg2);
         }
@@ -1757,7 +1803,11 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, @Nullable Throwable throwable) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            @Nullable Throwable throwable) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, arg0, arg1, arg2, throwable);
         }
@@ -1769,7 +1819,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param message Message string to log, supports slf4j-style curly-brace interpolation
      */
     @Override
-    public void error(@CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+    public void error(@Safe @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, arg0, arg1, arg2, arg3);
         }
@@ -1783,7 +1833,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1801,7 +1851,12 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message, Arg<?> arg0, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3, Arg<?> arg4) {
+            @Safe @CompileTimeConstant String message,
+            Arg<?> arg0,
+            Arg<?> arg1,
+            Arg<?> arg2,
+            Arg<?> arg3,
+            Arg<?> arg4) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, arg0, arg1, arg2, arg3, arg4);
         }
@@ -1815,7 +1870,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1834,7 +1889,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1854,7 +1909,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1874,7 +1929,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1895,7 +1950,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1916,7 +1971,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1938,7 +1993,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1960,7 +2015,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -1983,7 +2038,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -2006,7 +2061,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -2030,7 +2085,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      */
     @Override
     public void error(
-            @CompileTimeConstant String message,
+            @Safe @CompileTimeConstant String message,
             Arg<?> arg0,
             Arg<?> arg1,
             Arg<?> arg2,
@@ -2054,7 +2109,7 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param args List of safe-loggable arguments associated with this event
      */
     @Override
-    public void error(@CompileTimeConstant String message, List<? extends Arg<?>> args) {
+    public void error(@Safe @CompileTimeConstant String message, List<? extends Arg<?>> args) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, args.toArray(new Object[0]));
         }
@@ -2068,7 +2123,8 @@ final class Slf4jSafeLoggerBridge implements SafeLoggerBridge {
      * @param throwable Throwable to log with a stack trace
      */
     @Override
-    public void error(@CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
+    public void error(
+            @Safe @CompileTimeConstant String message, List<? extends Arg<?>> args, @Nullable Throwable throwable) {
         if (isErrorEnabled()) {
             delegate.error(MARKER, message, merge(args, throwable));
         }

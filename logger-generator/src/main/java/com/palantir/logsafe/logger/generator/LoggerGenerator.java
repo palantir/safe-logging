@@ -141,6 +141,7 @@ public final class LoggerGenerator {
                     .build());
 
             ParameterSpec messageParameter = ParameterSpec.builder(String.class, "message")
+                    .addAnnotation(Safe.class)
                     .addAnnotation(CompileTimeConstant.class)
                     .addJavadoc("Message string to log, supports slf4j-style curly-brace interpolation\n")
                     .build();

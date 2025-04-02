@@ -124,7 +124,7 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
      * @return the non-null reference that was validated
      * @throws SafeIllegalArgumentException if {@code reference} is null
      */
@@ -141,7 +141,7 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
      * @param message   the loggable exception message
      * @return the non-null reference that was validated
      * @throws SafeIllegalArgumentException if {@code reference} is null
@@ -207,7 +207,7 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
      * @param message   the loggable exception message
      * @param args      the arguments to include in the {@link SafeIllegalArgumentException}
      * @return the non-null reference that was validated
@@ -310,7 +310,110 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalStateException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null -> fail; !null -> param1")
+    public static <T> T checkStateNotNull(@Nullable T reference) {
+        if (reference == null) {
+            throw new SafeIllegalStateException();
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference a String reference
+     * @param message   the loggable exception message
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalStateException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null, _ -> fail; !null, _ -> param1")
+    public static <T> T checkStateNotNull(@Nullable T reference, @Safe @CompileTimeConstant String message) {
+        if (reference == null) {
+            throw new SafeIllegalStateException(message);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkStateNotNull(Object, String, Arg...)} for details.
+     */
+    @Contract("null, _, _ -> fail; !null, _, _ -> param1")
+    @Nonnull
+    @CanIgnoreReturnValue
+    public static <T> T checkStateNotNull(
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg) {
+        if (reference == null) {
+            throw new SafeIllegalStateException(message, arg);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkStateNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null, _, _, _ -> fail; !null, _, _, _ -> param1")
+    public static <T> T checkStateNotNull(
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2) {
+        if (reference == null) {
+            throw new SafeIllegalStateException(message, arg1, arg2);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * <p>See {@link #checkStateNotNull(Object, String, Arg...)} for details.
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null, _, _, _, _ -> fail; !null, _, _, _, _ -> param1")
+    public static <T> T checkStateNotNull(
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?> arg1, Arg<?> arg2, Arg<?> arg3) {
+        if (reference == null) {
+            throw new SafeIllegalStateException(message, arg1, arg2, arg3);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference a String reference
+     * @param message   the loggable exception message
+     * @param args      the arguments to include in the {@link SafeIllegalStateException}
+     * @return the non-null reference that was validated
+     * @throws SafeIllegalStateException if {@code reference} is null
+     */
+    @Nonnull
+    @CanIgnoreReturnValue
+    @Contract("null, _, _ -> fail; !null, _, _ -> param1")
+    public static <T> T checkStateNotNull(
+            @Nullable T reference, @Safe @CompileTimeConstant String message, Arg<?>... args) {
+        if (reference == null) {
+            throw new SafeIllegalStateException(message, args);
+        }
+        return reference;
+    }
+
+    /**
+     * Ensures that an Object reference passed as a parameter to the calling method is not null.
+     *
+     * @param reference a String reference
      * @return the non-null reference that was validated
      * @throws SafeNullPointerException if {@code reference} is null
      */
@@ -327,7 +430,7 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
      * @param message   the loggable exception message
      * @return the non-null reference that was validated
      * @throws SafeNullPointerException if {@code reference} is null
@@ -392,7 +495,7 @@ public final class Preconditions {
     /**
      * Ensures that an Object reference passed as a parameter to the calling method is not null.
      *
-     * @param reference an String reference
+     * @param reference a String reference
      * @param message   the loggable exception message
      * @param args      the arguments to include in the {@link SafeNullPointerException}
      * @return the non-null reference that was validated

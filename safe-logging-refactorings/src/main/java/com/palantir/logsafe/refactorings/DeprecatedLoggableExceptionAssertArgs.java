@@ -26,7 +26,7 @@ import com.palantir.logsafe.testing.LoggableExceptionAssert;
 public final class DeprecatedLoggableExceptionAssertArgs<T extends Throwable & SafeLoggable> {
 
     @BeforeTemplate
-    @SuppressWarnings("deprecation")
+    @SuppressWarnings({"deprecation", "for-rollout:SuppressWarningsWithoutExplanation"})
     LoggableExceptionAssert<T> hasArgs(LoggableExceptionAssert<T> loggableExceptionAssert, @Repeated Arg<?> args) {
         return loggableExceptionAssert.hasArgs(args);
     }

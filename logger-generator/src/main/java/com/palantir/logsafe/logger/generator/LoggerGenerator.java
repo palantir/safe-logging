@@ -182,6 +182,7 @@ public final class LoggerGenerator {
     }
 
     private static JavaFile generateSlf4jBridge() {
+        @SuppressWarnings("for-rollout:UnnecessarilyFullyQualified")
         TypeSpec.Builder loggerBuilder = TypeSpec.classBuilder(SLF4J_BRIDGE_NAME)
                 .addAnnotation(AnnotationSpec.builder(Generated.class)
                         .addMember("value", "$S", LoggerGenerator.class.getName())
@@ -274,6 +275,7 @@ public final class LoggerGenerator {
     }
 
     private static JavaFile generateLog4jBridge() {
+        @SuppressWarnings("for-rollout:UnnecessarilyFullyQualified")
         TypeSpec.Builder loggerBuilder = TypeSpec.classBuilder(LOG4J_BRIDGE_NAME)
                 .addAnnotation(AnnotationSpec.builder(Generated.class)
                         .addMember("value", "$S", LoggerGenerator.class.getName())
@@ -374,6 +376,7 @@ public final class LoggerGenerator {
         return spec.parameters.stream().anyMatch(param -> Objects.equals(param.type, THROWABLE_TYPE));
     }
 
+    @SuppressWarnings({"for-rollout:DefaultLocale", "for-rollout:StringConcatToTextBlock"})
     private static String copyright(int year) {
         return String.format(
                 "(c) Copyright %d Palantir Technologies Inc. All rights reserved.\n"

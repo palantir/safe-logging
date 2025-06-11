@@ -31,6 +31,7 @@ public final class SafeUncheckedIoException extends UncheckedIOException impleme
     private final String logMessage;
     private final List<Arg<?>> arguments;
 
+    @SuppressWarnings("for-rollout:InconsistentOverloads")
     public SafeUncheckedIoException(
             @Safe @CompileTimeConstant String message, @Nullable IOException cause, Arg<?>... arguments) {
         super(SafeExceptions.renderMessage(message, arguments), cause);

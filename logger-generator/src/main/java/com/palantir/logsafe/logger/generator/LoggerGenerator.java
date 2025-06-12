@@ -182,7 +182,6 @@ public final class LoggerGenerator {
     }
 
     private static JavaFile generateSlf4jBridge() {
-        @SuppressWarnings("for-rollout:UnnecessarilyFullyQualified")
         TypeSpec.Builder loggerBuilder = TypeSpec.classBuilder(SLF4J_BRIDGE_NAME)
                 .addAnnotation(AnnotationSpec.builder(Generated.class)
                         .addMember("value", "$S", LoggerGenerator.class.getName())
@@ -275,7 +274,6 @@ public final class LoggerGenerator {
     }
 
     private static JavaFile generateLog4jBridge() {
-        @SuppressWarnings("for-rollout:UnnecessarilyFullyQualified")
         TypeSpec.Builder loggerBuilder = TypeSpec.classBuilder(LOG4J_BRIDGE_NAME)
                 .addAnnotation(AnnotationSpec.builder(Generated.class)
                         .addMember("value", "$S", LoggerGenerator.class.getName())

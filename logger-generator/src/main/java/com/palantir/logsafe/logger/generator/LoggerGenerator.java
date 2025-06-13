@@ -374,7 +374,7 @@ public final class LoggerGenerator {
         return spec.parameters.stream().anyMatch(param -> Objects.equals(param.type, THROWABLE_TYPE));
     }
 
-    @SuppressWarnings({"for-rollout:DefaultLocale", "for-rollout:StringConcatToTextBlock"})
+    @SuppressWarnings("for-rollout:StringConcatToTextBlock")
     private static String copyright(int year) {
         return String.format(
                 "(c) Copyright %d Palantir Technologies Inc. All rights reserved.\n"

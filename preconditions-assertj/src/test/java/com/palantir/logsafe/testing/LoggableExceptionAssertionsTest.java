@@ -182,14 +182,15 @@ public final class LoggableExceptionAssertionsTest {
 
     @SuppressWarnings("ExtendsErrorOrThrowable")
     private static class LoggableException extends Throwable implements SafeLoggable {
+        private static final String MESSAGE = "test message";
+
         LoggableException() {
-            super("test message");
+            super(MESSAGE);
         }
 
-        @SuppressWarnings("for-rollout:IllegalSafeLoggingArgument")
         @Override
         public String getLogMessage() {
-            return getMessage();
+            return MESSAGE;
         }
 
         @Override

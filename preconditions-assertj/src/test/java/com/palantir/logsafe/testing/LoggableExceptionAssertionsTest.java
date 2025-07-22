@@ -34,10 +34,8 @@ import org.assertj.core.error.ShouldBeInstance;
 import org.assertj.core.error.ShouldContain;
 import org.assertj.core.error.ShouldHaveMessage;
 import org.assertj.core.internal.StandardComparisonStrategy;
-import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("AssertNoArgs")
 public final class LoggableExceptionAssertionsTest {
 
     public SafeIllegalArgumentException illegalArgumentException = new SafeIllegalArgumentException(
@@ -77,10 +75,10 @@ public final class LoggableExceptionAssertionsTest {
     public void testLoggableException(LoggableExceptionAssert<LoggableException> assertion) {
         assertion
                 .isInstanceOf(LoggableException.class)
-                .hasMessage("test message")
-                .hasLogMessage("test message")
+                .hasMessage("message")
+                .hasLogMessage("log message")
                 .args()
-                .contains(UnsafeArg.of("arg", "value"));
+                .contains(UnsafeArg.of("argName", "argValue"));
     }
 
     @Test
@@ -180,22 +178,19 @@ public final class LoggableExceptionAssertionsTest {
                 .hasMessageContaining("Expecting actual not to be null");
     }
 
-    @SuppressWarnings("ExtendsErrorOrThrowable")
-    private static class LoggableException extends Throwable implements SafeLoggable {
-        private static final String MESSAGE = "test message";
-
+    private static class LoggableException extends RuntimeException implements SafeLoggable {
         LoggableException() {
-            super(MESSAGE);
+            super("message");
         }
 
         @Override
         public String getLogMessage() {
-            return MESSAGE;
+            return "log message";
         }
 
         @Override
         public List<Arg<?>> getArgs() {
-            return Lists.newArrayList(UnsafeArg.of("arg", "value"));
+            return List.of(UnsafeArg.of("argName", "argValue"));
         }
     }
 }

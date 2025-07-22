@@ -22,7 +22,6 @@ import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.UnsafeArg;
 import org.junit.jupiter.api.Test;
 
-@SuppressWarnings("ThrowableNotThrown")
 public class SafeExceptionTest {
 
     @Test

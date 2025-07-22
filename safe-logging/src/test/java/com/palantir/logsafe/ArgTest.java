@@ -24,7 +24,6 @@ import org.junit.jupiter.api.Test;
 public class ArgTest {
 
     @Test
-    @SuppressWarnings({"EqualsWithItself", "AssertBetweenInconvertibleTypes"}) // testing equals
     public void testSafeVersusUnsafe() {
         SafeArg<String> safeArg = SafeArg.of("test", "value");
         SafeArg<String> safeArg2 = SafeArg.of("test", "value");

@@ -60,7 +60,7 @@ org.apiguardian:apiguardian-api:1.1.2 (6 constraints: 5366ce6e)
 
 org.assertj:assertj-core:3.27.4 (1 constraints: 4205523b)
 
-org.checkerframework:checker-qual:3.49.5 (3 constraints: 44202022)
+org.checkerframework:checker-qual:3.50.0 (3 constraints: 37201b1e)
 
 org.checkerframework:dataflow:2.5.3 (2 constraints: db23f14b)
 

@@ -58,7 +58,7 @@ net.bytebuddy:byte-buddy:1.17.7 (1 constraints: 560b56df)
 
 org.apiguardian:apiguardian-api:1.1.2 (6 constraints: 5366ce6e)
 
-org.assertj:assertj-core:3.27.5 (1 constraints: 4305533b)
+org.assertj:assertj-core:3.27.6 (1 constraints: 4405543b)
 
 org.checkerframework:checker-qual:3.51.0 (3 constraints: 38206b1e)
 

@@ -25,6 +25,7 @@ import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.assertj.core.util.CanIgnoreReturnValue;
 import org.assertj.core.util.CheckReturnValue;
 
+@SuppressWarnings("for-rollout:deprecation")
 @CheckReturnValue
 public class Assertions extends org.assertj.core.api.Assertions {
     Assertions() {}
@@ -51,6 +52,7 @@ public class Assertions extends org.assertj.core.api.Assertions {
         return LoggableExceptionAssert.create(actual);
     }
 
+    @SuppressWarnings("for-rollout:deprecation")
     @CanIgnoreReturnValue
     public static <T extends Throwable & SafeLoggable> LoggableExceptionAssert<T> assertThatLoggableExceptionThrownBy(
             ThrowingCallable shouldRaiseThrowable) {

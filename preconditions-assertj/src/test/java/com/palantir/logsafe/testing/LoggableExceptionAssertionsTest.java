@@ -44,7 +44,6 @@ public final class LoggableExceptionAssertionsTest {
     public SafeIllegalStateException illegalStateException = new SafeIllegalStateException(illegalArgumentException);
     public LoggableException loggableException = new LoggableException();
 
-    @SuppressWarnings("for-rollout:deprecation")
     public void testIllegalArgumentException(LoggableExceptionAssert<SafeIllegalArgumentException> assertion) {
         assertion
                 .isInstanceOf(SafeIllegalArgumentException.class)

@@ -24,16 +24,23 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ServiceLoader;
+import java.util.stream.StreamSupport;
 
 /** Factory used to access {@link SafeLogger} instance. */
 public final class SafeLoggerFactory {
 
-    private static final SafeLoggerFactoryBridge BRIDGE =
-            ServiceLoader.load(SafeLoggerFactoryBridge.class, SafeLoggerFactory.class.getClassLoader()).stream()
-                    .map(ServiceLoader.Provider::get)
-                    .max(Comparator.comparing(SafeLoggerFactoryBridge::priority))
-                    // Should never happen unless dependencies are explicitly excluded
-                    .orElseThrow(NoSafeLoggerImplementationsException::new);
+    private static final SafeLoggerFactoryBridge BRIDGE = findBridge();
+
+    private static SafeLoggerFactoryBridge findBridge() {
+        ServiceLoader<SafeLoggerFactoryBridge> loader =
+                ServiceLoader.load(SafeLoggerFactoryBridge.class, SafeLoggerFactory.class.getClassLoader());
+
+        // Java 8 Compatibility no ServiceLoader::steam
+        return StreamSupport.stream(loader.spliterator(), false)
+                .max(Comparator.comparing(SafeLoggerFactoryBridge::priority))
+                // Should never happen unless dependencies are explicitly excluded
+                .orElseThrow(NoSafeLoggerImplementationsException::new);
+    }
 
     /** Returns a {@link SafeLogger} for the {@code clazz} origin. */
     public static SafeLogger get(@Safe Class<?> clazz) {

@@ -11,7 +11,6 @@ apply plugin: 'com.palantir.jdks.settings'
 rootProject.name = 'safe-logging-root'
 
 include 'safe-logging'
-include 'safe-logging-refactorings'
 include 'preconditions'
 include 'preconditions-assertj'
 include 'logger-generator'

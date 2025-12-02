@@ -2,9 +2,9 @@
 
 com.google.auto.service:auto-service-annotations:1.1.1 (1 constraints: 0505f435)
 
-com.google.code.findbugs:jsr305:3.0.2 (3 constraints: d328fa71)
+com.google.code.findbugs:jsr305:3.0.2 (1 constraints: 0705fc35)
 
-com.google.errorprone:error_prone_annotations:2.41.0 (4 constraints: 2833994f)
+com.google.errorprone:error_prone_annotations:2.3.3 (1 constraints: 0a050136)
 
 com.palantir.goethe:goethe:0.17.0 (1 constraints: 3a05383b)
 
@@ -22,51 +22,13 @@ org.slf4j:slf4j-api:1.7.31 (1 constraints: 3e05463b)
 
 [Test dependencies]
 
-com.github.kevinstern:software-and-algorithms:1.0 (1 constraints: 7e12fcf5)
-
-com.github.stephenc.jcip:jcip-annotations:1.0-1 (1 constraints: ee1017b8)
-
-com.google.auto:auto-common:0.10 (1 constraints: c0102aa7)
-
-com.google.code.findbugs:jFormatString:3.0.0 (1 constraints: f01022b8)
-
-com.google.errorprone:error_prone_annotation:2.3.3 (2 constraints: d723874b)
-
-com.google.errorprone:error_prone_check_api:2.3.3 (1 constraints: f51029b8)
-
-com.google.errorprone:error_prone_core:2.3.3 (1 constraints: a8121509)
-
-com.google.errorprone:error_prone_refaster:2.3.3 (1 constraints: 0a050136)
-
-com.google.errorprone:error_prone_type_annotations:2.3.3 (1 constraints: f51029b8)
-
-com.google.errorprone:javac:9+181-r4173-1 (3 constraints: 003cc23b)
-
-com.google.guava:failureaccess:1.0.3 (1 constraints: 160ae3b4)
-
-com.google.guava:guava:33.5.0-jre (4 constraints: c03b9c07)
-
-com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava (1 constraints: bd17c918)
-
-com.google.j2objc:j2objc-annotations:3.1 (1 constraints: b809f1a0)
-
-com.google.protobuf:protobuf-java:3.4.0 (1 constraints: f4102eb8)
-
-com.googlecode.java-diff-utils:diffutils:1.3.0 (1 constraints: df129c1b)
-
 net.bytebuddy:byte-buddy:1.17.7 (1 constraints: 560b56df)
 
 org.apiguardian:apiguardian-api:1.1.2 (6 constraints: 5366ce6e)
 
 org.assertj:assertj-core:3.27.6 (1 constraints: 4405543b)
 
-org.checkerframework:checker-qual:3.52.0 (3 constraints: 3920bb1e)
-
-org.checkerframework:dataflow:2.5.3 (2 constraints: db23f14b)
-
-org.checkerframework:javacutil:2.5.3 (1 constraints: 470d3a1d)
-
-org.jspecify:jspecify:1.0.0 (7 constraints: 5370d26f)
+org.jspecify:jspecify:1.0.0 (6 constraints: 4166fe65)
 
 org.junit.jupiter:junit-jupiter:6.0.1 (1 constraints: 48070970)
 
@@ -83,5 +45,3 @@ org.junit.platform:junit-platform-engine:6.0.1 (2 constraints: ed22dc07)
 org.junit.platform:junit-platform-launcher:6.0.1 (1 constraints: 09050a36)
 
 org.opentest4j:opentest4j:1.3.0 (2 constraints: cf209249)
-
-org.pcollections:pcollections:2.1.2 (1 constraints: f21022b8)

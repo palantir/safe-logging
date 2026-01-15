@@ -55,25 +55,7 @@ public final class SafeExceptions {
         if (args == null || args.isEmpty()) {
             return safeMessage;
         }
-
-        StringBuilder builder = new StringBuilder();
-        builder.append(safeMessage).append(": {");
-        boolean first = true;
-        for (Arg<?> arg : args) {
-            if (arg != null) {
-                if (!first) {
-                    builder.append(", ");
-                } else {
-                    first = false;
-                }
-
-                builder.append(arg.getName()).append("=");
-                appendValue(builder, arg);
-            }
-        }
-        builder.append('}');
-
-        return builder.toString();
+        return renderMessage(safeMessage, args.toArray(Arg[]::new));
     }
 
     private static void appendValue(StringBuilder builder, Arg<?> arg) {

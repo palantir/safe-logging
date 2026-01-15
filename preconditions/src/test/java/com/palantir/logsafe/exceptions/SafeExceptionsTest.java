@@ -20,6 +20,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.SafeArg;
 import com.palantir.logsafe.UnsafeArg;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 public final class SafeExceptionsTest {
@@ -39,6 +42,32 @@ public final class SafeExceptionsTest {
     @Test
     public void testRenderNullMessage() {
         String rendered = SafeExceptions.renderMessage(null, SafeArg.of("a", "b"));
+        assertThat(rendered).isEqualTo("null: {a=b}");
+    }
+
+    @Test
+    public void testRenderListContainsNullArg() {
+        List<Arg<?>> args = Arrays.asList(SafeArg.of("a", "b"), null, UnsafeArg.of("c", "d"));
+        String rendered = SafeExceptions.renderMessage("test", args);
+        assertThat(rendered).isEqualTo("test: {a=b, c=d}");
+    }
+
+    @Test
+    public void testRenderNullList() {
+        String rendered = SafeExceptions.renderMessage("test", (List<Arg<?>>) null);
+        assertThat(rendered).isEqualTo("test");
+    }
+
+    @Test
+    public void testRenderEmptyList() {
+        String rendered = SafeExceptions.renderMessage("test", Collections.emptyList());
+        assertThat(rendered).isEqualTo("test");
+    }
+
+    @Test
+    public void testRenderListNullMessage() {
+        List<Arg<?>> args = Arrays.asList(SafeArg.of("a", "b"));
+        String rendered = SafeExceptions.renderMessage(null, args);
         assertThat(rendered).isEqualTo("null: {a=b}");
     }
 }

@@ -20,6 +20,7 @@ import com.google.errorprone.annotations.CompileTimeConstant;
 import com.palantir.logsafe.Arg;
 import com.palantir.logsafe.Safe;
 import java.util.Arrays;
+import java.util.List;
 
 /** {@link SafeExceptions} provides utility functionality for SafeLoggable exception implementations. */
 public final class SafeExceptions {
@@ -48,6 +49,13 @@ public final class SafeExceptions {
         builder.append('}');
 
         return builder.toString();
+    }
+
+    public static String renderMessage(@Safe @CompileTimeConstant String safeMessage, List<Arg<?>> args) {
+        if (args == null || args.isEmpty()) {
+            return safeMessage;
+        }
+        return renderMessage(safeMessage, args.toArray(Arg[]::new));
     }
 
     private static void appendValue(StringBuilder builder, Arg<?> arg) {

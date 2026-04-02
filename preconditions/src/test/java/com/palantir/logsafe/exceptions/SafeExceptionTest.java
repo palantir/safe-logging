@@ -66,6 +66,7 @@ public class SafeExceptionTest {
 
     @Test
     public void testArrayValues() {
+        @SuppressWarnings("for-rollout:LogsafeArrayArg")
         SafeIllegalArgumentException exception = new SafeIllegalArgumentException(
                 "Failure",
                 SafeArg.of("value", 3),

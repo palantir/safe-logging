@@ -30,17 +30,17 @@ org.assertj:assertj-core:3.27.7 (1 constraints: 4505553b)
 
 org.jspecify:jspecify:1.0.0 (6 constraints: 4166fe65)
 
-org.junit.jupiter:junit-jupiter:6.1.0 (1 constraints: 48070b70)
+org.junit.jupiter:junit-jupiter:6.1.1 (1 constraints: 49070d70)
 
-org.junit.jupiter:junit-jupiter-api:6.1.0 (4 constraints: 663442b1)
+org.junit.jupiter:junit-jupiter-api:6.1.1 (4 constraints: 6a3459b2)
 
-org.junit.jupiter:junit-jupiter-engine:6.1.0 (1 constraints: 040ecd3b)
+org.junit.jupiter:junit-jupiter-engine:6.1.1 (1 constraints: 050ece3b)
 
-org.junit.jupiter:junit-jupiter-params:6.1.0 (1 constraints: 040ecd3b)
+org.junit.jupiter:junit-jupiter-params:6.1.1 (1 constraints: 050ece3b)
 
-org.junit.platform:junit-platform-commons:6.1.1 (2 constraints: d6204c4a)
+org.junit.platform:junit-platform-commons:6.1.1 (2 constraints: d7207e4a)
 
-org.junit.platform:junit-platform-engine:6.1.1 (2 constraints: ee22e107)
+org.junit.platform:junit-platform-engine:6.1.1 (2 constraints: ef221508)
 
 org.junit.platform:junit-platform-launcher:6.1.1 (1 constraints: 0a050d36)
 

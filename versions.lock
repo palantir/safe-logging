@@ -6,7 +6,7 @@ com.google.code.findbugs:jsr305:3.0.2 (1 constraints: 0705fc35)
 
 com.google.errorprone:error_prone_annotations:2.3.3 (1 constraints: 0a050136)
 
-com.palantir.goethe:goethe:0.27.0 (1 constraints: 3b053c3b)
+com.palantir.goethe:goethe:0.28.0 (1 constraints: 3c053f3b)
 
 com.palantir.javapoet:javapoet:0.18.0 (1 constraints: f90b6ef7)
 

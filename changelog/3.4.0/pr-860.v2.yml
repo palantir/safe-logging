@@ -1,5 +1,0 @@
-type: improvement
-improvement:
-  description: Add SafeLoggable SafeUnsupportedOperationException
-  links:
-  - https://github.com/palantir/safe-logging/pull/860

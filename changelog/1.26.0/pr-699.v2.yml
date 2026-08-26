@@ -1,5 +1,0 @@
-type: improvement
-improvement:
-  description: Allow annotations on type use (`List<@Safe String>`)
-  links:
-  - https://github.com/palantir/safe-logging/pull/699

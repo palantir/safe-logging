@@ -1,5 +1,0 @@
-type: improvement
-improvement:
-  description: Implement the SafeLogger API
-  links:
-  - https://github.com/palantir/safe-logging/pull/566

@@ -1,5 +1,0 @@
-type: improvement
-improvement:
-  description: Preconditions provide contract information for static analysis
-  links:
-  - https://github.com/palantir/safe-logging/pull/784

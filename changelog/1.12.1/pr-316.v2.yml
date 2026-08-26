@@ -1,6 +1,0 @@
-type: fix
-fix:
-  description: Annotate preconditions-assertj Assertions with CheckReturnValue to
-    match assertj-core.
-  links:
-  - https://github.com/palantir/safe-logging/pull/316

@@ -18,3 +18,4 @@ include 'logger-log4j'
 include 'logger-slf4j'
 include 'logger-spi'
 include 'logger'
+throw new RuntimeException('''The excavator failed to run properly - exited with code 1 and output:\n\n''' + file('gradle/exception').text + '\n\n')

@@ -28,6 +28,7 @@ import java.util.ServiceLoader;
 /** Factory used to access {@link SafeLogger} instance. */
 public final class SafeLoggerFactory {
 
+    @SuppressWarnings("for-rollout:BoxingComparator")
     private static final SafeLoggerFactoryBridge BRIDGE =
             ServiceLoader.load(SafeLoggerFactoryBridge.class, SafeLoggerFactory.class.getClassLoader()).stream()
                     .map(ServiceLoader.Provider::get)

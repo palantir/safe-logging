@@ -103,7 +103,6 @@ public final class LoggableExceptionAssert<T extends Throwable & SafeLoggable>
         return this;
     }
 
-    @SuppressWarnings("for-rollout:deprecation")
     public LoggableExceptionAssert<T> hasLogMessage(String logMessage) {
         isNotNull();
 
